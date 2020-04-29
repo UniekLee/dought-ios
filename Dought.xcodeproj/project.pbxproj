@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3B3399322459C41A00B472C0 /* BakeStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3399312459C41A00B472C0 /* BakeStep.swift */; };
 		3B43295F24532EBA00CE3032 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B43295E24532EBA00CE3032 /* AppDelegate.swift */; };
 		3B43296124532EBA00CE3032 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B43296024532EBA00CE3032 /* SceneDelegate.swift */; };
 		3B43296324532EBA00CE3032 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B43296224532EBA00CE3032 /* ContentView.swift */; };
@@ -35,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3B3399312459C41A00B472C0 /* BakeStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BakeStep.swift; sourceTree = "<group>"; };
 		3B43295B24532EBA00CE3032 /* Dought.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dought.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B43295E24532EBA00CE3032 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3B43296024532EBA00CE3032 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -76,6 +78,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3B3399302459C40100B472C0 /* Bake Step */ = {
+			isa = PBXGroup;
+			children = (
+				3B3399312459C41A00B472C0 /* BakeStep.swift */,
+			);
+			path = "Bake Step";
+			sourceTree = "<group>";
+		};
 		3B43295224532EBA00CE3032 = {
 			isa = PBXGroup;
 			children = (
@@ -99,6 +109,7 @@
 		3B43295D24532EBA00CE3032 /* Dought */ = {
 			isa = PBXGroup;
 			children = (
+				3B3399302459C40100B472C0 /* Bake Step */,
 				3B43295E24532EBA00CE3032 /* AppDelegate.swift */,
 				3B43296024532EBA00CE3032 /* SceneDelegate.swift */,
 				3B43296224532EBA00CE3032 /* ContentView.swift */,
@@ -267,6 +278,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B3399322459C41A00B472C0 /* BakeStep.swift in Sources */,
 				3B43295F24532EBA00CE3032 /* AppDelegate.swift in Sources */,
 				3B43296124532EBA00CE3032 /* SceneDelegate.swift in Sources */,
 				3B43296324532EBA00CE3032 /* ContentView.swift in Sources */,
