@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct BakeStepView: View {
-    @Binding var step: BakeStep
+    let step: BakeStep
     
     var body: some View {
         HStack {
@@ -17,12 +17,12 @@ struct BakeStepView: View {
             Spacer()
             Text("\(step.duration) minutes")
         }
-        .padding()
+        .padding([.top, .bottom], 10)
     }
 }
 
 struct BakeStepView_Previews: PreviewProvider {
     static var previews: some View {
-        return BakeStepView(step: .constant(BakeStep(name: "Levain build", duration: 75)))
+        return BakeStepView(step: BakeStep(name: "Levain build", duration: 75))
     }
 }
