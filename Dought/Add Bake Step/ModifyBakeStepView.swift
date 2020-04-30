@@ -16,27 +16,35 @@ struct ModifyBakeStepView: View {
         NavigationView {
             Form {
                 Section {
-                    TextField("Name", text: $step.name)
-                    HStack {
-                        TextField("Duration", text: Binding(
-                            get: { self.durationAsString },
-                            set: { self.step.duration = Int($0) ?? 0 })
+                    LabeledTextField(label: "Name",
+                                     placeHolder: "Bulk fermentation",
+                                     text: $step.name)
+                    HStack(alignment: .bottom) {
+                        LabeledTextField(label: "Duration",
+                                         placeHolder: "15",
+                                         text: Binding(
+                                            get: { self.durationAsString },
+                                            set: { self.step.duration = Int($0) ?? 0 })
                         )
-                        .keyboardType(.numberPad)
+                            .keyboardType(.numberPad)
                         Text("minutes")
                     }
                 }
-                
                 Section {
-                    Button(action: {
-                        self.onCommit(.success(self.step))
-                    }) {
-                        HStack {
-                            Image(systemName: "square.and.arrow.down")
-                            Text("Save")
+                    HStack {
+                        Spacer()
+                        Button(action: {
+                            self.onCommit(.success(self.step))
+                        }) {
+                            HStack {
+                                Image(systemName: "square.and.arrow.down")
+                                Text("Save").accentColor(.orange)
+                            }
                         }
+                        .disabled(!step.isValid)
+                        .padding()
+                        Spacer()
                     }
-                    .disabled(!step.isValid)
                 }
             }
             .navigationBarTitle("New bake step")
