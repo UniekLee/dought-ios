@@ -12,8 +12,14 @@ typealias Minutes = Int
 
 struct BakeStep: Identifiable {
     let id: UUID = UUID()
-    let name: String
-    let duration: Minutes
+    var name: String
+    var duration: Minutes
+}
+
+extension BakeStep {
+    static func makeNew() -> BakeStep {
+        return BakeStep(name: "", duration: 0)
+    }
 }
 
 extension BakeStep {

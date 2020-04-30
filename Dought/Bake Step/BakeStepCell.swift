@@ -1,5 +1,5 @@
 //
-//  BakeStepView.swift
+//  BakeStepCell.swift
 //  Dought
 //
 //  Created by Lee Watkins on 29/04/2020.
@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct BakeStepView: View {
+struct BakeStepCell: View {
     let step: BakeStep
     
     var body: some View {
@@ -21,8 +21,8 @@ struct BakeStepView: View {
     }
 }
 
-struct BakeStepView_Previews: PreviewProvider {
+struct BakeStepCell_Previews: PreviewProvider {
     static var previews: some View {
-        return BakeStepView(step: BakeStep(name: "Levain build", duration: 75))
+        return BakeStepCell(step: BakeStep(name: "Levain build", duration: 75))
     }
 }
