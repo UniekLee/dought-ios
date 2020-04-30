@@ -9,8 +9,18 @@
 import SwiftUI
 
 struct ModifyBakeStepView: View {
-    @State private var step: BakeStep = .makeNew()
+    @State private var isEdit: Bool = false
+
+    @State var step: BakeStep = .makeNew()
     var onCommit: (Result<BakeStep, Never>) -> Void = { _ in }
+
+    private var title: String {
+        if isEdit {
+            return "Edit \"\(step.name)\" step"
+        } else {
+            return "New bake step"
+        }
+    }
     
     var body: some View {
         NavigationView {
@@ -47,7 +57,10 @@ struct ModifyBakeStepView: View {
                     }
                 }
             }
-            .navigationBarTitle("New bake step")
+            .navigationBarTitle(title)
+            .onAppear {
+                self.isEdit = self.step.isValid
+            }
         }
     }
     
@@ -68,6 +81,6 @@ extension BakeStep {
 
 struct ModifyBakeStepView_Previews: PreviewProvider {
     static var previews: some View {
-        ModifyBakeStepView() { _ in }
+        ModifyBakeStepView(step: .makeNew()) { _ in }
     }
 }

@@ -11,6 +11,7 @@ import SwiftUI
 struct BakeView: View {
     @Binding var steps: [BakeStep]
     @State private var isShowingEditModal: Bool = false
+    @State private var newStep: BakeStep?
     
     var body: some View {
         VStack {
@@ -22,21 +23,24 @@ struct BakeView: View {
                 .onMove(perform: move)
             }
             Button(action: {
-                self.isShowingEditModal = true
+                self.newStep = .makeNew()
             }) {
-              HStack {
-                Image(systemName: "plus.circle.fill")
-                  .resizable()
-                  .frame(width: 20, height: 20)
-                Text("Add step")
-              }
+                HStack {
+                    Image(systemName: "plus.circle.fill")
+                        .resizable()
+                        .frame(width: 20, height: 20)
+                    Text("Add step")
+                }
             }
             .padding()
-            .sheet(isPresented: $isShowingEditModal) {
-                ModifyBakeStepView() { result in
+            .sheet(item: $newStep,
+                   onDismiss: {
+                    self.newStep = nil
+            }) { step in
+                ModifyBakeStepView(step: step) { result in
                     guard case .success(let step) = result else { return }
                     self.add(step: step)
-                    self.isShowingEditModal = false
+                    self.newStep = nil
                 }
                 .modifier(AppDefaults())
             }
