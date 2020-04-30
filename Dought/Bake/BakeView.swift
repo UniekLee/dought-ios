@@ -11,19 +11,21 @@ import SwiftUI
 struct BakeView: View {
     @Binding var steps: [BakeStep]
     @State private var isShowingEditModal: Bool = false
-    @State private var newStep: BakeStep?
+    @State private var modifyStep: BakeStep?
     
     var body: some View {
         VStack {
             List {
                 ForEach(steps) { step in
-                    BakeStepCell(step: step)
+                    BakeStepCell(step: step) {
+                        self.modifyStep = step
+                    }
                 }
                 .onDelete(perform: remove)
                 .onMove(perform: move)
             }
             Button(action: {
-                self.newStep = .makeNew()
+                self.modifyStep = .makeNew()
             }) {
                 HStack {
                     Image(systemName: "plus.circle.fill")
@@ -33,14 +35,14 @@ struct BakeView: View {
                 }
             }
             .padding()
-            .sheet(item: $newStep,
+            .sheet(item: $modifyStep,
                    onDismiss: {
-                    self.newStep = nil
+                    self.modifyStep = nil
             }) { step in
                 ModifyBakeStepView(step: step) { result in
                     guard case .success(let step) = result else { return }
-                    self.add(step: step)
-                    self.newStep = nil
+                    self.addOrUpdate(step: step)
+                    self.modifyStep = nil
                 }
                 .modifier(AppDefaults())
             }
@@ -57,8 +59,12 @@ struct BakeView: View {
         steps.move(fromOffsets: source, toOffset: destination)
     }
     
-    private func add(step: BakeStep) {
-        steps.append(step)
+    private func addOrUpdate(step: BakeStep) {
+        if let index = steps.firstIndex(where: { $0.id == step.id }) {
+            steps[index] = step
+        } else {
+            steps.append(step)
+        }
     }
 }
 

@@ -10,12 +10,19 @@ import SwiftUI
 
 struct BakeStepCell: View {
     let step: BakeStep
+    var onEdit: (() -> Void)?
     
     var body: some View {
         HStack {
             Text(step.name)
             Spacer()
             Text("\(step.duration) minutes")
+            if onEdit != nil {
+                Button(action: onEdit!) {
+                    Image(systemName: "pencil.circle.fill")
+                        .padding(.leading)
+                }
+            }
         }
         .padding([.top, .bottom], 10)
     }
@@ -23,6 +30,6 @@ struct BakeStepCell: View {
 
 struct BakeStepCell_Previews: PreviewProvider {
     static var previews: some View {
-        return BakeStepCell(step: BakeStep(name: "Levain build", duration: 75))
+        return BakeStepCell(step: BakeStep(name: "Levain build", duration: 75), onEdit: {})
     }
 }
