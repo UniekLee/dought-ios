@@ -38,6 +38,7 @@ struct BakeView: View {
                     self.add(step: step)
                     self.isShowingEditModal = false
                 }
+                .modifier(AppDefaults())
             }
         }
         .navigationBarTitle("Bake")

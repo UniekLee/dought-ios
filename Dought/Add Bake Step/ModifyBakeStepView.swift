@@ -15,25 +15,31 @@ struct ModifyBakeStepView: View {
     var body: some View {
         NavigationView {
             Form {
-                TextField("Name", text: $step.name)
-                HStack {
-                    TextField("Duration", text: Binding(
-                        get: { self.durationAsString },
-                        set: { self.step.duration = Int($0) ?? 0 })
-                    )
-                    .keyboardType(.numberPad)
-                    Text("minutes")
+                Section {
+                    TextField("Name", text: $step.name)
+                    HStack {
+                        TextField("Duration", text: Binding(
+                            get: { self.durationAsString },
+                            set: { self.step.duration = Int($0) ?? 0 })
+                        )
+                        .keyboardType(.numberPad)
+                        Text("minutes")
+                    }
+                }
+                
+                Section {
+                    Button(action: {
+                        self.onCommit(.success(self.step))
+                    }) {
+                        HStack {
+                            Image(systemName: "square.and.arrow.down")
+                            Text("Save")
+                        }
+                    }
+                    .disabled(!step.isValid)
                 }
             }
-            .navigationBarTitle("Modify step")
-            .navigationBarItems(trailing:
-                Button(action: {
-                    self.onCommit(.success(self.step))
-                }) {
-                    Text("Save")
-                }
-                    .disabled(!step.isValid)
-            )
+            .navigationBarTitle("New bake step")
         }
     }
     
