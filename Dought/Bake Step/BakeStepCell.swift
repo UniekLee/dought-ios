@@ -19,7 +19,7 @@ struct BakeStepCell: View {
             Text("\(step.duration) minutes")
             if onEdit != nil {
                 Button(action: onEdit!) {
-                    Image(systemName: "pencil.circle.fill")
+                    Image(systemName: "square.and.pencil")
                         .padding(.leading)
                 }
             }
