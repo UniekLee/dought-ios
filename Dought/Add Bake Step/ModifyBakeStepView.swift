@@ -41,19 +41,8 @@ struct ModifyBakeStepView: View {
                     }
                 }
                 Section {
-                    HStack {
-                        Spacer()
-                        Button(action: {
-                            self.onCommit(self.step)
-                        }) {
-                            HStack {
-                                Image(systemName: "square.and.arrow.down")
-                                Text("Save")
-                            }
-                        }
-                        .disabled(!step.isValid)
-                        .padding()
-                        Spacer()
+                    FormSaveButton() {
+                        self.onCommit(self.step)
                     }
                 }
             }

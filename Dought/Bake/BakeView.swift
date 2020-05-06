@@ -86,9 +86,7 @@ struct BakeView: View {
                         self.modal = .time(label: "Bake start time",
                                            currentTime: self.bake.startTime,
                                            type: .start)
-                    }) {
-                        EmptyView()
-                    }
+                    }) { EmptyView() }
                 )
                 ForEach(bake.steps) { step in
                     BakeStepCell(step: step,
@@ -112,10 +110,8 @@ struct BakeView: View {
                     }
                     .padding()
                     .sheet(item: $modal,
-                           onDismiss: {
-                            self.modal = .none
-                    }) { modal in
-                        return self.view(for: modal)
+                           onDismiss: {}) { modal in
+                            return self.view(for: modal)
                     }.foregroundColor(.accentColor)
                     Spacer()
                 }
@@ -126,14 +122,12 @@ struct BakeView: View {
                     Image(systemName: "square.and.pencil")
                     .padding(.leading)
                 }
-//                .background(
-//                    Button(action: {
-//                        self.modal = .time(label: "Bake start time",
-//                                           currentTime: self.bake.startTime)
-//                    }) {
-//                        EmptyView()
-//                    }
-//                )
+                .background(
+                    Button(action: {
+                        self.modal = .duration(label: "",
+                                               current: self.bake.finalStepDuration)
+                    }) { EmptyView() }
+                )
                 HStack {
                     Text("Eat & enjoy")
                     Spacer()
@@ -146,9 +140,7 @@ struct BakeView: View {
                         self.modal = .time(label: "Bake end time",
                                            currentTime: self.bake.endTime,
                                            type: .end)
-                    }) {
-                        EmptyView()
-                    }
+                    }) { EmptyView() }
                 )
                 
             }
@@ -175,8 +167,14 @@ struct BakeView: View {
                 }
                 .modifier(AppDefaults())
             )
-        case .duration(_, _):
-            return AnyView(EmptyView())
+        case .duration(_, let duration):
+            return AnyView(
+                DurationPicker(currentDuration: duration) { newDuration in
+                    self.bake.finalStepDuration = newDuration
+                    self.modal = .none
+                }
+                .modifier(AppDefaults())
+            )
         case .none:
             return AnyView(EmptyView())
         }

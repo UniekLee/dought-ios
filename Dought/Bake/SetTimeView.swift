@@ -23,18 +23,8 @@ struct SetTimeView: View {
                     }
                 }
                 Section {
-                    HStack {
-                        Spacer()
-                        Button(action: {
-                            self.onCommit(self.time)
-                        }) {
-                            HStack {
-                                Image(systemName: "square.and.arrow.down")
-                                Text("Save")
-                            }
-                        }
-                        .padding()
-                        Spacer()
+                    FormSaveButton() {
+                        self.onCommit(self.time)
                     }
                 }
             }
