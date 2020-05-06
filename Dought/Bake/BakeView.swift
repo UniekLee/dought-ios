@@ -15,25 +15,44 @@ struct Bake {
     var finalStepDuration: Minutes = 120
     
     var endTime: Date {
-        let durations = steps.map({ $0.duration }) + [finalStepDuration]
-        return TimeCalculator.add(durations, to: startTime)
+        get {
+            return TimeCalculator.add(bakeDuration, to: startTime)
+        }
+        set {
+            let negativeBakeDuration = -1 * bakeDuration
+            if let newTime = Calendar.current.date(byAdding: .minute,
+                                                value: negativeBakeDuration,
+                                                to: newValue) {
+                self.startTime = newTime
+            }
+        }
     }
     
     var endTimeString: String {
         return (try? TimeCalculator.formatted(duration: finalStepDuration)) ?? ""
     }
+    
+    private var bakeDuration: Minutes {
+        let durations = steps.map({ $0.duration }) + [finalStepDuration]
+        return durations.reduce(0) { $0 + $1 }
+    }
+}
+
+enum BakeTimeType {
+    case start
+    case end
 }
 
 struct BakeView: View {
     enum Modal: Identifiable {
         case modify(step: BakeStep)
-        case time(label: String, currentTime: Date)
+        case time(label: String, currentTime: Date, type: BakeTimeType)
         case duration(label: String, current: Minutes)
         
         var id: String {
             switch self {
             case .modify(let step): return "step." + step.id.uuidString
-            case .time(let label, _): return "time." + label
+            case .time(let label, _, _): return "time." + label
             case .duration(let label, _): return "duration." + label
             }
         }
@@ -59,17 +78,21 @@ struct BakeView: View {
                     Text("Begin")
                     Spacer()
                     Text(TimeCalculator.formatted(startTime: bake.startTime))
+                    Image(systemName: "square.and.pencil")
+                    .padding(.leading)
                 }
                 .background(
                     Button(action: {
                         self.modal = .time(label: "Bake start time",
-                                           currentTime: self.bake.startTime)
+                                           currentTime: self.bake.startTime,
+                                           type: .start)
                     }) {
                         EmptyView()
                     }
                 )
                 ForEach(bake.steps) { step in
-                    BakeStepCell(step: step, start: self.startTime(of: step)) {
+                    BakeStepCell(step: step,
+                                 start: self.startTime(of: step)) {
                         self.modal = .modify(step: step)
                     }
                 }
@@ -100,12 +123,33 @@ struct BakeView: View {
                     Text("Last step duration")
                     Spacer()
                     Text("+ " + bake.endTimeString)
+                    Image(systemName: "square.and.pencil")
+                    .padding(.leading)
                 }
+//                .background(
+//                    Button(action: {
+//                        self.modal = .time(label: "Bake start time",
+//                                           currentTime: self.bake.startTime)
+//                    }) {
+//                        EmptyView()
+//                    }
+//                )
                 HStack {
                     Text("Eat & enjoy")
                     Spacer()
                     Text(TimeCalculator.formatted(startTime: bake.endTime))
+                    Image(systemName: "square.and.pencil")
+                    .padding(.leading)
                 }
+                .background(
+                    Button(action: {
+                        self.modal = .time(label: "Bake end time",
+                                           currentTime: self.bake.endTime,
+                                           type: .end)
+                    }) {
+                        EmptyView()
+                    }
+                )
                 
             }
         }
@@ -123,10 +167,10 @@ struct BakeView: View {
                 }
                 .modifier(AppDefaults())
             )
-        case .time(let label, let startTime):
+        case .time(let label, let time, let type):
             return AnyView(
-                SetTimeView(label: label, time: startTime) { newStartTime in
-                    self.bake.startTime = newStartTime
+                SetTimeView(label: label, time: time) { newTime in
+                    self.updateTime(type: type, to: newTime)
                     self.modal = .none
                 }
                 .modifier(AppDefaults())
@@ -135,6 +179,15 @@ struct BakeView: View {
             return AnyView(EmptyView())
         case .none:
             return AnyView(EmptyView())
+        }
+    }
+    
+    private func updateTime(type: BakeTimeType, to newTime: Date) {
+        switch type {
+        case .start:
+            bake.startTime = newTime
+        case .end:
+            bake.endTime = newTime
         }
     }
     
