@@ -24,6 +24,7 @@
 		3B43297624532EBC00CE3032 /* DoughtTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B43297524532EBC00CE3032 /* DoughtTests.swift */; };
 		3B43298124532EBC00CE3032 /* DoughtUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B43298024532EBC00CE3032 /* DoughtUITests.swift */; };
 		3B4724A22462ABA6007E7AA1 /* SetTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4724A12462ABA6007E7AA1 /* SetTimeView.swift */; };
+		3B4724A4246300E8007E7AA1 /* DurationPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4724A3246300E8007E7AA1 /* DurationPicker.swift */; };
 		3B4724A62463053E007E7AA1 /* FormSaveButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4724A52463053E007E7AA1 /* FormSaveButton.swift */; };
 /* End PBXBuildFile section */
 
@@ -68,6 +69,7 @@
 		3B43298024532EBC00CE3032 /* DoughtUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoughtUITests.swift; sourceTree = "<group>"; };
 		3B43298224532EBC00CE3032 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3B4724A12462ABA6007E7AA1 /* SetTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetTimeView.swift; sourceTree = "<group>"; };
+		3B4724A3246300E8007E7AA1 /* DurationPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DurationPicker.swift; sourceTree = "<group>"; };
 		3B4724A52463053E007E7AA1 /* FormSaveButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormSaveButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -110,6 +112,7 @@
 			children = (
 				3B3399372459CD5C00B472C0 /* BakeView.swift */,
 				3B4724A12462ABA6007E7AA1 /* SetTimeView.swift */,
+				3B4724A3246300E8007E7AA1 /* DurationPicker.swift */,
 			);
 			path = Bake;
 			sourceTree = "<group>";
@@ -348,6 +351,7 @@
 				3B33993E245B12A200B472C0 /* AppDefaults.swift in Sources */,
 				3B3399342459C50700B472C0 /* BakeStepCell.swift in Sources */,
 				3B3399322459C41A00B472C0 /* BakeStep.swift in Sources */,
+				3B4724A4246300E8007E7AA1 /* DurationPicker.swift in Sources */,
 				3B43295F24532EBA00CE3032 /* AppDelegate.swift in Sources */,
 				3B4724A62463053E007E7AA1 /* FormSaveButton.swift in Sources */,
 				3B3399472461A2A400B472C0 /* TimeCalculator.swift in Sources */,
