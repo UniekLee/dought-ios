@@ -9,11 +9,11 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var steps: [BakeStep] = BakeStep.devData
+    @State private var bake: Bake = Bake(steps: BakeStep.devData)
     
     var body: some View {
         NavigationView {
-            BakeView(steps: $steps)
+            BakeView(bake: $bake)
         }
     }
 }

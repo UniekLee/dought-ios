@@ -10,13 +10,17 @@ import SwiftUI
 
 struct BakeStepCell: View {
     let step: BakeStep
+    let start: Date
     var onEdit: (() -> Void)?
     
     var body: some View {
         HStack {
             Text(step.name)
             Spacer()
-            Text("\(step.duration) minutes")
+            VStack(alignment: .trailing) {
+                Text("+ " + step.durationString).foregroundColor(.secondary)
+                Text(TimeCalculator.formatted(startTime: start))
+            }
             if onEdit != nil {
                 Button(action: onEdit!) {
                     Image(systemName: "square.and.pencil")
@@ -28,8 +32,16 @@ struct BakeStepCell: View {
     }
 }
 
+fileprivate extension BakeStep {
+    var durationString: String {
+        return (try? TimeCalculator.formatted(duration: duration)) ?? ""
+    }
+}
+
 struct BakeStepCell_Previews: PreviewProvider {
     static var previews: some View {
-        return BakeStepCell(step: BakeStep(name: "Levain build", duration: 75), onEdit: {})
+        return BakeStepCell(step: BakeStep(name: "Levain build", duration: 75),
+                            start: Date(),
+                            onEdit: {})
     }
 }
