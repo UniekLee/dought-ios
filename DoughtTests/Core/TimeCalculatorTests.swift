@@ -43,7 +43,7 @@ class TimeCalculatorTests: XCTestCase {
         
         let result = TimeCalculator.formatted(startTime: endTime)
         
-        let expected = "Tue 09:30"
+        let expected = "Tue 10:30"
         XCTAssertEqual(result, expected)
     }
 }
