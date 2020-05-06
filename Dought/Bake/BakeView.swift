@@ -65,82 +65,80 @@ struct BakeView: View {
     @State private var modal: Modal? = .none
     
     var body: some View {
-        VStack {
-            List {
-                HStack {
-                    Text("Step")
-                    Spacer()
-                    Text("Start time")
-                    
-                }
-                .listRowBackground(Color.gray.opacity(0.2))
-                HStack {
-                    Text("Begin")
-                    Spacer()
-                    Text(TimeCalculator.formatted(startTime: bake.startTime))
-                }
-                .background(
-                    Button(action: {
-                        self.modal = .time(label: "Bake start time",
-                                           currentTime: self.bake.startTime,
-                                           type: .start)
-                    }) { EmptyView() }
-                )
-                ForEach(bake.steps) { step in
-                    BakeStepCell(step: step,
-                                 start: self.startTime(of: step)) {
-                        self.modal = .modify(step: step)
-                    }
-                }
-                .onDelete(perform: remove)
-                .onMove(perform: move)
-                HStack {
-                    Spacer()
-                    Button(action: {
-                        self.modal = .modify(step: .makeNew())
-                    }) {
-                        HStack {
-                            Image(systemName: "plus.circle.fill")
-                                .resizable()
-                                .frame(width: 20, height: 20)
-                            Text("Add step")
-                        }
-                    }
-                    .padding()
-                    .sheet(item: $modal,
-                           onDismiss: {}) { modal in
-                            return self.view(for: modal)
-                    }.foregroundColor(.accentColor)
-                    Spacer()
-                }
-                HStack {
-                    Text("Last step duration")
-                    Spacer()
-                    Text("+ " + bake.endTimeString)
-                }
-                .background(
-                    Button(action: {
-                        self.modal = .duration(label: "Last step duration",
-                                               current: self.bake.finalStepDuration)
-                    }) { EmptyView() }
-                )
-                HStack {
-                    Text("Eat & enjoy")
-                    Spacer()
-                    Text(TimeCalculator.formatted(startTime: bake.endTime))
-                }
-                .background(
-                    Button(action: {
-                        self.modal = .time(label: "Bake end time",
-                                           currentTime: self.bake.endTime,
-                                           type: .end)
-                    }) { EmptyView() }
-                )
+        List {
+            HStack {
+                Text("Step")
+                Spacer()
+                Text("Start time")
                 
             }
+            .listRowBackground(Color.gray.opacity(0.2))
+            HStack {
+                Text("Begin")
+                Spacer()
+                Text(TimeCalculator.formatted(startTime: bake.startTime))
+            }
+            .background(
+                Button(action: {
+                    self.modal = .time(label: "Bake start time",
+                                       currentTime: self.bake.startTime,
+                                       type: .start)
+                }) { EmptyView() }
+            )
+            ForEach(bake.steps) { step in
+                BakeStepCell(step: step,
+                             start: self.startTime(of: step)) {
+                                self.modal = .modify(step: step)
+                }
+            }
+            .onDelete(perform: remove)
+            .onMove(perform: move)
+            HStack {
+                Spacer()
+                Button(action: {
+                    self.modal = .modify(step: .makeNew())
+                }) {
+                    HStack {
+                        Image(systemName: "plus.circle.fill")
+                            .resizable()
+                            .frame(width: 20, height: 20)
+                        Text("Add step")
+                    }
+                }
+                .padding()
+                .foregroundColor(.accentColor)
+                Spacer()
+            }
+            HStack {
+                Text("Last step duration")
+                Spacer()
+                Text("+ " + bake.endTimeString)
+            }
+            .background(
+                Button(action: {
+                    self.modal = .duration(label: "Last step duration",
+                                           current: self.bake.finalStepDuration)
+                }) { EmptyView() }
+            )
+            HStack {
+                Text("Eat & enjoy")
+                Spacer()
+                Text(TimeCalculator.formatted(startTime: bake.endTime))
+            }
+            .background(
+                Button(action: {
+                    self.modal = .time(label: "Bake end time",
+                                       currentTime: self.bake.endTime,
+                                       type: .end)
+                }) { EmptyView() }
+            )
         }
         .navigationBarTitle("Bake")
         .navigationBarItems(trailing: EditButton())
+        .sheet(item: $modal,
+               onDismiss: {}) { modal in
+                return self.view(for: modal)
+        }
     }
     
     private func view(for modal: Modal?) -> AnyView {
