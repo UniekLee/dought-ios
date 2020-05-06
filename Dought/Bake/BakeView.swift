@@ -113,18 +113,20 @@ struct BakeView: View {
         switch modal {
         case .modify(let step):
             return AnyView (
-                ModifyBakeStepView(step: step) { result in
-                    guard case .success(let step) = result else {
-                        self.modal = .none
-                        return
-                    }
-                    self.addOrUpdate(step: step)
+                ModifyBakeStepView(step: step) { newStep in
+                    self.addOrUpdate(step: newStep)
                     self.modal = .none
                 }
                 .modifier(AppDefaults())
             )
-        case .time(_, _):
-            return AnyView(EmptyView())
+        case .time(let label, let startTime):
+            return AnyView(
+                SetTimeView(label: label, time: startTime) { newStartTime in
+                    self.bake.startTime = newStartTime
+                    self.modal = .none
+                }
+                .modifier(AppDefaults())
+            )
         case .duration(_, _):
             return AnyView(EmptyView())
         case .none:
@@ -158,7 +160,13 @@ struct BakeView: View {
 
 struct BakeView_Previews: PreviewProvider {
     static var previews: some View {
-        WrapperView()
+        Group {
+           WrapperView()
+              .environment(\.colorScheme, .light)
+
+           WrapperView()
+              .environment(\.colorScheme, .dark)
+        }
     }
 }
 

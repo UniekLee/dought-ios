@@ -23,6 +23,7 @@
 		3B43296B24532EBC00CE3032 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B43296924532EBC00CE3032 /* LaunchScreen.storyboard */; };
 		3B43297624532EBC00CE3032 /* DoughtTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B43297524532EBC00CE3032 /* DoughtTests.swift */; };
 		3B43298124532EBC00CE3032 /* DoughtUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B43298024532EBC00CE3032 /* DoughtUITests.swift */; };
+		3B4724A22462ABA6007E7AA1 /* SetTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4724A12462ABA6007E7AA1 /* SetTimeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 		3B43297C24532EBC00CE3032 /* DoughtUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DoughtUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B43298024532EBC00CE3032 /* DoughtUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoughtUITests.swift; sourceTree = "<group>"; };
 		3B43298224532EBC00CE3032 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3B4724A12462ABA6007E7AA1 /* SetTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetTimeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				3B3399372459CD5C00B472C0 /* BakeView.swift */,
+				3B4724A12462ABA6007E7AA1 /* SetTimeView.swift */,
 			);
 			path = Bake;
 			sourceTree = "<group>";
@@ -346,6 +349,7 @@
 				3B3399472461A2A400B472C0 /* TimeCalculator.swift in Sources */,
 				3B43296124532EBA00CE3032 /* SceneDelegate.swift in Sources */,
 				3B339941245B15ED00B472C0 /* LabeledTextField.swift in Sources */,
+				3B4724A22462ABA6007E7AA1 /* SetTimeView.swift in Sources */,
 				3B43296324532EBA00CE3032 /* ContentView.swift in Sources */,
 				3B3399382459CD5C00B472C0 /* BakeView.swift in Sources */,
 				3B33993B245B04A300B472C0 /* ModifyBakeStepView.swift in Sources */,

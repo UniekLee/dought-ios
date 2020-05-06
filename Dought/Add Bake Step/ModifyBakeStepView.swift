@@ -12,7 +12,7 @@ struct ModifyBakeStepView: View {
     @State private var isEdit: Bool = false
 
     @State var step: BakeStep = .makeNew()
-    var onCommit: (Result<BakeStep, Never>) -> Void = { _ in }
+    var onCommit: (BakeStep) -> Void = { _ in }
 
     private var title: String {
         if isEdit {
@@ -44,11 +44,11 @@ struct ModifyBakeStepView: View {
                     HStack {
                         Spacer()
                         Button(action: {
-                            self.onCommit(.success(self.step))
+                            self.onCommit(self.step)
                         }) {
                             HStack {
                                 Image(systemName: "square.and.arrow.down")
-                                Text("Save").accentColor(.orange)
+                                Text("Save")
                             }
                         }
                         .disabled(!step.isValid)
