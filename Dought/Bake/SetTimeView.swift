@@ -18,7 +18,7 @@ struct SetTimeView: View {
             Form {
                 Section {
                     DatePicker(selection: $time,
-                               displayedComponents: .hourAndMinute) {
+                               displayedComponents: [.date, .hourAndMinute]) {
                                 Text(label)
                     }
                 }
