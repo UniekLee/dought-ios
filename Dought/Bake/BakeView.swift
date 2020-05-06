@@ -25,9 +25,25 @@ struct Bake {
 }
 
 struct BakeView: View {
+    enum Modal: Identifiable {
+        case modify(step: BakeStep)
+        case time(label: String, currentTime: Date)
+        case duration(label: String, current: Minutes)
+        
+        var id: String {
+            switch self {
+            case .modify(let step): return "step." + step.id.uuidString
+            case .time(let label, _): return "time." + label
+            case .duration(let label, _): return "duration." + label
+            }
+        }
+    }
+    
+    // Bindings
     @Binding var bake: Bake
-    @State private var isShowingEditModal: Bool = false
-    @State private var modifyStep: BakeStep?
+
+    // State
+    @State private var modal: Modal? = .none
     
     var body: some View {
         VStack {
@@ -36,15 +52,25 @@ struct BakeView: View {
                     Text("Step")
                     Spacer()
                     Text("Start time")
-                }.listRowBackground(Color.gray.opacity(0.2))
+                    
+                }
+                .listRowBackground(Color.gray.opacity(0.2))
                 HStack {
                     Text("Begin")
                     Spacer()
                     Text(TimeCalculator.formatted(startTime: bake.startTime))
                 }
+                .background(
+                    Button(action: {
+                        self.modal = .time(label: "Bake start time",
+                                           currentTime: self.bake.startTime)
+                    }) {
+                        EmptyView()
+                    }
+                )
                 ForEach(bake.steps) { step in
                     BakeStepCell(step: step, start: self.startTime(of: step)) {
-                        self.modifyStep = step
+                        self.modal = .modify(step: step)
                     }
                 }
                 .onDelete(perform: remove)
@@ -62,7 +88,7 @@ struct BakeView: View {
                 
             }
             Button(action: {
-                self.modifyStep = .makeNew()
+                self.modal = .modify(step: .makeNew())
             }) {
                 HStack {
                     Image(systemName: "plus.circle.fill")
@@ -72,20 +98,38 @@ struct BakeView: View {
                 }
             }
             .padding()
-            .sheet(item: $modifyStep,
+            .sheet(item: $modal,
                    onDismiss: {
-                    self.modifyStep = nil
-            }) { step in
-                ModifyBakeStepView(step: step) { result in
-                    guard case .success(let step) = result else { return }
-                    self.addOrUpdate(step: step)
-                    self.modifyStep = nil
-                }
-                .modifier(AppDefaults())
+                    self.modal = .none
+            }) { modal in
+                return self.view(for: modal)
             }
         }
         .navigationBarTitle("Bake")
         .navigationBarItems(trailing: EditButton())
+    }
+    
+    private func view(for modal: Modal?) -> AnyView {
+        switch modal {
+        case .modify(let step):
+            return AnyView (
+                ModifyBakeStepView(step: step) { result in
+                    guard case .success(let step) = result else {
+                        self.modal = .none
+                        return
+                    }
+                    self.addOrUpdate(step: step)
+                    self.modal = .none
+                }
+                .modifier(AppDefaults())
+            )
+        case .time(_, _):
+            return AnyView(EmptyView())
+        case .duration(_, _):
+            return AnyView(EmptyView())
+        case .none:
+            return AnyView(EmptyView())
+        }
     }
     
     private func remove(at offsets: IndexSet) {
