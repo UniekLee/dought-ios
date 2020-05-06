@@ -76,9 +76,30 @@ struct BakeView: View {
                 .onDelete(perform: remove)
                 .onMove(perform: move)
                 HStack {
-                    Text("Final step duration")
                     Spacer()
-                    Text(bake.endTimeString)
+                    Button(action: {
+                        self.modal = .modify(step: .makeNew())
+                    }) {
+                        HStack {
+                            Image(systemName: "plus.circle.fill")
+                                .resizable()
+                                .frame(width: 20, height: 20)
+                            Text("Add step")
+                        }
+                    }
+                    .padding()
+                    .sheet(item: $modal,
+                           onDismiss: {
+                            self.modal = .none
+                    }) { modal in
+                        return self.view(for: modal)
+                    }.foregroundColor(.accentColor)
+                    Spacer()
+                }
+                HStack {
+                    Text("Last step duration")
+                    Spacer()
+                    Text("+ " + bake.endTimeString)
                 }
                 HStack {
                     Text("Eat & enjoy")
@@ -86,23 +107,6 @@ struct BakeView: View {
                     Text(TimeCalculator.formatted(startTime: bake.endTime))
                 }
                 
-            }
-            Button(action: {
-                self.modal = .modify(step: .makeNew())
-            }) {
-                HStack {
-                    Image(systemName: "plus.circle.fill")
-                        .resizable()
-                        .frame(width: 20, height: 20)
-                    Text("Add step")
-                }
-            }
-            .padding()
-            .sheet(item: $modal,
-                   onDismiss: {
-                    self.modal = .none
-            }) { modal in
-                return self.view(for: modal)
             }
         }
         .navigationBarTitle("Bake")
