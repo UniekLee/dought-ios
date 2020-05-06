@@ -89,7 +89,13 @@ struct BakeView: View {
                 BakeStepCell(step: step,
                              start: self.startTime(of: step)) {
                                 self.modal = .modify(step: step)
-                }
+                }.listRowBackground(
+                    Group {
+                        if self.isThisAnAwkward(time: self.startTime(of: step)) {
+                            Color.red.opacity(0.2)
+                        }
+                    }
+                )
             }
             .onDelete(perform: remove)
             .onMove(perform: move)
@@ -203,6 +209,13 @@ struct BakeView: View {
         
         return TimeCalculator.add(bake.steps[0...index].map({ $0.duration }),
                                   to: bake.startTime)
+    }
+    
+    private func isThisAnAwkward(time: Date) -> Bool {
+        guard let hour = Calendar.current.dateComponents([.hour], from: time).hour else {
+            return false
+        }
+        return 21 < hour || hour < 9
     }
 }
 
