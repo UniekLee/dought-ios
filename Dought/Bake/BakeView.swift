@@ -78,8 +78,6 @@ struct BakeView: View {
                     Text("Begin")
                     Spacer()
                     Text(TimeCalculator.formatted(startTime: bake.startTime))
-                    Image(systemName: "square.and.pencil")
-                    .padding(.leading)
                 }
                 .background(
                     Button(action: {
@@ -119,8 +117,6 @@ struct BakeView: View {
                     Text("Last step duration")
                     Spacer()
                     Text("+ " + bake.endTimeString)
-                    Image(systemName: "square.and.pencil")
-                    .padding(.leading)
                 }
                 .background(
                     Button(action: {
@@ -132,8 +128,6 @@ struct BakeView: View {
                     Text("Eat & enjoy")
                     Spacer()
                     Text(TimeCalculator.formatted(startTime: bake.endTime))
-                    Image(systemName: "square.and.pencil")
-                    .padding(.leading)
                 }
                 .background(
                     Button(action: {

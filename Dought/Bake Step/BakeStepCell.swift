@@ -21,14 +21,15 @@ struct BakeStepCell: View {
                 Text("+ " + step.durationString).foregroundColor(.secondary)
                 Text(TimeCalculator.formatted(startTime: start))
             }
-            if onEdit != nil {
-                Button(action: onEdit!) {
-                    Image(systemName: "square.and.pencil")
-                        .padding(.leading)
-                }
-            }
         }
         .padding([.top, .bottom], 10)
+        .background(
+            Group {
+                if onEdit != nil {
+                    Button(action: onEdit!) { EmptyView() }
+                }
+            }
+        )
     }
 }
 
