@@ -124,7 +124,7 @@ struct BakeView: View {
                 }
                 .background(
                     Button(action: {
-                        self.modal = .duration(label: "",
+                        self.modal = .duration(label: "Last step duration",
                                                current: self.bake.finalStepDuration)
                     }) { EmptyView() }
                 )
@@ -167,11 +167,12 @@ struct BakeView: View {
                 }
                 .modifier(AppDefaults())
             )
-        case .duration(_, let duration):
+        case .duration(let label, let duration):
             return AnyView(
-                DurationPicker(currentDuration: duration) { newDuration in
-                    self.bake.finalStepDuration = newDuration
-                    self.modal = .none
+                DurationPicker(title: label,
+                               currentDuration: duration) { newDuration in
+                                self.bake.finalStepDuration = newDuration
+                                self.modal = .none
                 }
                 .modifier(AppDefaults())
             )
