@@ -11,7 +11,7 @@ import SwiftUI
 struct SetTimeView: View {
     var label: String
     @State var time: Date
-    var onCommit: (Date) -> Void
+    var onCommit: (Date?) -> Void
     
     var body: some View {
         NavigationView {
@@ -28,7 +28,8 @@ struct SetTimeView: View {
                     }
                 }
             }
-            .navigationBarTitle("Set time")
+            .navigationBarTitle(Text("Set time"), displayMode: .inline)
+            .navigationBarItems(leading: CancelButton(onCommit: onCommit))
         }
     }
 }

@@ -12,7 +12,7 @@ struct ModifyBakeStepView: View {
     @State private var isEdit: Bool = false
 
     @State var step: BakeStep = .makeNew()
-    var onCommit: (BakeStep) -> Void = { _ in }
+    var onCommit: (BakeStep?) -> Void = { _ in }
 
     private var title: String {
         if isEdit {
@@ -46,7 +46,8 @@ struct ModifyBakeStepView: View {
                     }
                 }
             }
-            .navigationBarTitle(title)
+            .navigationBarTitle(Text(title), displayMode: .inline)
+            .navigationBarItems(leading: CancelButton(onCommit: onCommit))
             .onAppear {
                 self.isEdit = self.step.isValid
             }

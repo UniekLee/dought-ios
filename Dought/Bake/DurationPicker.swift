@@ -14,7 +14,7 @@ struct DurationPicker: View {
     
     let title: String
     let currentDuration: Minutes
-    let onCommit: (Minutes) -> Void
+    let onCommit: (Minutes?) -> Void
     
     var body: some View {
         NavigationView {
@@ -43,7 +43,8 @@ struct DurationPicker: View {
                     }
                 }
             }
-            .navigationBarTitle(title)
+            .navigationBarTitle(Text(title), displayMode: .inline)
+            .navigationBarItems(leading: CancelButton(onCommit: onCommit))
         }.onAppear() {
             self.hours = self.currentDuration / 60
             self.minutes = self.currentDuration % 60
