@@ -9,9 +9,10 @@
 import SwiftUI
 
 struct SetTimeView: View {
+    @Environment(\.presentationMode) var mode
     var label: String
     @State var time: Date
-    var onCommit: (Date?) -> Void
+    var onCommit: (Date) -> Void
     
     var body: some View {
         NavigationView {
@@ -29,7 +30,7 @@ struct SetTimeView: View {
                 }
             }
             .navigationBarTitle(Text("Set time"), displayMode: .inline)
-            .navigationBarItems(leading: CancelButton(onCommit: onCommit))
+            .navigationBarItems(leading: CancelButton(screenPresentation: self.mode))
         }
     }
 }

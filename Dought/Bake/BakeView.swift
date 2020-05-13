@@ -152,9 +152,7 @@ struct BakeView: View {
         case .modify(let step):
             return AnyView (
                 ModifyBakeStepView(step: step) { newStep in
-                    if let newStep = newStep {
-                        self.addOrUpdate(step: newStep)
-                    }
+                    self.addOrUpdate(step: newStep)
                     self.modal = .none
                 }
                 .modifier(AppDefaults())
@@ -162,9 +160,7 @@ struct BakeView: View {
         case .time(let label, let time, let type):
             return AnyView(
                 SetTimeView(label: label, time: time) { newTime in
-                    if let newTime = newTime {
-                        self.updateTime(type: type, to: newTime)
-                    }
+                    self.updateTime(type: type, to: newTime)
                     self.modal = .none
                 }
                 .modifier(AppDefaults())
@@ -173,9 +169,7 @@ struct BakeView: View {
             return AnyView(
                 DurationPicker(title: label,
                                currentDuration: duration) { newDuration in
-                                if let newDuration = newDuration {
-                                    self.bake.finalStepDuration = newDuration
-                                }
+                                self.bake.finalStepDuration = newDuration
                                 self.modal = .none
                 }
                 .modifier(AppDefaults())

@@ -9,10 +9,12 @@
 import SwiftUI
 
 struct ModifyBakeStepView: View {
+    @Environment(\.presentationMode) var mode
+    
     @State private var isEdit: Bool = false
 
     @State var step: BakeStep = .makeNew()
-    var onCommit: (BakeStep?) -> Void = { _ in }
+    var onCommit: (BakeStep) -> Void = { _ in }
 
     private var title: String {
         if isEdit {
@@ -47,7 +49,7 @@ struct ModifyBakeStepView: View {
                 }
             }
             .navigationBarTitle(Text(title), displayMode: .inline)
-            .navigationBarItems(leading: CancelButton(onCommit: onCommit))
+            .navigationBarItems(leading: CancelButton(screenPresentation: self.mode))
             .onAppear {
                 self.isEdit = self.step.isValid
             }

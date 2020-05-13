@@ -9,12 +9,14 @@
 import SwiftUI
 
 struct DurationPicker: View {
+    @Environment(\.presentationMode) var mode
+    
     @State private var hours: Int = 0
     @State private var minutes: Int = 15
     
     let title: String
     let currentDuration: Minutes
-    let onCommit: (Minutes?) -> Void
+    let onCommit: (Minutes) -> Void
     
     var body: some View {
         NavigationView {
@@ -44,7 +46,7 @@ struct DurationPicker: View {
                 }
             }
             .navigationBarTitle(Text(title), displayMode: .inline)
-            .navigationBarItems(leading: CancelButton(onCommit: onCommit))
+            .navigationBarItems(leading: CancelButton(screenPresentation: self.mode))
         }.onAppear() {
             self.hours = self.currentDuration / 60
             self.minutes = self.currentDuration % 60

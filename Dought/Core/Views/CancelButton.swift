@@ -8,12 +8,12 @@
 
 import SwiftUI
 
-struct CancelButton<T>: View {
-    var onCommit: (T?) -> Void
+struct CancelButton: View {
+    @Binding var screenPresentation: PresentationMode
     
     var body: some View {
         Button(action: {
-            self.onCommit(.none)
+            self.screenPresentation.dismiss()
         }, label: {
             Text("Cancel")
         })
