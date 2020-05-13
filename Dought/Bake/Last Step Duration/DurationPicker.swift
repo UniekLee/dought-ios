@@ -46,7 +46,7 @@ struct DurationPicker: View {
                 }
             }
             .navigationBarTitle(Text(title), displayMode: .inline)
-            .navigationBarItems(leading: CancelButton(screenPresentation: self.mode))
+            .navigationBarItems(leading: Button("Cancel") { self.mode.wrappedValue.dismiss() })
         }.onAppear() {
             self.hours = self.currentDuration / 60
             self.minutes = self.currentDuration % 60

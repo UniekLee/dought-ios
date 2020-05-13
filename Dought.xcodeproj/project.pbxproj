@@ -26,7 +26,6 @@
 		3B4724A22462ABA6007E7AA1 /* SetTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4724A12462ABA6007E7AA1 /* SetTimeView.swift */; };
 		3B4724A4246300E8007E7AA1 /* DurationPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4724A3246300E8007E7AA1 /* DurationPicker.swift */; };
 		3B4724A62463053E007E7AA1 /* FormSaveButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4724A52463053E007E7AA1 /* FormSaveButton.swift */; };
-		3BF7CE4A246C011E00363FDD /* CancelButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF7CE49246C011E00363FDD /* CancelButton.swift */; };
 		3BF7CE4F246C138B00363FDD /* BakeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF7CE4E246C138B00363FDD /* BakeRepository.swift */; };
 		3BF7CE51246C142200363FDD /* Bake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF7CE50246C142200363FDD /* Bake.swift */; };
 		3BF7CE53246C25BA00363FDD /* BakeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF7CE52246C25BA00363FDD /* BakeViewModel.swift */; };
@@ -80,7 +79,6 @@
 		3B4724A12462ABA6007E7AA1 /* SetTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetTimeView.swift; sourceTree = "<group>"; };
 		3B4724A3246300E8007E7AA1 /* DurationPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DurationPicker.swift; sourceTree = "<group>"; };
 		3B4724A52463053E007E7AA1 /* FormSaveButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormSaveButton.swift; sourceTree = "<group>"; };
-		3BF7CE49246C011E00363FDD /* CancelButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelButton.swift; sourceTree = "<group>"; };
 		3BF7CE4E246C138B00363FDD /* BakeRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BakeRepository.swift; sourceTree = "<group>"; };
 		3BF7CE50246C142200363FDD /* Bake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bake.swift; sourceTree = "<group>"; };
 		3BF7CE52246C25BA00363FDD /* BakeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BakeViewModel.swift; sourceTree = "<group>"; };
@@ -275,7 +273,6 @@
 			isa = PBXGroup;
 			children = (
 				3B4724A52463053E007E7AA1 /* FormSaveButton.swift */,
-				3BF7CE49246C011E00363FDD /* CancelButton.swift */,
 			);
 			path = Buttons;
 			sourceTree = "<group>";
@@ -533,7 +530,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				3B33993E245B12A200B472C0 /* AppDefaults.swift in Sources */,
-				3BF7CE4A246C011E00363FDD /* CancelButton.swift in Sources */,
 				3B3399342459C50700B472C0 /* BakeStepCell.swift in Sources */,
 				3B3399322459C41A00B472C0 /* BakeStep.swift in Sources */,
 				3B4724A4246300E8007E7AA1 /* DurationPicker.swift in Sources */,

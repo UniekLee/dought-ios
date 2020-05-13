@@ -30,7 +30,7 @@ struct SetTimeView: View {
                 }
             }
             .navigationBarTitle(Text("Set time"), displayMode: .inline)
-            .navigationBarItems(leading: CancelButton(screenPresentation: self.mode))
+            .navigationBarItems(leading: Button("Cancel") { self.mode.wrappedValue.dismiss() })
         }
     }
 }

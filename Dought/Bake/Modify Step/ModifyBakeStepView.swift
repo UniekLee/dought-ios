@@ -49,7 +49,7 @@ struct ModifyBakeStepView: View {
                 }
             }
             .navigationBarTitle(Text(title), displayMode: .inline)
-            .navigationBarItems(leading: CancelButton(screenPresentation: self.mode))
+            .navigationBarItems(leading: Button("Cancel") { self.mode.wrappedValue.dismiss() })
             .onAppear {
                 self.isEdit = self.step.isValid
             }
