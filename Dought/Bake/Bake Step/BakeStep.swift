@@ -10,7 +10,7 @@ import Foundation
 
 typealias Minutes = Int
 
-struct BakeStep: Identifiable {
+struct BakeStep: Identifiable, Codable {
     let id: UUID = UUID()
     var name: String
     var duration: Minutes

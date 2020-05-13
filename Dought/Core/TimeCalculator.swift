@@ -57,6 +57,11 @@ enum TimeCalculator {
         
         return formatter.string(from: startTime)
     }
+    
+    static func todayAtNine() -> Date {
+        let today = Date()
+        return Calendar.current.date(bySettingHour: 9, minute: 0, second: 0, of: today) ?? today
+    }
 }
 
 extension Minutes {

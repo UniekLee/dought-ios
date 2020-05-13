@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var bakeVM: BakeViewModel = BakeViewModel(bakeRepository: DevBakeRepository())
+    @State private var bakeVM: BakeViewModel = BakeViewModel(bakeRepository: LocalBakeRepository())
     
     var body: some View {
         NavigationView {
