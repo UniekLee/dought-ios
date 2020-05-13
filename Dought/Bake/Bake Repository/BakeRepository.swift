@@ -21,7 +21,6 @@ protocol BakeRepository: BaseBakeRespository {
     
     // Time modifiers
     func updateStartTime(_ startTime: Date)
-    func updateEndTime(_ endTime: Date)
     func updateLastStepDuration(_ duration: Minutes)
 }
 

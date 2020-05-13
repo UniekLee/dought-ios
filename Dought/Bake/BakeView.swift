@@ -107,7 +107,7 @@ struct BakeView: View {
                 Button(action: {
                     // TODO: End time VM
                     self.modal = .time(label: "Bake end time",
-                                       currentTime: self.bakeVM.bakeRepository.bake.endTime,
+                                       currentTime: self.bakeVM.endTimeDate,
                                        type: .end)
                 }) { EmptyView() }
             )

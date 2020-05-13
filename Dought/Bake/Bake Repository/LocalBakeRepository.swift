@@ -46,11 +46,6 @@ class LocalBakeRepository: BaseBakeRespository, BakeRepository, ObservableObject
         saveData()
     }
     
-    func updateEndTime(_ endTime: Date) {
-        bake.endTime = endTime
-        saveData()
-    }
-    
     func updateLastStepDuration(_ duration: Minutes) {
         bake.finalStepDuration = duration
         saveData()
