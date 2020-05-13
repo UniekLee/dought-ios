@@ -100,31 +100,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		3B3399302459C40100B472C0 /* Bake Step */ = {
+		3B3399302459C40100B472C0 /* Step */ = {
 			isa = PBXGroup;
 			children = (
 				3B3399312459C41A00B472C0 /* BakeStep.swift */,
 				3B3399332459C50700B472C0 /* BakeStepCell.swift */,
 			);
-			path = "Bake Step";
+			path = Step;
 			sourceTree = "<group>";
 		};
 		3B3399362459CD4F00B472C0 /* Bake */ = {
 			isa = PBXGroup;
 			children = (
 				3B3399372459CD5C00B472C0 /* BakeView.swift */,
-				3B4724A12462ABA6007E7AA1 /* SetTimeView.swift */,
-				3B4724A3246300E8007E7AA1 /* DurationPicker.swift */,
+				3B3399302459C40100B472C0 /* Step */,
+				3BF7CE4C246C0FBE00363FDD /* Set Time */,
+				3BF7CE4B246C0FB200363FDD /* Last Step Duration */,
+				3B339939245B048A00B472C0 /* Modify Step */,
 			);
 			path = Bake;
 			sourceTree = "<group>";
 		};
-		3B339939245B048A00B472C0 /* Add Bake Step */ = {
+		3B339939245B048A00B472C0 /* Modify Step */ = {
 			isa = PBXGroup;
 			children = (
 				3B33993A245B04A300B472C0 /* ModifyBakeStepView.swift */,
 			);
-			path = "Add Bake Step";
+			path = "Modify Step";
 			sourceTree = "<group>";
 		};
 		3B33993C245B129400B472C0 /* Core */ = {
@@ -141,8 +143,7 @@
 			isa = PBXGroup;
 			children = (
 				3B339940245B15ED00B472C0 /* LabeledTextField.swift */,
-				3B4724A52463053E007E7AA1 /* FormSaveButton.swift */,
-				3BF7CE49246C011E00363FDD /* CancelButton.swift */,
+				3BF7CE4D246C0FE300363FDD /* Buttons */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -178,10 +179,8 @@
 		3B43295D24532EBA00CE3032 /* Dought */ = {
 			isa = PBXGroup;
 			children = (
-				3B33993C245B129400B472C0 /* Core */,
-				3B339939245B048A00B472C0 /* Add Bake Step */,
 				3B3399362459CD4F00B472C0 /* Bake */,
-				3B3399302459C40100B472C0 /* Bake Step */,
+				3B33993C245B129400B472C0 /* Core */,
 				3B43295E24532EBA00CE3032 /* AppDelegate.swift */,
 				3B43296024532EBA00CE3032 /* SceneDelegate.swift */,
 				3B43296224532EBA00CE3032 /* ContentView.swift */,
@@ -218,6 +217,31 @@
 				3B43298224532EBC00CE3032 /* Info.plist */,
 			);
 			path = DoughtUITests;
+			sourceTree = "<group>";
+		};
+		3BF7CE4B246C0FB200363FDD /* Last Step Duration */ = {
+			isa = PBXGroup;
+			children = (
+				3B4724A3246300E8007E7AA1 /* DurationPicker.swift */,
+			);
+			path = "Last Step Duration";
+			sourceTree = "<group>";
+		};
+		3BF7CE4C246C0FBE00363FDD /* Set Time */ = {
+			isa = PBXGroup;
+			children = (
+				3B4724A12462ABA6007E7AA1 /* SetTimeView.swift */,
+			);
+			path = "Set Time";
+			sourceTree = "<group>";
+		};
+		3BF7CE4D246C0FE300363FDD /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				3B4724A52463053E007E7AA1 /* FormSaveButton.swift */,
+				3BF7CE49246C011E00363FDD /* CancelButton.swift */,
+			);
+			path = Buttons;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
