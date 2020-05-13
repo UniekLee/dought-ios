@@ -49,6 +49,7 @@ struct BakeView: View {
                 Text(bakeVM.startTime)
             }
             .background(
+                // TODO: Start time view model
                 Button(action: {
                     self.modal = .time(label: "Bake start time",
                                        currentTime: self.bakeVM.bakeRepository.bake.startTime,
@@ -92,6 +93,7 @@ struct BakeView: View {
             }
             .background(
                 Button(action: {
+                    // TODO: Final step duration VM
                     self.modal = .duration(label: "Last step duration",
                                            current: self.bakeVM.bakeRepository.bake.finalStepDuration)
                 }) { EmptyView() }
@@ -103,6 +105,7 @@ struct BakeView: View {
             }
             .background(
                 Button(action: {
+                    // TODO: End time VM
                     self.modal = .time(label: "Bake end time",
                                        currentTime: self.bakeVM.bakeRepository.bake.endTime,
                                        type: .end)
@@ -139,7 +142,7 @@ struct BakeView: View {
             return AnyView(
                 DurationPicker(title: label,
                                currentDuration: duration) { newDuration in
-                                self.bakeVM.bakeRepository.updateLastStepDuration(newDuration)
+                                self.bakeVM.updateLastStepDuration(newDuration)
                                 self.modal = .none
                 }
                 .modifier(AppDefaults())
