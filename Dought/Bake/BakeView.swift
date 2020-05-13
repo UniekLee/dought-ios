@@ -8,36 +8,6 @@
 
 import SwiftUI
 
-struct Bake {
-    var steps: [BakeStep]
-    var startTime: Date = Date(timeIntervalSince1970: TimeInterval(1588669200))
-    
-    var finalStepDuration: Minutes = 120
-    
-    var endTime: Date {
-        get {
-            return TimeCalculator.add(bakeDuration, to: startTime)
-        }
-        set {
-            let negativeBakeDuration = -1 * bakeDuration
-            if let newTime = Calendar.current.date(byAdding: .minute,
-                                                value: negativeBakeDuration,
-                                                to: newValue) {
-                self.startTime = newTime
-            }
-        }
-    }
-    
-    var endTimeString: String {
-        return (try? TimeCalculator.formatted(duration: finalStepDuration)) ?? ""
-    }
-    
-    private var bakeDuration: Minutes {
-        let durations = steps.map({ $0.duration }) + [finalStepDuration]
-        return durations.reduce(0) { $0 + $1 }
-    }
-}
-
 enum BakeTimeType {
     case start
     case end
@@ -59,7 +29,7 @@ struct BakeView: View {
     }
     
     // Bindings
-    @Binding var bake: Bake
+    @ObservedObject var bakeVM: BakeViewModel
 
     // State
     @State private var modal: Modal? = .none
@@ -76,16 +46,16 @@ struct BakeView: View {
             HStack {
                 Text("Begin")
                 Spacer()
-                Text(TimeCalculator.formatted(startTime: bake.startTime))
+                Text(bakeVM.startTime)
             }
             .background(
                 Button(action: {
                     self.modal = .time(label: "Bake start time",
-                                       currentTime: self.bake.startTime,
+                                       currentTime: self.bakeVM.bakeRepository.bake.startTime,
                                        type: .start)
                 }) { EmptyView() }
             )
-            ForEach(bake.steps) { step in
+            ForEach(bakeVM.bakeStepCellViewModels) { step in
                 BakeStepCell(step: step,
                              start: self.startTime(of: step)) {
                                 self.modal = .modify(step: step)
@@ -97,8 +67,8 @@ struct BakeView: View {
                     }
                 )
             }
-            .onDelete(perform: remove)
-            .onMove(perform: move)
+            .onDelete(perform: bakeVM.removeSteps)
+            .onMove(perform: bakeVM.moveStep)
             HStack {
                 Spacer()
                 Button(action: {
@@ -118,23 +88,23 @@ struct BakeView: View {
             HStack {
                 Text("Last step duration")
                 Spacer()
-                Text("+ " + bake.endTimeString)
+                Text("+ " + bakeVM.lastStepDuration)
             }
             .background(
                 Button(action: {
                     self.modal = .duration(label: "Last step duration",
-                                           current: self.bake.finalStepDuration)
+                                           current: self.bakeVM.bakeRepository.bake.finalStepDuration)
                 }) { EmptyView() }
             )
             HStack {
                 Text("Eat & enjoy")
                 Spacer()
-                Text(TimeCalculator.formatted(startTime: bake.endTime))
+                Text(bakeVM.endTime)
             }
             .background(
                 Button(action: {
                     self.modal = .time(label: "Bake end time",
-                                       currentTime: self.bake.endTime,
+                                       currentTime: self.bakeVM.bakeRepository.bake.endTime,
                                        type: .end)
                 }) { EmptyView() }
             )
@@ -152,7 +122,7 @@ struct BakeView: View {
         case .modify(let step):
             return AnyView (
                 ModifyBakeStepView(step: step) { newStep in
-                    self.addOrUpdate(step: newStep)
+                    self.bakeVM.addOrUpdate(step: newStep)
                     self.modal = .none
                 }
                 .modifier(AppDefaults())
@@ -169,7 +139,7 @@ struct BakeView: View {
             return AnyView(
                 DurationPicker(title: label,
                                currentDuration: duration) { newDuration in
-                                self.bake.finalStepDuration = newDuration
+                                self.bakeVM.bakeRepository.updateLastStepDuration(newDuration)
                                 self.modal = .none
                 }
                 .modifier(AppDefaults())
@@ -182,33 +152,18 @@ struct BakeView: View {
     private func updateTime(type: BakeTimeType, to newTime: Date) {
         switch type {
         case .start:
-            bake.startTime = newTime
+            bakeVM.updateStartTime(newTime)
         case .end:
-            bake.endTime = newTime
+            bakeVM.updateEndTime(newTime)
         }
     }
     
-    private func remove(at offsets: IndexSet) {
-        bake.steps.remove(atOffsets: offsets)
-    }
-    
-    private func move(from source: IndexSet, to destination: Int) {
-        bake.steps.move(fromOffsets: source, toOffset: destination)
-    }
-    
-    private func addOrUpdate(step: BakeStep) {
-        if let index = bake.steps.firstIndex(where: { $0.id == step.id }) {
-            bake.steps[index] = step
-        } else {
-            bake.steps.append(step)
-        }
-    }
-    
+    // TODO: Implement BakeStepVM
     private func startTime(of step: BakeStep) -> Date {
-        guard let index = bake.steps.firstIndex(where: { $0.id == step.id }) else { return Date() }
+        guard let index = bakeVM.bakeRepository.bake.steps.firstIndex(where: { $0.id == step.id }) else { return Date() }
         
-        return TimeCalculator.add(bake.steps[0...index].map({ $0.duration }),
-                                  to: bake.startTime)
+        return TimeCalculator.add(bakeVM.bakeRepository.bake.steps[0...index].map({ $0.duration }),
+                                  to: bakeVM.bakeRepository.bake.startTime)
     }
     
     private func isThisAnAwkward(time: Date) -> Bool {
@@ -232,9 +187,9 @@ struct BakeView_Previews: PreviewProvider {
 }
 
 fileprivate struct WrapperView: View {
-    @State private var bake: Bake = Bake(steps: BakeStep.devData)
+    @State private var bakeVM: BakeViewModel = BakeViewModel(bakeRepository: TestDataBakeRepository())
     
     var body: some View {
-        BakeView(bake: $bake)
+        BakeView(bakeVM: bakeVM)
     }
 }
