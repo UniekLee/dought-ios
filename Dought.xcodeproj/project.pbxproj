@@ -29,6 +29,8 @@
 		3BF7CE4F246C138B00363FDD /* BakeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF7CE4E246C138B00363FDD /* BakeRepository.swift */; };
 		3BF7CE51246C142200363FDD /* Bake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF7CE50246C142200363FDD /* Bake.swift */; };
 		3BF7CE53246C25BA00363FDD /* BakeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF7CE52246C25BA00363FDD /* BakeViewModel.swift */; };
+		3BF7CE56246C442300363FDD /* LocalBakeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF7CE55246C442300363FDD /* LocalBakeRepository.swift */; };
+		3BF7CE58246C444700363FDD /* DevBakeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF7CE57246C444700363FDD /* DevBakeRepository.swift */; };
 		9E38451F3101DF502C1466CC /* Pods_Dought.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B983C5B39464B94E56001533 /* Pods_Dought.framework */; };
 		C64B0DC72B7B3ED8A978E80D /* Pods_Dought_DoughtUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A799FC69E233D8EBF531C467 /* Pods_Dought_DoughtUITests.framework */; };
 		D9F36CFD4EB2789833903191 /* Pods_DoughtTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18CF76EDD7A73040E3E9DF14 /* Pods_DoughtTests.framework */; };
@@ -82,6 +84,8 @@
 		3BF7CE4E246C138B00363FDD /* BakeRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BakeRepository.swift; sourceTree = "<group>"; };
 		3BF7CE50246C142200363FDD /* Bake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bake.swift; sourceTree = "<group>"; };
 		3BF7CE52246C25BA00363FDD /* BakeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BakeViewModel.swift; sourceTree = "<group>"; };
+		3BF7CE55246C442300363FDD /* LocalBakeRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalBakeRepository.swift; sourceTree = "<group>"; };
+		3BF7CE57246C444700363FDD /* DevBakeRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevBakeRepository.swift; sourceTree = "<group>"; };
 		3D7A16001D34920FE4FDE121 /* Pods-DoughtTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DoughtTests.release.xcconfig"; path = "Target Support Files/Pods-DoughtTests/Pods-DoughtTests.release.xcconfig"; sourceTree = "<group>"; };
 		5FAE3D1BAF109F7F160CDEC0 /* Pods-Dought-DoughtUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dought-DoughtUITests.release.xcconfig"; path = "Target Support Files/Pods-Dought-DoughtUITests/Pods-Dought-DoughtUITests.release.xcconfig"; sourceTree = "<group>"; };
 		73DC6B9A2775C8B73ED96783 /* Pods-Dought.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dought.release.xcconfig"; path = "Target Support Files/Pods-Dought/Pods-Dought.release.xcconfig"; sourceTree = "<group>"; };
@@ -141,8 +145,8 @@
 		3B3399362459CD4F00B472C0 /* Bake */ = {
 			isa = PBXGroup;
 			children = (
+				3BF7CE54246C440900363FDD /* Bake Repository */,
 				3BF7CE50246C142200363FDD /* Bake.swift */,
-				3BF7CE4E246C138B00363FDD /* BakeRepository.swift */,
 				3BF7CE52246C25BA00363FDD /* BakeViewModel.swift */,
 				3B3399372459CD5C00B472C0 /* BakeView.swift */,
 				3B3399302459C40100B472C0 /* Bake Step */,
@@ -275,6 +279,16 @@
 				3B4724A52463053E007E7AA1 /* FormSaveButton.swift */,
 			);
 			path = Buttons;
+			sourceTree = "<group>";
+		};
+		3BF7CE54246C440900363FDD /* Bake Repository */ = {
+			isa = PBXGroup;
+			children = (
+				3BF7CE4E246C138B00363FDD /* BakeRepository.swift */,
+				3BF7CE55246C442300363FDD /* LocalBakeRepository.swift */,
+				3BF7CE57246C444700363FDD /* DevBakeRepository.swift */,
+			);
+			path = "Bake Repository";
 			sourceTree = "<group>";
 		};
 		ADC5E3DEC77BAEBFC3789672 /* Pods */ = {
@@ -535,6 +549,7 @@
 				3B4724A4246300E8007E7AA1 /* DurationPicker.swift in Sources */,
 				3B43295F24532EBA00CE3032 /* AppDelegate.swift in Sources */,
 				3B4724A62463053E007E7AA1 /* FormSaveButton.swift in Sources */,
+				3BF7CE58246C444700363FDD /* DevBakeRepository.swift in Sources */,
 				3B3399472461A2A400B472C0 /* TimeCalculator.swift in Sources */,
 				3BF7CE51246C142200363FDD /* Bake.swift in Sources */,
 				3B43296124532EBA00CE3032 /* SceneDelegate.swift in Sources */,
@@ -542,6 +557,7 @@
 				3B4724A22462ABA6007E7AA1 /* SetTimeView.swift in Sources */,
 				3B43296324532EBA00CE3032 /* ContentView.swift in Sources */,
 				3BF7CE53246C25BA00363FDD /* BakeViewModel.swift in Sources */,
+				3BF7CE56246C442300363FDD /* LocalBakeRepository.swift in Sources */,
 				3B3399382459CD5C00B472C0 /* BakeView.swift in Sources */,
 				3B33993B245B04A300B472C0 /* ModifyBakeStepView.swift in Sources */,
 				3BF7CE4F246C138B00363FDD /* BakeRepository.swift in Sources */,

@@ -190,7 +190,7 @@ struct BakeView_Previews: PreviewProvider {
 }
 
 fileprivate struct WrapperView: View {
-    @State private var bakeVM: BakeViewModel = BakeViewModel(bakeRepository: TestDataBakeRepository())
+    @State private var bakeVM: BakeViewModel = BakeViewModel(bakeRepository: DevBakeRepository())
     
     var body: some View {
         BakeView(bakeVM: bakeVM)
