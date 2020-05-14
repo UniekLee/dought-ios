@@ -35,26 +35,17 @@ struct BakeView: View {
     
     var body: some View {
         List {
-            HStack {
-                Text("Step")
-                Spacer()
-                Text("Start time")
-                
+            RightDetailCell(text: "Step",
+                            detail: "Start time",
+                            onTap: .none)
+                .listRowBackground(Color.gray.opacity(0.2))
+            RightDetailCell(text: "Begin",
+                            detail: bakeVM.startTime) {
+                                // TODO: Start time view model
+                                self.modal = .time(label: "Bake start time",
+                                                   currentTime: self.bakeVM.bakeRepository.bake.startTime,
+                                                   type: .start)
             }
-            .listRowBackground(Color.gray.opacity(0.2))
-            HStack {
-                Text("Begin")
-                Spacer()
-                Text(bakeVM.startTime)
-            }
-            .background(
-                // TODO: Start time view model
-                Button(action: {
-                    self.modal = .time(label: "Bake start time",
-                                       currentTime: self.bakeVM.bakeRepository.bake.startTime,
-                                       type: .start)
-                }) { EmptyView() }
-            )
             ForEach(bakeVM.bakeStepCellViewModels) { viewModel in
                 BakeStepCell(viewModel: viewModel) {
                     self.modal = .modify(step: viewModel.step)
@@ -78,31 +69,18 @@ struct BakeView: View {
                 .foregroundColor(.accentColor)
                 Spacer()
             }
-            HStack {
-                Text("Last step duration")
-                Spacer()
-                Text("+ " + bakeVM.lastStepDuration)
+            RightDetailCell(text: "Last step duration",
+                            detail: "+ " + bakeVM.lastStepDuration) {
+                                // TODO: Final step duration VM
+                                self.modal = .duration(label: "Last step duration",
+                                                       current: self.bakeVM.bakeRepository.bake.finalStepDuration)
             }
-            .background(
-                Button(action: {
-                    // TODO: Final step duration VM
-                    self.modal = .duration(label: "Last step duration",
-                                           current: self.bakeVM.bakeRepository.bake.finalStepDuration)
-                }) { EmptyView() }
-            )
-            HStack {
-                Text("Eat & enjoy")
-                Spacer()
-                Text(bakeVM.endTime)
+            RightDetailCell(text: "Eat & enjoy",
+                            detail: bakeVM.endTime) {
+                                self.modal = .time(label: "Bake end time",
+                                                   currentTime: self.bakeVM.endTimeDate,
+                                                   type: .end)
             }
-            .background(
-                Button(action: {
-                    // TODO: End time VM
-                    self.modal = .time(label: "Bake end time",
-                                       currentTime: self.bakeVM.endTimeDate,
-                                       type: .end)
-                }) { EmptyView() }
-            )
         }
         .navigationBarTitle("Bake")
         .navigationBarItems(trailing: EditButton())
