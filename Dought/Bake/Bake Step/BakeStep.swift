@@ -13,11 +13,11 @@ typealias Minutes = Int
 struct BakeStep: Identifiable, Codable {
     let id: UUID = UUID()
     var name: String
-    var duration: Minutes
+    var startDelay: Minutes
 }
 
 extension BakeStep {
     static func makeNew() -> BakeStep {
-        return BakeStep(name: "", duration: 0)
+        return BakeStep(name: "", startDelay: 0)
     }
 }

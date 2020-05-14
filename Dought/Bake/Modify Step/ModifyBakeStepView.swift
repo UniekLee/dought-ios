@@ -36,7 +36,7 @@ struct ModifyBakeStepView: View {
                                          placeHolder: "15",
                                          text: Binding(
                                             get: { self.durationAsString },
-                                            set: { self.step.duration = Int($0) ?? 0 })
+                                            set: { self.step.startDelay = Int($0) ?? 0 })
                         )
                             .keyboardType(.numberPad)
                         Text("minutes")
@@ -57,17 +57,17 @@ struct ModifyBakeStepView: View {
     }
     
     private var durationAsString: String {
-        if step.duration == 0 {
+        if step.startDelay == 0 {
             return ""
         } else {
-            return "\(step.duration)"
+            return "\(step.startDelay)"
         }
     }
 }
 
 extension BakeStep {
     var isValid: Bool {
-        return !name.isEmpty && duration > 0
+        return !name.isEmpty && startDelay > 0
     }
 }
 

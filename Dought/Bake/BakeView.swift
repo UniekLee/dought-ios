@@ -28,7 +28,6 @@ struct BakeView: View {
         }
     }
     
-    // Bindings
     @ObservedObject var bakeVM: BakeViewModel
 
     // State
@@ -56,17 +55,10 @@ struct BakeView: View {
                                        type: .start)
                 }) { EmptyView() }
             )
-            ForEach(bakeVM.bakeStepCellViewModels) { step in
-                BakeStepCell(step: step,
-                             start: self.startTime(of: step)) {
-                                self.modal = .modify(step: step)
-                }.listRowBackground(
-                    Group {
-                        if self.isThisAnAwkward(time: self.startTime(of: step)) {
-                            Color.red.opacity(0.2)
-                        }
-                    }
-                )
+            ForEach(bakeVM.bakeStepCellViewModels) { viewModel in
+                BakeStepCell(viewModel: viewModel) {
+                    self.modal = .modify(step: viewModel.step)
+                }
             }
             .onDelete(perform: bakeVM.removeSteps)
             .onMove(perform: bakeVM.moveStep)
@@ -159,21 +151,6 @@ struct BakeView: View {
         case .end:
             bakeVM.updateEndTime(newTime)
         }
-    }
-    
-    // TODO: Implement BakeStepVM
-    private func startTime(of step: BakeStep) -> Date {
-        guard let index = bakeVM.bakeRepository.bake.steps.firstIndex(where: { $0.id == step.id }) else { return Date() }
-        
-        return TimeCalculator.add(bakeVM.bakeRepository.bake.steps[0...index].map({ $0.duration }),
-                                  to: bakeVM.bakeRepository.bake.startTime)
-    }
-    
-    private func isThisAnAwkward(time: Date) -> Bool {
-        guard let hour = Calendar.current.dateComponents([.hour], from: time).hour else {
-            return false
-        }
-        return 21 < hour || hour < 9
     }
 }
 
