@@ -22,23 +22,34 @@ struct DurationPicker: View {
         NavigationView {
             Form {
                 Section {
-                    Stepper(value: $hours) {
+                    GeometryReader { geom in
                         HStack {
-                            Text("Hours")
-                            Spacer()
-                            Text("\(hours)")
-                                .foregroundColor(.secondary)
+                            HStack {
+                                Picker("", selection: self.$hours) {
+                                    ForEach(Range(0...24)) { Text("\($0)") }
+                                }
+                                .pickerStyle(WheelPickerStyle())
+                                .frame(maxWidth: geom.size.width/4)
+                                .clipped()
+                                Text(self.hoursSuffix)
+                                Spacer()
+                            }
+                            .frame(width: geom.size.width/2)
+                            
+                            HStack {
+                                Picker("", selection: self.$minutes) {
+                                    ForEach(Range(0...60)) { Text("\($0)") }
+                                }
+                                .pickerStyle(WheelPickerStyle())
+                                .frame(maxWidth: geom.size.width/4)
+                                .clipped()
+                                Text(self.minutesSuffix)
+                                Spacer()
+                            }
+                            .frame(width: geom.size.width/2)
                         }
                     }
-                    Stepper(value: $minutes) {
-                        HStack {
-                            Text("Minutes")
-                            Spacer()
-                            Text("\(minutes)")
-                                .foregroundColor(.secondary)
-                        }
-                    }
-                }
+                }.frame(minHeight: 200)
                 Section {
                     FormSaveButton() {
                         self.onCommit(self.selectedDuration)
@@ -47,7 +58,8 @@ struct DurationPicker: View {
             }
             .navigationBarTitle(Text(title), displayMode: .inline)
             .navigationBarItems(leading: Button("Cancel") { self.mode.wrappedValue.dismiss() })
-        }.onAppear() {
+        }
+        .onAppear() {
             self.hours = self.currentDuration / 60
             self.minutes = self.currentDuration % 60
         }
@@ -55,6 +67,22 @@ struct DurationPicker: View {
     
     private var selectedDuration: Minutes {
         return (hours * 60) + minutes
+    }
+    
+    private func pluralSuffix(for number: Int) -> String {
+        if number != 1 {
+            return "s"
+        } else {
+            return ""
+        }
+    }
+    
+    private var minutesSuffix: String {
+        "minute" + pluralSuffix(for: minutes)
+    }
+    
+    private var hoursSuffix: String {
+        "hour" + pluralSuffix(for: hours)
     }
 }
 

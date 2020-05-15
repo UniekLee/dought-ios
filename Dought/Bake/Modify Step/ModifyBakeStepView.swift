@@ -31,16 +31,32 @@ struct ModifyBakeStepView: View {
                     LabeledTextField(label: "Name",
                                      placeHolder: "Bulk fermentation",
                                      text: $step.name)
-                    HStack(alignment: .bottom) {
-                        LabeledTextField(label: "Duration",
-                                         placeHolder: "15",
-                                         text: Binding(
-                                            get: { self.durationAsString },
-                                            set: { self.step.startDelay = Int($0) ?? 0 })
-                        )
-                            .keyboardType(.numberPad)
-                        Text("minutes")
+                }
+                Section {
+                    NavigationLink(destination: DurationPicker(title: "Delay",
+                                                               currentDuration: step.startDelay,
+                                                               onCommit: { self.step.startDelay = $0 })) {
+                        HStack {
+                            Text("Start")
+                            Spacer()
+                            // TODO: Move to viewModel
+                            Text((try? TimeCalculator.formatted(duration: step.startDelay)) ?? "")
+                                .foregroundColor(.secondary)
+                        }
                     }
+                }
+                Section(header: Text("Start"),
+                        footer: Text("after previous step")) {
+                            HStack(alignment: .bottom) {
+                                Text("Start")
+                                TextField("15", text: Binding(
+                                    get: { self.durationAsString },
+                                    set: { self.step.startDelay = Int($0) ?? 0 })
+                                )
+                                .multilineTextAlignment(.trailing)
+                                .keyboardType(.numberPad)
+                                Text("minutes")
+                            }
                 }
                 Section {
                     FormSaveButton() {
