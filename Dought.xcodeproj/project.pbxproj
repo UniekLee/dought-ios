@@ -182,8 +182,7 @@
 		3B33993F245B15BD00B472C0 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				3B339940245B15ED00B472C0 /* LabeledTextField.swift */,
-				3BF7CE4D246C0FE300363FDD /* Buttons */,
+				3B6F0346246EABC4000A5A69 /* Forms */,
 				3B6F0342246DB5AD000A5A69 /* RightDetailCell.swift */,
 			);
 			path = Views;
@@ -260,6 +259,15 @@
 				3B43298224532EBC00CE3032 /* Info.plist */,
 			);
 			path = DoughtUITests;
+			sourceTree = "<group>";
+		};
+		3B6F0346246EABC4000A5A69 /* Forms */ = {
+			isa = PBXGroup;
+			children = (
+				3BF7CE4D246C0FE300363FDD /* Buttons */,
+				3B339940245B15ED00B472C0 /* LabeledTextField.swift */,
+			);
+			path = Forms;
 			sourceTree = "<group>";
 		};
 		3BF7CE4B246C0FB200363FDD /* Last Step Duration */ = {
