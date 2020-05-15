@@ -27,6 +27,7 @@
 		3B4724A4246300E8007E7AA1 /* DurationPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4724A3246300E8007E7AA1 /* DurationPicker.swift */; };
 		3B4724A62463053E007E7AA1 /* FormSaveButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4724A52463053E007E7AA1 /* FormSaveButton.swift */; };
 		3B6F0343246DB5AD000A5A69 /* RightDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6F0342246DB5AD000A5A69 /* RightDetailCell.swift */; };
+		3B6F0345246E8FFC000A5A69 /* FormButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6F0344246E8FFC000A5A69 /* FormButton.swift */; };
 		3BF7CE4F246C138B00363FDD /* BakeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF7CE4E246C138B00363FDD /* BakeRepository.swift */; };
 		3BF7CE51246C142200363FDD /* Bake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF7CE50246C142200363FDD /* Bake.swift */; };
 		3BF7CE53246C25BA00363FDD /* BakeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF7CE52246C25BA00363FDD /* BakeViewModel.swift */; };
@@ -83,6 +84,7 @@
 		3B4724A3246300E8007E7AA1 /* DurationPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DurationPicker.swift; sourceTree = "<group>"; };
 		3B4724A52463053E007E7AA1 /* FormSaveButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormSaveButton.swift; sourceTree = "<group>"; };
 		3B6F0342246DB5AD000A5A69 /* RightDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RightDetailCell.swift; sourceTree = "<group>"; };
+		3B6F0344246E8FFC000A5A69 /* FormButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormButton.swift; sourceTree = "<group>"; };
 		3BF7CE4E246C138B00363FDD /* BakeRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BakeRepository.swift; sourceTree = "<group>"; };
 		3BF7CE50246C142200363FDD /* Bake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bake.swift; sourceTree = "<group>"; };
 		3BF7CE52246C25BA00363FDD /* BakeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BakeViewModel.swift; sourceTree = "<group>"; };
@@ -280,6 +282,7 @@
 			isa = PBXGroup;
 			children = (
 				3B4724A52463053E007E7AA1 /* FormSaveButton.swift */,
+				3B6F0344246E8FFC000A5A69 /* FormButton.swift */,
 			);
 			path = Buttons;
 			sourceTree = "<group>";
@@ -561,6 +564,7 @@
 				3B43296324532EBA00CE3032 /* ContentView.swift in Sources */,
 				3B6F0343246DB5AD000A5A69 /* RightDetailCell.swift in Sources */,
 				3BF7CE53246C25BA00363FDD /* BakeViewModel.swift in Sources */,
+				3B6F0345246E8FFC000A5A69 /* FormButton.swift in Sources */,
 				3BF7CE56246C442300363FDD /* LocalBakeRepository.swift in Sources */,
 				3B3399382459CD5C00B472C0 /* BakeView.swift in Sources */,
 				3B33993B245B04A300B472C0 /* ModifyBakeStepView.swift in Sources */,

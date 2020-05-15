@@ -35,6 +35,7 @@ struct BakeView: View {
     
     var body: some View {
         List {
+            // MARK: - Start of bake
             RightDetailCell(text: "Step",
                             detail: "Start time",
                             onTap: .none)
@@ -46,6 +47,8 @@ struct BakeView: View {
                                                    currentTime: self.bakeVM.bakeRepository.bake.startTime,
                                                    type: .start)
             }
+            
+            // MARK: - List steps
             ForEach(bakeVM.bakeStepCellViewModels) { viewModel in
                 BakeStepCell(viewModel: viewModel) {
                     self.modal = .modify(step: viewModel.step)
@@ -53,22 +56,15 @@ struct BakeView: View {
             }
             .onDelete(perform: bakeVM.removeSteps)
             .onMove(perform: bakeVM.moveStep)
-            HStack {
-                Spacer()
-                Button(action: {
-                    self.modal = .modify(step: .makeNew())
-                }) {
-                    HStack {
-                        Image(systemName: "plus.circle.fill")
-                            .resizable()
-                            .frame(width: 20, height: 20)
-                        Text("Add step")
-                    }
-                }
-                .padding()
-                .foregroundColor(.accentColor)
-                Spacer()
+            
+            // MARK: - Add step
+            FormButton(image: Image(systemName: "plus.circle.fill"),
+                       text: "Add step") {
+                self.modal = .modify(step: .makeNew())
             }
+            .foregroundColor(.accentColor)
+            
+            // MARK: - End of bake
             RightDetailCell(text: "Last step duration",
                             detail: "+ " + bakeVM.lastStepDuration) {
                                 // TODO: Final step duration VM

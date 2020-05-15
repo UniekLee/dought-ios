@@ -16,17 +16,9 @@ struct FormSaveButton: View {
     }
     
     var body: some View {
-        HStack {
-            Spacer()
-            Button(action: action) {
-                HStack {
-                    Image(systemName: "square.and.arrow.down")
-                    Text("Save")
-                }
-            }
-            .padding()
-            Spacer()
-        }
+        FormButton(image: Image(systemName: "square.and.arrow.down"),
+                   text: "Save",
+                   onTap: action)
     }
 }
 
