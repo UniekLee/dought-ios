@@ -33,30 +33,15 @@ struct ModifyBakeStepView: View {
                                      text: $step.name)
                 }
                 Section {
-                    NavigationLink(destination: DurationPicker(title: "Delay",
-                                                               currentDuration: step.startDelay,
-                                                               onCommit: { self.step.startDelay = $0 })) {
+                    NavigationLink(destination: durationPicker) {
                         HStack {
-                            Text("Start")
+                            Text("After previous step, wait")
                             Spacer()
                             // TODO: Move to viewModel
                             Text((try? TimeCalculator.formatted(duration: step.startDelay)) ?? "")
                                 .foregroundColor(.secondary)
                         }
                     }
-                }
-                Section(header: Text("Start"),
-                        footer: Text("after previous step")) {
-                            HStack(alignment: .bottom) {
-                                Text("Start")
-                                TextField("15", text: Binding(
-                                    get: { self.durationAsString },
-                                    set: { self.step.startDelay = Int($0) ?? 0 })
-                                )
-                                .multilineTextAlignment(.trailing)
-                                .keyboardType(.numberPad)
-                                Text("minutes")
-                            }
                 }
                 Section {
                     FormSaveButton() {
@@ -78,6 +63,10 @@ struct ModifyBakeStepView: View {
         } else {
             return "\(step.startDelay)"
         }
+    }
+    
+    private var durationPicker: some View {
+        DurationPickerView(duration: $step.startDelay)
     }
 }
 
