@@ -12,6 +12,7 @@ struct ModifyBakeStepView: View {
     @Environment(\.presentationMode) var mode
     
     @State private var isEdit: Bool = false
+    @State private var isEdditingStartDelay: Bool = false
 
     @State var step: BakeStep = .makeNew()
     var onCommit: (BakeStep) -> Void = { _ in }
@@ -33,14 +34,20 @@ struct ModifyBakeStepView: View {
                                      text: $step.name)
                 }
                 Section {
-                    NavigationLink(destination: durationPicker) {
-                        HStack {
-                            Text("After previous step, wait")
-                            Spacer()
-                            // TODO: Move to viewModel
-                            Text((try? TimeCalculator.formatted(duration: step.startDelay)) ?? "")
-                                .foregroundColor(.secondary)
+                    HStack {
+                        Text("After previous step, wait")
+                        Spacer()
+                        // TODO: Move to viewModel
+                        Text((try? TimeCalculator.formatted(duration: step.startDelay)) ?? "")
+                            .foregroundColor(.secondary)
+                    }.background(
+                        Button(action: { self.isEdditingStartDelay.toggle() }) {
+                            EmptyView()
                         }
+                    )
+                    
+                    if isEdditingStartDelay {
+                        DurationPickerView(duration: $step.startDelay).frame(height: 200)
                     }
                 }
                 Section {
