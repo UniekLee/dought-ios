@@ -27,6 +27,7 @@
 		3B4724A4246300E8007E7AA1 /* DurationPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4724A3246300E8007E7AA1 /* DurationPicker.swift */; };
 		3B4724A62463053E007E7AA1 /* FormSaveButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4724A52463053E007E7AA1 /* FormSaveButton.swift */; };
 		3B5EBEA5246EE4A0004E0AD4 /* DurationPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5EBEA4246EE4A0004E0AD4 /* DurationPickerView.swift */; };
+		3B5EBEA82473ECC3004E0AD4 /* TimetableTemplateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5EBEA72473ECC3004E0AD4 /* TimetableTemplateView.swift */; };
 		3B6F0343246DB5AD000A5A69 /* RightDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6F0342246DB5AD000A5A69 /* RightDetailCell.swift */; };
 		3B6F0345246E8FFC000A5A69 /* FormButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6F0344246E8FFC000A5A69 /* FormButton.swift */; };
 		3BF7CE4F246C138B00363FDD /* BakeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF7CE4E246C138B00363FDD /* BakeRepository.swift */; };
@@ -85,6 +86,7 @@
 		3B4724A3246300E8007E7AA1 /* DurationPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DurationPicker.swift; sourceTree = "<group>"; };
 		3B4724A52463053E007E7AA1 /* FormSaveButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormSaveButton.swift; sourceTree = "<group>"; };
 		3B5EBEA4246EE4A0004E0AD4 /* DurationPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DurationPickerView.swift; sourceTree = "<group>"; };
+		3B5EBEA72473ECC3004E0AD4 /* TimetableTemplateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableTemplateView.swift; sourceTree = "<group>"; };
 		3B6F0342246DB5AD000A5A69 /* RightDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RightDetailCell.swift; sourceTree = "<group>"; };
 		3B6F0344246E8FFC000A5A69 /* FormButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormButton.swift; sourceTree = "<group>"; };
 		3BF7CE4E246C138B00363FDD /* BakeRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BakeRepository.swift; sourceTree = "<group>"; };
@@ -151,10 +153,10 @@
 		3B3399362459CD4F00B472C0 /* Bake */ = {
 			isa = PBXGroup;
 			children = (
-				3BF7CE54246C440900363FDD /* Bake Repository */,
-				3BF7CE50246C142200363FDD /* Bake.swift */,
-				3BF7CE52246C25BA00363FDD /* BakeViewModel.swift */,
 				3B3399372459CD5C00B472C0 /* BakeView.swift */,
+				3BF7CE52246C25BA00363FDD /* BakeViewModel.swift */,
+				3BF7CE50246C142200363FDD /* Bake.swift */,
+				3BF7CE54246C440900363FDD /* Bake Repository */,
 				3B3399302459C40100B472C0 /* Bake Step */,
 				3BF7CE4C246C0FBE00363FDD /* Set Time */,
 				3BF7CE4B246C0FB200363FDD /* Last Step Duration */,
@@ -223,6 +225,7 @@
 		3B43295D24532EBA00CE3032 /* Dought */ = {
 			isa = PBXGroup;
 			children = (
+				3B5EBEA62473EC93004E0AD4 /* Timetable */,
 				3B3399362459CD4F00B472C0 /* Bake */,
 				3B33993C245B129400B472C0 /* Core */,
 				3B43295E24532EBA00CE3032 /* AppDelegate.swift */,
@@ -261,6 +264,14 @@
 				3B43298224532EBC00CE3032 /* Info.plist */,
 			);
 			path = DoughtUITests;
+			sourceTree = "<group>";
+		};
+		3B5EBEA62473EC93004E0AD4 /* Timetable */ = {
+			isa = PBXGroup;
+			children = (
+				3B5EBEA72473ECC3004E0AD4 /* TimetableTemplateView.swift */,
+			);
+			path = Timetable;
 			sourceTree = "<group>";
 		};
 		3B6F0346246EABC4000A5A69 /* Forms */ = {
@@ -562,6 +573,7 @@
 			files = (
 				3B5EBEA5246EE4A0004E0AD4 /* DurationPickerView.swift in Sources */,
 				3B33993E245B12A200B472C0 /* AppDefaults.swift in Sources */,
+				3B5EBEA82473ECC3004E0AD4 /* TimetableTemplateView.swift in Sources */,
 				3B3399342459C50700B472C0 /* BakeStepCell.swift in Sources */,
 				3B3399322459C41A00B472C0 /* BakeStep.swift in Sources */,
 				3B4724A4246300E8007E7AA1 /* DurationPicker.swift in Sources */,
