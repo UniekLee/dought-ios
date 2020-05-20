@@ -31,18 +31,18 @@ class BakeViewModel: ObservableObject {
     }
     
     func setUpBindings() {
-        bakeRepository.bake.$startTime
-            .map({ TimeCalculator.formatted(startTime:$0) })
+        bakeRepository.$bake.map({
+            TimeCalculator.formatted(startTime: $0.startTime)
+        })
             .assign(to: \.startTime, on: self)
             .store(in: &cancellables)
         
-        bakeRepository.bake.$startTime
-            .map({ startTime in
+        bakeRepository.$bake.map({ bake in
                 self.bakeRepository.bake.steps
                     .enumerated()
                     .map({ index, step -> BakeStepCellViewModel in
                         let stepStartTime = self.bakeRepository.bake.steps[0...index]
-                            .reduce(startTime) {
+                            .reduce(bake.startTime) {
                                 $0 + $1.startDelay.asTimeInterval
                         }
                         return BakeStepCellViewModel(step: step, startDate: stepStartTime)
@@ -51,9 +51,9 @@ class BakeViewModel: ObservableObject {
             .assign(to: \.bakeStepCellViewModels, on: self)
             .store(in: &cancellables)
         
-        bakeRepository.bake.$steps.map({ steps in
-            steps.enumerated().map({ index, step -> BakeStepCellViewModel in
-                let stepStartTime = steps[0...index]
+        bakeRepository.$bake.map({ bake in
+            bake.steps.enumerated().map({ index, step -> BakeStepCellViewModel in
+                let stepStartTime = bake.steps[0...index]
                     .reduce(self.bakeRepository.bake.startTime) {
                         $0 + $1.startDelay.asTimeInterval
                 }
@@ -63,32 +63,31 @@ class BakeViewModel: ObservableObject {
             .assign(to: \.bakeStepCellViewModels, on: self)
             .store(in: &cancellables)
         
-        bakeRepository.bake.$steps
-            .map({
-                $0.map(\.startDelay)
-                    .reduce(self.bakeRepository.bake.finalStepDuration) { $0 + $1 }
-            })
+        bakeRepository.$bake.map({
+            $0.steps.map(\.startDelay)
+                .reduce(self.bakeRepository.bake.finalStepDuration) { $0 + $1 }
+        })
             .assign(to: \.bakeDuration, on: self)
             .store(in: &cancellables)
         
-        bakeRepository.bake.$finalStepDuration
-            .compactMap({ try? TimeCalculator.formatted(duration: $0) })
+        bakeRepository.$bake.compactMap({
+            try? TimeCalculator.formatted(duration: $0.finalStepDuration)
+        })
             .assign(to: \.lastStepDuration, on: self)
             .store(in: &cancellables)
         
-        bakeRepository.bake.$finalStepDuration
-            .map({
-                self.bakeRepository.bake.steps
-                    .map(\.startDelay)
-                    .reduce($0) { $0 + $1 }
-            })
+        bakeRepository.$bake.map({
+            self.bakeRepository.bake.steps
+                .map(\.startDelay)
+                .reduce($0.finalStepDuration) { $0 + $1 }
+        })
             .assign(to: \.bakeDuration, on: self)
             .store(in: &cancellables)
         
         // Recalculating end times
         
-        bakeRepository.bake.$startTime.map({
-            TimeCalculator.add(self.bakeDuration, to: $0)
+        bakeRepository.$bake.map({
+            TimeCalculator.add(self.bakeDuration, to: $0.startTime)
         })
             .assign(to: \.endTimeDate, on: self)
             .store(in: &cancellables)

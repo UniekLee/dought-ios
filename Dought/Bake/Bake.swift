@@ -8,10 +8,10 @@
 
 import Foundation
 
-class Bake: Codable {
-    @Published var startTime: Date = TimeCalculator.todayAtNine()
-    @Published var steps: [BakeStep] = []
-    @Published var finalStepDuration: Minutes = 120
+struct Bake: Codable {
+    var startTime: Date = TimeCalculator.todayAtNine()
+    var steps: [BakeStep] = []
+    var finalStepDuration: Minutes = 120
     
     init() {}
     
@@ -28,11 +28,21 @@ class Bake: Codable {
         try container.encode(finalStepDuration, forKey: .finalStepDuration)
     }
     
-    required init(from decoder: Decoder) throws {
+    init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         
         startTime = try container.decode(Date.self, forKey: .startTime)
         steps = try container.decode([BakeStep].self, forKey: .steps)
         finalStepDuration = try container.decode(Int.self, forKey: .finalStepDuration)
+    }
+}
+
+extension Bake {
+    struct Stage: Identifiable, Codable {
+        let id: UUID = UUID()
+        
+        let accentColor: String
+        let name: String
+        let dayOfBake: Int
     }
 }
