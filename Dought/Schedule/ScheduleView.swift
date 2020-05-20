@@ -16,12 +16,25 @@ struct ScheduleView: View {
             VStack(spacing: 0) {
                 ForEach(schedule.stages) { stage in
                     // Could this take a VM rather?
+                    // If the ScheduleView has a VM, that could calculate the day of each stage
+                    // and feed that into the ScheduleStageCard_VM
                     ScheduleStageCard(stage: stage,
                                       day: self.schedule.day(of: stage))
+//                        .contextMenu {
+//                            VStack {
+//                                // TODO: Something cool :sunglasses:
+//                                Button(action: {}) {
+//                                    HStack {
+//                                        Text("Delete")
+//                                        Image(systemName: "trash")
+//                                    }
+//                                }
+//                            }
+//                    }
                 }
             }
         }
-        .navigationBarTitle("Weekend bake")
+        .navigationBarTitle(schedule.name)
     }
 }
 
