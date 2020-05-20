@@ -28,11 +28,11 @@
 		3B4724A62463053E007E7AA1 /* FormSaveButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4724A52463053E007E7AA1 /* FormSaveButton.swift */; };
 		3B5EBEA5246EE4A0004E0AD4 /* DurationPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5EBEA4246EE4A0004E0AD4 /* DurationPickerView.swift */; };
 		3B5EBEA82473ECC3004E0AD4 /* ScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5EBEA72473ECC3004E0AD4 /* ScheduleView.swift */; };
-		3B5EBEAB247526AA004E0AD4 /* ScheduleStage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5EBEAA247526AA004E0AD4 /* ScheduleStage.swift */; };
 		3B5EBEAD247526C9004E0AD4 /* ScheduleStageCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5EBEAC247526C9004E0AD4 /* ScheduleStageCard.swift */; };
 		3B5EBEB0247527E7004E0AD4 /* StageHeaderRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5EBEAF247527E7004E0AD4 /* StageHeaderRow.swift */; };
 		3B5EBEB224752843004E0AD4 /* StepRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5EBEB124752843004E0AD4 /* StepRow.swift */; };
 		3B5EBEB424754473004E0AD4 /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5EBEB324754473004E0AD4 /* Schedule.swift */; };
+		3B5EBEB624754892004E0AD4 /* DevelopmentMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5EBEB524754892004E0AD4 /* DevelopmentMocks.swift */; };
 		3B6F0343246DB5AD000A5A69 /* RightDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6F0342246DB5AD000A5A69 /* RightDetailCell.swift */; };
 		3B6F0345246E8FFC000A5A69 /* FormButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6F0344246E8FFC000A5A69 /* FormButton.swift */; };
 		3BF7CE4F246C138B00363FDD /* BakeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF7CE4E246C138B00363FDD /* BakeRepository.swift */; };
@@ -92,11 +92,11 @@
 		3B4724A52463053E007E7AA1 /* FormSaveButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormSaveButton.swift; sourceTree = "<group>"; };
 		3B5EBEA4246EE4A0004E0AD4 /* DurationPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DurationPickerView.swift; sourceTree = "<group>"; };
 		3B5EBEA72473ECC3004E0AD4 /* ScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleView.swift; sourceTree = "<group>"; };
-		3B5EBEAA247526AA004E0AD4 /* ScheduleStage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleStage.swift; sourceTree = "<group>"; };
 		3B5EBEAC247526C9004E0AD4 /* ScheduleStageCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleStageCard.swift; sourceTree = "<group>"; };
 		3B5EBEAF247527E7004E0AD4 /* StageHeaderRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StageHeaderRow.swift; sourceTree = "<group>"; };
 		3B5EBEB124752843004E0AD4 /* StepRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepRow.swift; sourceTree = "<group>"; };
 		3B5EBEB324754473004E0AD4 /* Schedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
+		3B5EBEB524754892004E0AD4 /* DevelopmentMocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevelopmentMocks.swift; sourceTree = "<group>"; };
 		3B6F0342246DB5AD000A5A69 /* RightDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RightDetailCell.swift; sourceTree = "<group>"; };
 		3B6F0344246E8FFC000A5A69 /* FormButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormButton.swift; sourceTree = "<group>"; };
 		3BF7CE4E246C138B00363FDD /* BakeRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BakeRepository.swift; sourceTree = "<group>"; };
@@ -282,6 +282,7 @@
 				3B5EBEB324754473004E0AD4 /* Schedule.swift */,
 				3B5EBEA72473ECC3004E0AD4 /* ScheduleView.swift */,
 				3B5EBEA924752698004E0AD4 /* Stage */,
+				3B5EBEB524754892004E0AD4 /* DevelopmentMocks.swift */,
 			);
 			path = Schedule;
 			sourceTree = "<group>";
@@ -289,7 +290,6 @@
 		3B5EBEA924752698004E0AD4 /* Stage */ = {
 			isa = PBXGroup;
 			children = (
-				3B5EBEAA247526AA004E0AD4 /* ScheduleStage.swift */,
 				3B5EBEAC247526C9004E0AD4 /* ScheduleStageCard.swift */,
 				3B5EBEAE247527A9004E0AD4 /* Subviews */,
 			);
@@ -603,6 +603,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3B5EBEA5246EE4A0004E0AD4 /* DurationPickerView.swift in Sources */,
+				3B5EBEB624754892004E0AD4 /* DevelopmentMocks.swift in Sources */,
 				3B33993E245B12A200B472C0 /* AppDefaults.swift in Sources */,
 				3B5EBEB0247527E7004E0AD4 /* StageHeaderRow.swift in Sources */,
 				3B5EBEA82473ECC3004E0AD4 /* ScheduleView.swift in Sources */,
@@ -627,7 +628,6 @@
 				3B3399382459CD5C00B472C0 /* BakeView.swift in Sources */,
 				3B33993B245B04A300B472C0 /* ModifyBakeStepView.swift in Sources */,
 				3BF7CE4F246C138B00363FDD /* BakeRepository.swift in Sources */,
-				3B5EBEAB247526AA004E0AD4 /* ScheduleStage.swift in Sources */,
 				3B5EBEAD247526C9004E0AD4 /* ScheduleStageCard.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

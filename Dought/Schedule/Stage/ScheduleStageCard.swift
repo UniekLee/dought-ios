@@ -8,8 +8,13 @@
 
 import SwiftUI
 
+class ScheduleStageViewModel: ObservableObject {
+//    @Published var day: String
+}
+
 struct ScheduleStageCard: View {
-    let stage: ScheduleStage
+    let stage: Schedule.Stage
+    let day: Int
     
     var body: some View {
         HStack(spacing: 0) {
@@ -17,9 +22,11 @@ struct ScheduleStageCard: View {
                 .foregroundColor(.accentColor)
                 .frame(width: 10)
             VStack(alignment: .leading, spacing: 10) {
-                StageHeaderRow(day: stage.day, name: stage.name){}
+                StageHeaderRow(day: "Day \(day)", name: stage.kind.title) {
+                    // TODO
+                }
                 ForEach(stage.steps) { step in
-                    StepRow(time: step.time, name: step.name)
+                    StepRow(start: step.startTime, name: step.name)
                 }
             }
             .padding([.leading, .trailing, .bottom])
@@ -28,12 +35,12 @@ struct ScheduleStageCard: View {
         .cornerRadius(5)
         .shadow(radius: 7)
         .padding()
-        .accentColor(stage.accentColor)
+        .accentColor(stage.accent.color)
     }
 }
 
 struct BakeStageCard_Previews: PreviewProvider {
     static var previews: some View {
-        ScheduleStageCard(stage: ScheduleStage.devData()[1])
+        ScheduleStageCard(stage: Schedule.Stage.devMock()[1], day: 1)
     }
 }

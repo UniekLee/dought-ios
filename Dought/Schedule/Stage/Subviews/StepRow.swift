@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct StepRow: View {
-    let time: String
+    let start: Date
     let name: String
     
     var body: some View {
@@ -18,6 +18,16 @@ struct StepRow: View {
             Text(name)
                 .font(.body)
         }
+    }
+    
+    private static let formatter: DateFormatter = {
+        let date = DateFormatter()
+        date.dateFormat = "HH:mm"
+        return date
+    }()
+    
+    var time: String {
+        return StepRow.formatter.string(from: start)
     }
 }
 
@@ -41,6 +51,6 @@ struct RowTimeTemplate: View {
 
 struct StepRow_Previews: PreviewProvider {
     static var previews: some View {
-        StepRow(time: "09:00", name: "Greet")
+        StepRow(start: Date(), name: "Greet")
     }
 }

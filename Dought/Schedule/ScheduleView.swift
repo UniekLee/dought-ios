@@ -9,13 +9,15 @@
 import SwiftUI
 
 struct ScheduleView: View {
-    let stages: [ScheduleStage] = ScheduleStage.devData()
+    let schedule: Schedule = .devMock()
     
     var body: some View {
         ScrollView(.vertical, showsIndicators: true) {
             VStack(spacing: 0) {
-                ForEach(stages) { stage in
-                    ScheduleStageCard(stage: stage)
+                ForEach(schedule.stages) { stage in
+                    // Could this take a VM rather?
+                    ScheduleStageCard(stage: stage,
+                                      day: self.schedule.day(of: stage))
                 }
             }
         }

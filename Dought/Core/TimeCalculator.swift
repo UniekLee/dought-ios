@@ -26,7 +26,7 @@ class Formatters {
     lazy var stepStartTimeFormatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.locale = Locale(identifier: "en_US_POSIX")
-        formatter.dateFormat = "EEE HH:mm"
+        formatter.dateFormat = "HH:mm"
         return formatter
     }()
 }
@@ -61,6 +61,28 @@ enum TimeCalculator {
     static func todayAtNine() -> Date {
         let today = Date()
         return Calendar.current.date(bySettingHour: 9, minute: 0, second: 0, of: today) ?? today
+    }
+    
+    static func timelessVersion(of date: Date) -> Date {
+        let calendar = Calendar.current
+        let timelessComponents = calendar.dateComponents([.day, .month, .year], from: date)
+        guard let timeless = calendar.date(from: timelessComponents) else {
+            fatalError("Failed to remove time from date")
+        }
+        
+        return timeless
+    }
+    
+    static func numberOfDays(from firstDate: Date, secondDate: Date) -> Int {
+        let firstTimelessDate = TimeCalculator.timelessVersion(of: firstDate)
+        let secondTimelessDate = TimeCalculator.timelessVersion(of: secondDate)
+        
+        guard let daysDuration = Calendar.current.dateComponents([.day],
+                                                           from: firstTimelessDate,
+                                                           to: secondTimelessDate).day
+            else { fatalError("Unable to calculate the number of days between two dates") }
+        
+        return daysDuration
     }
 }
 
