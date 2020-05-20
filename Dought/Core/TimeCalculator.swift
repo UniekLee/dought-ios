@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SwiftDate
 
 class Formatters {
     enum FormatterError: Error {
@@ -38,7 +39,7 @@ enum TimeCalculator {
     }
     
     static func add(_ minutes: Minutes, to startTime: Date) -> Date {
-        return startTime + minutes.asTimeInterval
+        return (startTime + minutes.minutes)
     }
     
     static func formatted(duration: Minutes) throws -> String {
@@ -95,5 +96,15 @@ extension Minutes {
     
     var asSeconds: Seconds {
         return self * 60
+    }
+}
+
+extension Date {
+    static var today: Date {
+        return DateInRegion().dateAt(.startOfDay).date
+    }
+    
+    static var tomorrow: Date {
+        return DateInRegion().dateAt(.tomorrowAtStart).date
     }
 }

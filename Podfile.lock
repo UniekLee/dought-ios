@@ -1,16 +1,20 @@
 PODS:
   - Disk (0.6.4)
+  - SwiftDate (5.1.0)
 
 DEPENDENCIES:
   - Disk (~> 0.6.4)
+  - SwiftDate (~> 5.0)
 
 SPEC REPOS:
   trunk:
     - Disk
+    - SwiftDate
 
 SPEC CHECKSUMS:
   Disk: dcee5c2e98fb72f9a924cde8da8435b08244a80e
+  SwiftDate: 6329e58969a2de31cea7f1ee1143b247693196e7
 
-PODFILE CHECKSUM: ca2a0de0e0da3388d9f7cc9982e528a2b6a9b9e5
+PODFILE CHECKSUM: 01e1445fad063eb2e95d5a1266b8971843d2eb6c
 
 COCOAPODS: 1.9.1

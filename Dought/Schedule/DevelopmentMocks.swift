@@ -17,6 +17,15 @@ private extension Date {
 }
 
 extension Schedule {
+    static func devMockList() -> [Schedule] {
+        [
+            Schedule(name: "Weekend bake",
+                     stages: Schedule.Stage.devMock()),
+            Schedule(name: "Mid-week bake",
+                     stages: Schedule.Stage.devMock())
+        ]
+    }
+    
     static func devMock() -> Schedule {
         Schedule(name: "Weekend bake",
                  stages: Schedule.Stage.devMock())

@@ -7,6 +7,7 @@ target 'Dought' do
 
   # Pods for Dought
   pod 'Disk', '~> 0.6.4'
+  pod 'SwiftDate', '~> 5.0'
 
   target 'DoughtTests' do
     inherit! :search_paths
