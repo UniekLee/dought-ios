@@ -1,5 +1,5 @@
 //
-//  BakeStageCard.swift
+//  ScheduleStageCard.swift
 //  Dought
 //
 //  Created by Lee Watkins on 20/05/2020.
@@ -8,8 +8,8 @@
 
 import SwiftUI
 
-struct BakeStageCard: View {
-    let stage: BakeStage
+struct ScheduleStageCard: View {
+    let stage: ScheduleStage
     
     var body: some View {
         HStack(spacing: 0) {
@@ -34,6 +34,6 @@ struct BakeStageCard: View {
 
 struct BakeStageCard_Previews: PreviewProvider {
     static var previews: some View {
-        BakeStageCard(stage: BakeStage.devData()[1])
+        ScheduleStageCard(stage: ScheduleStage.devData()[1])
     }
 }

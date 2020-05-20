@@ -27,11 +27,12 @@
 		3B4724A4246300E8007E7AA1 /* DurationPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4724A3246300E8007E7AA1 /* DurationPicker.swift */; };
 		3B4724A62463053E007E7AA1 /* FormSaveButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4724A52463053E007E7AA1 /* FormSaveButton.swift */; };
 		3B5EBEA5246EE4A0004E0AD4 /* DurationPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5EBEA4246EE4A0004E0AD4 /* DurationPickerView.swift */; };
-		3B5EBEA82473ECC3004E0AD4 /* TimetableTemplateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5EBEA72473ECC3004E0AD4 /* TimetableTemplateView.swift */; };
-		3B5EBEAB247526AA004E0AD4 /* BakeStage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5EBEAA247526AA004E0AD4 /* BakeStage.swift */; };
-		3B5EBEAD247526C9004E0AD4 /* BakeStageCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5EBEAC247526C9004E0AD4 /* BakeStageCard.swift */; };
+		3B5EBEA82473ECC3004E0AD4 /* ScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5EBEA72473ECC3004E0AD4 /* ScheduleView.swift */; };
+		3B5EBEAB247526AA004E0AD4 /* ScheduleStage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5EBEAA247526AA004E0AD4 /* ScheduleStage.swift */; };
+		3B5EBEAD247526C9004E0AD4 /* ScheduleStageCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5EBEAC247526C9004E0AD4 /* ScheduleStageCard.swift */; };
 		3B5EBEB0247527E7004E0AD4 /* StageHeaderRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5EBEAF247527E7004E0AD4 /* StageHeaderRow.swift */; };
 		3B5EBEB224752843004E0AD4 /* StepRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5EBEB124752843004E0AD4 /* StepRow.swift */; };
+		3B5EBEB424754473004E0AD4 /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5EBEB324754473004E0AD4 /* Schedule.swift */; };
 		3B6F0343246DB5AD000A5A69 /* RightDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6F0342246DB5AD000A5A69 /* RightDetailCell.swift */; };
 		3B6F0345246E8FFC000A5A69 /* FormButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6F0344246E8FFC000A5A69 /* FormButton.swift */; };
 		3BF7CE4F246C138B00363FDD /* BakeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF7CE4E246C138B00363FDD /* BakeRepository.swift */; };
@@ -90,11 +91,12 @@
 		3B4724A3246300E8007E7AA1 /* DurationPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DurationPicker.swift; sourceTree = "<group>"; };
 		3B4724A52463053E007E7AA1 /* FormSaveButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormSaveButton.swift; sourceTree = "<group>"; };
 		3B5EBEA4246EE4A0004E0AD4 /* DurationPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DurationPickerView.swift; sourceTree = "<group>"; };
-		3B5EBEA72473ECC3004E0AD4 /* TimetableTemplateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableTemplateView.swift; sourceTree = "<group>"; };
-		3B5EBEAA247526AA004E0AD4 /* BakeStage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BakeStage.swift; sourceTree = "<group>"; };
-		3B5EBEAC247526C9004E0AD4 /* BakeStageCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BakeStageCard.swift; sourceTree = "<group>"; };
+		3B5EBEA72473ECC3004E0AD4 /* ScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleView.swift; sourceTree = "<group>"; };
+		3B5EBEAA247526AA004E0AD4 /* ScheduleStage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleStage.swift; sourceTree = "<group>"; };
+		3B5EBEAC247526C9004E0AD4 /* ScheduleStageCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleStageCard.swift; sourceTree = "<group>"; };
 		3B5EBEAF247527E7004E0AD4 /* StageHeaderRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StageHeaderRow.swift; sourceTree = "<group>"; };
 		3B5EBEB124752843004E0AD4 /* StepRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepRow.swift; sourceTree = "<group>"; };
+		3B5EBEB324754473004E0AD4 /* Schedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
 		3B6F0342246DB5AD000A5A69 /* RightDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RightDetailCell.swift; sourceTree = "<group>"; };
 		3B6F0344246E8FFC000A5A69 /* FormButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormButton.swift; sourceTree = "<group>"; };
 		3BF7CE4E246C138B00363FDD /* BakeRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BakeRepository.swift; sourceTree = "<group>"; };
@@ -233,7 +235,7 @@
 		3B43295D24532EBA00CE3032 /* Dought */ = {
 			isa = PBXGroup;
 			children = (
-				3B5EBEA62473EC93004E0AD4 /* Timetable */,
+				3B5EBEA62473EC93004E0AD4 /* Schedule */,
 				3B3399362459CD4F00B472C0 /* Bake */,
 				3B33993C245B129400B472C0 /* Core */,
 				3B43295E24532EBA00CE3032 /* AppDelegate.swift */,
@@ -274,20 +276,21 @@
 			path = DoughtUITests;
 			sourceTree = "<group>";
 		};
-		3B5EBEA62473EC93004E0AD4 /* Timetable */ = {
+		3B5EBEA62473EC93004E0AD4 /* Schedule */ = {
 			isa = PBXGroup;
 			children = (
-				3B5EBEA72473ECC3004E0AD4 /* TimetableTemplateView.swift */,
+				3B5EBEB324754473004E0AD4 /* Schedule.swift */,
+				3B5EBEA72473ECC3004E0AD4 /* ScheduleView.swift */,
 				3B5EBEA924752698004E0AD4 /* Stage */,
 			);
-			path = Timetable;
+			path = Schedule;
 			sourceTree = "<group>";
 		};
 		3B5EBEA924752698004E0AD4 /* Stage */ = {
 			isa = PBXGroup;
 			children = (
-				3B5EBEAA247526AA004E0AD4 /* BakeStage.swift */,
-				3B5EBEAC247526C9004E0AD4 /* BakeStageCard.swift */,
+				3B5EBEAA247526AA004E0AD4 /* ScheduleStage.swift */,
+				3B5EBEAC247526C9004E0AD4 /* ScheduleStageCard.swift */,
 				3B5EBEAE247527A9004E0AD4 /* Subviews */,
 			);
 			path = Stage;
@@ -602,7 +605,7 @@
 				3B5EBEA5246EE4A0004E0AD4 /* DurationPickerView.swift in Sources */,
 				3B33993E245B12A200B472C0 /* AppDefaults.swift in Sources */,
 				3B5EBEB0247527E7004E0AD4 /* StageHeaderRow.swift in Sources */,
-				3B5EBEA82473ECC3004E0AD4 /* TimetableTemplateView.swift in Sources */,
+				3B5EBEA82473ECC3004E0AD4 /* ScheduleView.swift in Sources */,
 				3B5EBEB224752843004E0AD4 /* StepRow.swift in Sources */,
 				3B3399342459C50700B472C0 /* BakeStepCell.swift in Sources */,
 				3B3399322459C41A00B472C0 /* BakeStep.swift in Sources */,
@@ -611,6 +614,7 @@
 				3B4724A62463053E007E7AA1 /* FormSaveButton.swift in Sources */,
 				3BF7CE58246C444700363FDD /* DevBakeRepository.swift in Sources */,
 				3B3399472461A2A400B472C0 /* TimeCalculator.swift in Sources */,
+				3B5EBEB424754473004E0AD4 /* Schedule.swift in Sources */,
 				3BF7CE51246C142200363FDD /* Bake.swift in Sources */,
 				3B43296124532EBA00CE3032 /* SceneDelegate.swift in Sources */,
 				3B339941245B15ED00B472C0 /* LabeledTextField.swift in Sources */,
@@ -623,8 +627,8 @@
 				3B3399382459CD5C00B472C0 /* BakeView.swift in Sources */,
 				3B33993B245B04A300B472C0 /* ModifyBakeStepView.swift in Sources */,
 				3BF7CE4F246C138B00363FDD /* BakeRepository.swift in Sources */,
-				3B5EBEAB247526AA004E0AD4 /* BakeStage.swift in Sources */,
-				3B5EBEAD247526C9004E0AD4 /* BakeStageCard.swift in Sources */,
+				3B5EBEAB247526AA004E0AD4 /* ScheduleStage.swift in Sources */,
+				3B5EBEAD247526C9004E0AD4 /* ScheduleStageCard.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

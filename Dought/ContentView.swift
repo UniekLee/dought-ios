@@ -13,7 +13,7 @@ struct ContentView: View {
     
     var body: some View {
         NavigationView {
-            TimetableTemplateView()
+            ScheduleView()
 //            BakeView(bakeVM: bakeVM)
         }
     }
