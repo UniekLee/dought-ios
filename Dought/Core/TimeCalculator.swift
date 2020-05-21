@@ -9,6 +9,8 @@
 import Foundation
 import SwiftDate
 
+typealias Minutes = Int
+
 class Formatters {
     enum FormatterError: Error {
         case failed

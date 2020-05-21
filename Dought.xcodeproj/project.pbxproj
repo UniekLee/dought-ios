@@ -7,12 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3B3399322459C41A00B472C0 /* BakeStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3399312459C41A00B472C0 /* BakeStep.swift */; };
-		3B3399342459C50700B472C0 /* BakeStepCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3399332459C50700B472C0 /* BakeStepCell.swift */; };
-		3B3399382459CD5C00B472C0 /* BakeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3399372459CD5C00B472C0 /* BakeView.swift */; };
-		3B33993B245B04A300B472C0 /* ModifyBakeStepView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B33993A245B04A300B472C0 /* ModifyBakeStepView.swift */; };
 		3B33993E245B12A200B472C0 /* AppDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B33993D245B12A200B472C0 /* AppDefaults.swift */; };
-		3B339941245B15ED00B472C0 /* LabeledTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B339940245B15ED00B472C0 /* LabeledTextField.swift */; };
 		3B3399472461A2A400B472C0 /* TimeCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3399462461A2A400B472C0 /* TimeCalculator.swift */; };
 		3B33994A2461A9ED00B472C0 /* TimeCalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3399492461A9ED00B472C0 /* TimeCalculatorTests.swift */; };
 		3B43295F24532EBA00CE3032 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B43295E24532EBA00CE3032 /* AppDelegate.swift */; };
@@ -23,12 +18,7 @@
 		3B43296B24532EBC00CE3032 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B43296924532EBC00CE3032 /* LaunchScreen.storyboard */; };
 		3B43297624532EBC00CE3032 /* DoughtTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B43297524532EBC00CE3032 /* DoughtTests.swift */; };
 		3B43298124532EBC00CE3032 /* DoughtUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B43298024532EBC00CE3032 /* DoughtUITests.swift */; };
-		3B4724A22462ABA6007E7AA1 /* SetTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4724A12462ABA6007E7AA1 /* SetTimeView.swift */; };
-		3B4724A4246300E8007E7AA1 /* DurationPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4724A3246300E8007E7AA1 /* DurationPicker.swift */; };
-		3B4724A62463053E007E7AA1 /* FormSaveButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4724A52463053E007E7AA1 /* FormSaveButton.swift */; };
 		3B4ADFE424758B3E00EA1AED /* StartBakeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4ADFE324758B3E00EA1AED /* StartBakeView.swift */; };
-		3B4ADFE62475925E00EA1AED /* BlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4ADFE52475925E00EA1AED /* BlurView.swift */; };
-		3B5EBEA5246EE4A0004E0AD4 /* DurationPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5EBEA4246EE4A0004E0AD4 /* DurationPickerView.swift */; };
 		3B5EBEA82473ECC3004E0AD4 /* ScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5EBEA72473ECC3004E0AD4 /* ScheduleView.swift */; };
 		3B5EBEAD247526C9004E0AD4 /* ScheduleStageCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5EBEAC247526C9004E0AD4 /* ScheduleStageCard.swift */; };
 		3B5EBEB0247527E7004E0AD4 /* StageHeaderRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5EBEAF247527E7004E0AD4 /* StageHeaderRow.swift */; };
@@ -36,13 +26,6 @@
 		3B5EBEB424754473004E0AD4 /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5EBEB324754473004E0AD4 /* Schedule.swift */; };
 		3B5EBEB624754892004E0AD4 /* DevelopmentMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5EBEB524754892004E0AD4 /* DevelopmentMocks.swift */; };
 		3B5EBEB924758298004E0AD4 /* SchedulesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5EBEB824758298004E0AD4 /* SchedulesListView.swift */; };
-		3B6F0343246DB5AD000A5A69 /* RightDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6F0342246DB5AD000A5A69 /* RightDetailCell.swift */; };
-		3B6F0345246E8FFC000A5A69 /* FormButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6F0344246E8FFC000A5A69 /* FormButton.swift */; };
-		3BF7CE4F246C138B00363FDD /* BakeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF7CE4E246C138B00363FDD /* BakeRepository.swift */; };
-		3BF7CE51246C142200363FDD /* Bake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF7CE50246C142200363FDD /* Bake.swift */; };
-		3BF7CE53246C25BA00363FDD /* BakeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF7CE52246C25BA00363FDD /* BakeViewModel.swift */; };
-		3BF7CE56246C442300363FDD /* LocalBakeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF7CE55246C442300363FDD /* LocalBakeRepository.swift */; };
-		3BF7CE58246C444700363FDD /* DevBakeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF7CE57246C444700363FDD /* DevBakeRepository.swift */; };
 		9E38451F3101DF502C1466CC /* Pods_Dought.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B983C5B39464B94E56001533 /* Pods_Dought.framework */; };
 		C64B0DC72B7B3ED8A978E80D /* Pods_Dought_DoughtUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A799FC69E233D8EBF531C467 /* Pods_Dought_DoughtUITests.framework */; };
 		D9F36CFD4EB2789833903191 /* Pods_DoughtTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18CF76EDD7A73040E3E9DF14 /* Pods_DoughtTests.framework */; };
@@ -68,12 +51,7 @@
 /* Begin PBXFileReference section */
 		18CF76EDD7A73040E3E9DF14 /* Pods_DoughtTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DoughtTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		18D837923AA8DF89319A1BAA /* Pods-Dought.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dought.debug.xcconfig"; path = "Target Support Files/Pods-Dought/Pods-Dought.debug.xcconfig"; sourceTree = "<group>"; };
-		3B3399312459C41A00B472C0 /* BakeStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BakeStep.swift; sourceTree = "<group>"; };
-		3B3399332459C50700B472C0 /* BakeStepCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BakeStepCell.swift; sourceTree = "<group>"; };
-		3B3399372459CD5C00B472C0 /* BakeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BakeView.swift; sourceTree = "<group>"; };
-		3B33993A245B04A300B472C0 /* ModifyBakeStepView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModifyBakeStepView.swift; sourceTree = "<group>"; };
 		3B33993D245B12A200B472C0 /* AppDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDefaults.swift; sourceTree = "<group>"; };
-		3B339940245B15ED00B472C0 /* LabeledTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabeledTextField.swift; sourceTree = "<group>"; };
 		3B3399462461A2A400B472C0 /* TimeCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeCalculator.swift; sourceTree = "<group>"; };
 		3B3399492461A9ED00B472C0 /* TimeCalculatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeCalculatorTests.swift; sourceTree = "<group>"; };
 		3B43295B24532EBA00CE3032 /* Dought.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dought.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -90,12 +68,7 @@
 		3B43297C24532EBC00CE3032 /* DoughtUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DoughtUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B43298024532EBC00CE3032 /* DoughtUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoughtUITests.swift; sourceTree = "<group>"; };
 		3B43298224532EBC00CE3032 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3B4724A12462ABA6007E7AA1 /* SetTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetTimeView.swift; sourceTree = "<group>"; };
-		3B4724A3246300E8007E7AA1 /* DurationPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DurationPicker.swift; sourceTree = "<group>"; };
-		3B4724A52463053E007E7AA1 /* FormSaveButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormSaveButton.swift; sourceTree = "<group>"; };
 		3B4ADFE324758B3E00EA1AED /* StartBakeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartBakeView.swift; sourceTree = "<group>"; };
-		3B4ADFE52475925E00EA1AED /* BlurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurView.swift; sourceTree = "<group>"; };
-		3B5EBEA4246EE4A0004E0AD4 /* DurationPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DurationPickerView.swift; sourceTree = "<group>"; };
 		3B5EBEA72473ECC3004E0AD4 /* ScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleView.swift; sourceTree = "<group>"; };
 		3B5EBEAC247526C9004E0AD4 /* ScheduleStageCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleStageCard.swift; sourceTree = "<group>"; };
 		3B5EBEAF247527E7004E0AD4 /* StageHeaderRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StageHeaderRow.swift; sourceTree = "<group>"; };
@@ -103,13 +76,6 @@
 		3B5EBEB324754473004E0AD4 /* Schedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
 		3B5EBEB524754892004E0AD4 /* DevelopmentMocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevelopmentMocks.swift; sourceTree = "<group>"; };
 		3B5EBEB824758298004E0AD4 /* SchedulesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchedulesListView.swift; sourceTree = "<group>"; };
-		3B6F0342246DB5AD000A5A69 /* RightDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RightDetailCell.swift; sourceTree = "<group>"; };
-		3B6F0344246E8FFC000A5A69 /* FormButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormButton.swift; sourceTree = "<group>"; };
-		3BF7CE4E246C138B00363FDD /* BakeRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BakeRepository.swift; sourceTree = "<group>"; };
-		3BF7CE50246C142200363FDD /* Bake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bake.swift; sourceTree = "<group>"; };
-		3BF7CE52246C25BA00363FDD /* BakeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BakeViewModel.swift; sourceTree = "<group>"; };
-		3BF7CE55246C442300363FDD /* LocalBakeRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalBakeRepository.swift; sourceTree = "<group>"; };
-		3BF7CE57246C444700363FDD /* DevBakeRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevBakeRepository.swift; sourceTree = "<group>"; };
 		3D7A16001D34920FE4FDE121 /* Pods-DoughtTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DoughtTests.release.xcconfig"; path = "Target Support Files/Pods-DoughtTests/Pods-DoughtTests.release.xcconfig"; sourceTree = "<group>"; };
 		5FAE3D1BAF109F7F160CDEC0 /* Pods-Dought-DoughtUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dought-DoughtUITests.release.xcconfig"; path = "Target Support Files/Pods-Dought-DoughtUITests/Pods-Dought-DoughtUITests.release.xcconfig"; sourceTree = "<group>"; };
 		73DC6B9A2775C8B73ED96783 /* Pods-Dought.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dought.release.xcconfig"; path = "Target Support Files/Pods-Dought/Pods-Dought.release.xcconfig"; sourceTree = "<group>"; };
@@ -157,38 +123,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		3B3399302459C40100B472C0 /* Bake Step */ = {
-			isa = PBXGroup;
-			children = (
-				3B3399312459C41A00B472C0 /* BakeStep.swift */,
-				3B3399332459C50700B472C0 /* BakeStepCell.swift */,
-			);
-			path = "Bake Step";
-			sourceTree = "<group>";
-		};
-		3B3399362459CD4F00B472C0 /* Bake */ = {
-			isa = PBXGroup;
-			children = (
-				3B3399372459CD5C00B472C0 /* BakeView.swift */,
-				3BF7CE52246C25BA00363FDD /* BakeViewModel.swift */,
-				3BF7CE50246C142200363FDD /* Bake.swift */,
-				3BF7CE54246C440900363FDD /* Bake Repository */,
-				3B3399302459C40100B472C0 /* Bake Step */,
-				3BF7CE4C246C0FBE00363FDD /* Set Time */,
-				3BF7CE4B246C0FB200363FDD /* Last Step Duration */,
-				3B339939245B048A00B472C0 /* Modify Step */,
-			);
-			path = Bake;
-			sourceTree = "<group>";
-		};
-		3B339939245B048A00B472C0 /* Modify Step */ = {
-			isa = PBXGroup;
-			children = (
-				3B33993A245B04A300B472C0 /* ModifyBakeStepView.swift */,
-			);
-			path = "Modify Step";
-			sourceTree = "<group>";
-		};
 		3B33993C245B129400B472C0 /* Core */ = {
 			isa = PBXGroup;
 			children = (
@@ -202,9 +136,6 @@
 		3B33993F245B15BD00B472C0 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				3B6F0346246EABC4000A5A69 /* Forms */,
-				3B6F0342246DB5AD000A5A69 /* RightDetailCell.swift */,
-				3B4ADFE52475925E00EA1AED /* BlurView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -244,7 +175,6 @@
 			children = (
 				3B5EBEB724758287004E0AD4 /* Schedules List */,
 				3B5EBEA62473EC93004E0AD4 /* Schedule */,
-				3B3399362459CD4F00B472C0 /* Bake */,
 				3B33993C245B129400B472C0 /* Core */,
 				3B43295E24532EBA00CE3032 /* AppDelegate.swift */,
 				3B43296024532EBA00CE3032 /* SceneDelegate.swift */,
@@ -322,57 +252,12 @@
 			path = "Schedules List";
 			sourceTree = "<group>";
 		};
-		3B6F0346246EABC4000A5A69 /* Forms */ = {
-			isa = PBXGroup;
-			children = (
-				3BF7CE4D246C0FE300363FDD /* Buttons */,
-				3B339940245B15ED00B472C0 /* LabeledTextField.swift */,
-			);
-			path = Forms;
-			sourceTree = "<group>";
-		};
 		3BAC417224758AF100CBC215 /* Start Bake */ = {
 			isa = PBXGroup;
 			children = (
 				3B4ADFE324758B3E00EA1AED /* StartBakeView.swift */,
 			);
 			path = "Start Bake";
-			sourceTree = "<group>";
-		};
-		3BF7CE4B246C0FB200363FDD /* Last Step Duration */ = {
-			isa = PBXGroup;
-			children = (
-				3B4724A3246300E8007E7AA1 /* DurationPicker.swift */,
-				3B5EBEA4246EE4A0004E0AD4 /* DurationPickerView.swift */,
-			);
-			path = "Last Step Duration";
-			sourceTree = "<group>";
-		};
-		3BF7CE4C246C0FBE00363FDD /* Set Time */ = {
-			isa = PBXGroup;
-			children = (
-				3B4724A12462ABA6007E7AA1 /* SetTimeView.swift */,
-			);
-			path = "Set Time";
-			sourceTree = "<group>";
-		};
-		3BF7CE4D246C0FE300363FDD /* Buttons */ = {
-			isa = PBXGroup;
-			children = (
-				3B4724A52463053E007E7AA1 /* FormSaveButton.swift */,
-				3B6F0344246E8FFC000A5A69 /* FormButton.swift */,
-			);
-			path = Buttons;
-			sourceTree = "<group>";
-		};
-		3BF7CE54246C440900363FDD /* Bake Repository */ = {
-			isa = PBXGroup;
-			children = (
-				3BF7CE4E246C138B00363FDD /* BakeRepository.swift */,
-				3BF7CE55246C442300363FDD /* LocalBakeRepository.swift */,
-				3BF7CE57246C444700363FDD /* DevBakeRepository.swift */,
-			);
-			path = "Bake Repository";
 			sourceTree = "<group>";
 		};
 		ADC5E3DEC77BAEBFC3789672 /* Pods */ = {
@@ -627,35 +512,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3B5EBEA5246EE4A0004E0AD4 /* DurationPickerView.swift in Sources */,
 				3B5EBEB624754892004E0AD4 /* DevelopmentMocks.swift in Sources */,
 				3B5EBEB924758298004E0AD4 /* SchedulesListView.swift in Sources */,
 				3B33993E245B12A200B472C0 /* AppDefaults.swift in Sources */,
 				3B5EBEB0247527E7004E0AD4 /* StageHeaderRow.swift in Sources */,
 				3B5EBEA82473ECC3004E0AD4 /* ScheduleView.swift in Sources */,
 				3B5EBEB224752843004E0AD4 /* StepRow.swift in Sources */,
-				3B3399342459C50700B472C0 /* BakeStepCell.swift in Sources */,
-				3B3399322459C41A00B472C0 /* BakeStep.swift in Sources */,
-				3B4724A4246300E8007E7AA1 /* DurationPicker.swift in Sources */,
 				3B43295F24532EBA00CE3032 /* AppDelegate.swift in Sources */,
-				3B4724A62463053E007E7AA1 /* FormSaveButton.swift in Sources */,
-				3BF7CE58246C444700363FDD /* DevBakeRepository.swift in Sources */,
 				3B3399472461A2A400B472C0 /* TimeCalculator.swift in Sources */,
 				3B5EBEB424754473004E0AD4 /* Schedule.swift in Sources */,
 				3B4ADFE424758B3E00EA1AED /* StartBakeView.swift in Sources */,
-				3BF7CE51246C142200363FDD /* Bake.swift in Sources */,
-				3B4ADFE62475925E00EA1AED /* BlurView.swift in Sources */,
 				3B43296124532EBA00CE3032 /* SceneDelegate.swift in Sources */,
-				3B339941245B15ED00B472C0 /* LabeledTextField.swift in Sources */,
-				3B4724A22462ABA6007E7AA1 /* SetTimeView.swift in Sources */,
 				3B43296324532EBA00CE3032 /* ContentView.swift in Sources */,
-				3B6F0343246DB5AD000A5A69 /* RightDetailCell.swift in Sources */,
-				3BF7CE53246C25BA00363FDD /* BakeViewModel.swift in Sources */,
-				3B6F0345246E8FFC000A5A69 /* FormButton.swift in Sources */,
-				3BF7CE56246C442300363FDD /* LocalBakeRepository.swift in Sources */,
-				3B3399382459CD5C00B472C0 /* BakeView.swift in Sources */,
-				3B33993B245B04A300B472C0 /* ModifyBakeStepView.swift in Sources */,
-				3BF7CE4F246C138B00363FDD /* BakeRepository.swift in Sources */,
 				3B5EBEAD247526C9004E0AD4 /* ScheduleStageCard.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
