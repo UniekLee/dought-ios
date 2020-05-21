@@ -28,7 +28,7 @@ extension Schedule {
         let accent: Accent
         
         // TODO: Sort by start time
-        let steps: [Step]
+        var steps: [Step]
     }
 }
 
@@ -45,7 +45,7 @@ extension Schedule.Stage {
     struct Step: Identifiable, Codable, Hashable {
         let id: UUID = UUID()
         let name: String
-        let startTime: Date
+        var startTime: Date
     }
 }
 

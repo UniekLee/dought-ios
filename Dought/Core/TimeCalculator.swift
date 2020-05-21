@@ -61,11 +61,6 @@ enum TimeCalculator {
         return formatter.string(from: startTime)
     }
     
-    static func todayAtNine() -> Date {
-        let today = Date()
-        return Calendar.current.date(bySettingHour: 9, minute: 0, second: 0, of: today) ?? today
-    }
-    
     static func timelessVersion(of date: Date) -> Date {
         let calendar = Calendar.current
         let timelessComponents = calendar.dateComponents([.day, .month, .year], from: date)

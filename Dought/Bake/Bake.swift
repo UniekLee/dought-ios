@@ -10,8 +10,37 @@ import Foundation
 import SwiftDate
 
 struct Bake {
+    var start: Date {
+        return schedule.start
+    }
+    
     let schedule: Schedule
-    let start: Date
+    
+    init(schedule: Schedule, start: Date) {
+        self.schedule = schedule.adjustedTo(startDate: start)
+    }
+}
+
+extension Schedule {
+    var start: Date {
+        return stages.first?.steps.first?.startTime ?? Date()
+    }
+    
+    func adjustedTo(startDate: Date) -> Schedule {
+        let difference = TimeCalculator.numberOfDays(from: start, secondDate: startDate)
+        
+        var newSchedule = self
+        newSchedule.stages = stages.map { stage in
+            var newStage = stage
+            newStage.steps = stage.steps.map { step in
+                var newStep = step
+                newStep.startTime = step.startTime + difference.days
+                return newStep
+            }
+            return newStage
+        }
+        return newSchedule
+    }
 }
 
 extension Bake {

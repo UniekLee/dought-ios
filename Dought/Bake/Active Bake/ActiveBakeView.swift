@@ -61,7 +61,8 @@ struct ActiveBakeView: View {
             Spacer()
         }
         .padding()
-        .navigationBarTitle(bake.schedule.name)
+        .navigationBarTitle(Text(bake.schedule.name), displayMode: .inline)
+        .navigationBarHidden(false)
     }
 }
 

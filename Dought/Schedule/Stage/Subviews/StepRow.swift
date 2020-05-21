@@ -55,6 +55,6 @@ struct RowTimeTemplate: View {
 
 struct StepRow_Previews: PreviewProvider {
     static var previews: some View {
-        StepRow(start: Date(), name: "Greet")
+        StepRow(start: .today, name: "Greet")
     }
 }

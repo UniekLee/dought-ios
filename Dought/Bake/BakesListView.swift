@@ -9,17 +9,15 @@
 import SwiftUI
 
 struct BakesListView: View {
-    @State private var activeBake: Bake? = nil
-    @State private var isChoosingSchedule: Bool = false
-    
-    private var isShowingScheduleModal: Bool {
-        return activeBake == nil && isChoosingSchedule
-    }
+    @State private var isShowingActiveBake: Bool = false
+    @State private var isShowingScheduleModal: Bool = false
+    @State private var activeBake: Bake = .devMock()
     
     var body: some View {
         NavigationView {
-//            NavigationLink(destination: ActiveBakeView(bake: activeBake), tag: <#T##Hashable#>, selection: <#T##Binding<Hashable?>#>, label: <#T##() -> _#>)
             VStack(spacing: 16) {
+                NavigationLink(destination: ActiveBakeView(bake: activeBake),
+                               isActive: $isShowingActiveBake) { EmptyView() }
                 Text("DOUGHT")
                     .font(.largeTitle)
                     .fontWeight(.black)
@@ -34,7 +32,7 @@ struct BakesListView: View {
                 }
                 
                 NoActiveBakeCard().onTapGesture {
-                    self.isChoosingSchedule.toggle()
+                    self.isShowingScheduleModal.toggle()
                 }
                 
                 HStack {
@@ -53,16 +51,14 @@ struct BakesListView: View {
                 Spacer()
             }
             .padding()
-            .navigationBarTitle("Dought")
-            .navigationBarHidden(true)
-            .sheet(isPresented:
-                Binding(get: {
-                    self.isShowingScheduleModal
-                }, set: {
-                    self.isChoosingSchedule = $0
-                })
-            ) {
-                SchedulesListView(newBake: self.$activeBake)
+            .navigationBarTitle(Text("Home"), displayMode: .inline)
+            .sheet(isPresented: $isShowingScheduleModal) {
+                SchedulesListView() { bake in
+                    // TODO: What do we do with the bake?
+                    self.activeBake = bake
+                    self.isShowingActiveBake.toggle()
+                    self.isShowingScheduleModal.toggle()
+                }
                     .modifier(AppDefaults())
             }
         }
