@@ -11,7 +11,6 @@ import SwiftUI
 struct ScheduleView: View {
     let schedule: Schedule
     
-    @State var activeBake: Schedule? = .none
     @Binding var isStartBakeShowing: Bool
     
     var body: some View {

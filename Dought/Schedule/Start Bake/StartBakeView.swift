@@ -12,9 +12,9 @@ import SwiftDate
 struct StartBakeView<Presenting>: View where Presenting: View {
     @Binding var isShowing: Bool
     let presenting: Presenting
-    let onCommit: () -> Void
+    let onCommit: (Date) -> Void
     
-    @State var selectedDate: Date = .tomorrow
+    @State private var selectedDate: Date = .tomorrow
     
     
     var body: some View {
@@ -36,7 +36,7 @@ struct StartBakeView<Presenting>: View where Presenting: View {
                     }
                     .labelsHidden()
                     
-                    Button(action: self.onCommit) {
+                    Button(action: { self.onCommit(self.selectedDate) }) {
                         Spacer()
                         Text("Start").fontWeight(.bold)
                         Spacer()
@@ -59,19 +59,17 @@ struct StartBakeView<Presenting>: View where Presenting: View {
 }
 
 extension View {
-
     func startBakeView(isShowing: Binding<Bool>,
-                       onCommit: @escaping () -> Void) -> some View {
+                       onCommit: @escaping (Date) -> Void) -> some View {
         StartBakeView(isShowing: isShowing,
                       presenting: self,
                       onCommit: onCommit)
     }
-
 }
 
 struct StartBakeView_Previews: PreviewProvider {
     static var previews: some View {
-        EmptyView().startBakeView(isShowing: .constant(true)) {
+        EmptyView().startBakeView(isShowing: .constant(true)) { _ in
             // No-op
         }
     }

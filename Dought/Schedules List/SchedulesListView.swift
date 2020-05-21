@@ -9,24 +9,38 @@
 import SwiftUI
 
 struct SchedulesListView: View {
-    @State var isStartBakeShowing: Bool = false
+    @State private var isStartBakeShowing: Bool = false
+    @State private var selectedSchedule: Schedule? = nil
+    @Binding var newBake: Bake?
+    
+    @State private var schedules: [Schedule] = Schedule.devMockList()
     
     var body: some View {
         NavigationView {
-            List(Schedule.devMockList()) { schedule in
-                NavigationLink(destination: ScheduleView(schedule: schedule, isStartBakeShowing: self.$isStartBakeShowing)) {
-                    VStack(alignment: .leading) {
-                        Text(schedule.name)
-                        Text(schedule.details)
-                            .font(.footnote)
-                            .lineLimit(nil)
-                            .foregroundColor(.secondary)
-                    }
+            List(schedules) { schedule in
+                NavigationLink(destination: ScheduleView(schedule: schedule,
+                                                         isStartBakeShowing: self.$isStartBakeShowing),
+                               tag: schedule,
+                               selection: self.$selectedSchedule) {
+                                VStack(alignment: .leading) {
+                                    Text(schedule.name)
+                                    Text(schedule.details)
+                                        .font(.footnote)
+                                        .lineLimit(nil)
+                                        .foregroundColor(.secondary)
+                                }
                 }
+                
             }
             .navigationBarTitle("Choose a schedule")
+            
+            
         }
-        .startBakeView(isShowing: $isStartBakeShowing) {
+        .startBakeView(isShowing: $isStartBakeShowing) { date in
+            guard let schedule = self.selectedSchedule else {
+                fatalError("How did we select a schedule with none selected?")
+            }
+            self.newBake = Bake(schedule: schedule, start: date)
             withAnimation {
                 self.isStartBakeShowing.toggle()
             }
@@ -36,6 +50,6 @@ struct SchedulesListView: View {
 
 struct SchedulesList_Previews: PreviewProvider {
     static var previews: some View {
-        SchedulesListView()
+        SchedulesListView(newBake: .constant(nil))
     }
 }

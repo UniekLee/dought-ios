@@ -9,11 +9,16 @@
 import SwiftUI
 
 struct BakesListView: View {
-    @State var activeBake: Bake? = nil
-    @State var isShowingScheduleList: Bool = false
+    @State private var activeBake: Bake? = nil
+    @State private var isChoosingSchedule: Bool = false
+    
+    private var isShowingScheduleModal: Bool {
+        return activeBake == nil && isChoosingSchedule
+    }
     
     var body: some View {
         NavigationView {
+//            NavigationLink(destination: ActiveBakeView(bake: activeBake), tag: <#T##Hashable#>, selection: <#T##Binding<Hashable?>#>, label: <#T##() -> _#>)
             VStack(spacing: 16) {
                 Text("DOUGHT")
                     .font(.largeTitle)
@@ -29,7 +34,7 @@ struct BakesListView: View {
                 }
                 
                 NoActiveBakeCard().onTapGesture {
-                    self.isShowingScheduleList.toggle()
+                    self.isChoosingSchedule.toggle()
                 }
                 
                 HStack {
@@ -50,8 +55,14 @@ struct BakesListView: View {
             .padding()
             .navigationBarTitle("Dought")
             .navigationBarHidden(true)
-            .sheet(isPresented: $isShowingScheduleList) {
-                SchedulesListView()
+            .sheet(isPresented:
+                Binding(get: {
+                    self.isShowingScheduleModal
+                }, set: {
+                    self.isChoosingSchedule = $0
+                })
+            ) {
+                SchedulesListView(newBake: self.$activeBake)
                     .modifier(AppDefaults())
             }
         }

@@ -9,7 +9,8 @@
 import Foundation
 import SwiftUI
 
-struct Schedule: Identifiable, Codable {
+struct Schedule: Identifiable, Codable, Hashable {
+    
     let id: UUID = UUID()
     let name: String
     let details: String
@@ -20,7 +21,7 @@ struct Schedule: Identifiable, Codable {
 
 // MARK: - Schedule subtypes
 extension Schedule {
-    struct Stage: Identifiable, Codable {
+    struct Stage: Identifiable, Codable, Hashable {
         let id: UUID = UUID()
         
         let kind: Kind
@@ -33,15 +34,15 @@ extension Schedule {
 
 // MARK: - Schedule.Stage subtypes
 extension Schedule.Stage {
-    enum Kind: String, Codable {
+    enum Kind: String, Codable, Hashable {
         case levainBuild, mixAndBulkFerment, mix, bulkFerment, knead, shape, proof, bake
     }
     
-    enum Accent: String, Codable {
+    enum Accent: String, Codable, Hashable {
         case clear, blue, green, yellow, orange, red
     }
     
-    struct Step: Identifiable, Codable {
+    struct Step: Identifiable, Codable, Hashable {
         let id: UUID = UUID()
         let name: String
         let startTime: Date
