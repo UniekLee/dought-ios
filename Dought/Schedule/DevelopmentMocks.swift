@@ -16,6 +16,12 @@ private extension Date {
     }
 }
 
+extension Bake {
+    static func devMock() -> Bake {
+        Bake(schedule: .devMock(), start: Date())
+    }
+}
+
 extension Schedule {
     static func devMockList() -> [Schedule] {
         [

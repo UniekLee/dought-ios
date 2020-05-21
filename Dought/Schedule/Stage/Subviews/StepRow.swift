@@ -43,8 +43,12 @@ struct RowTimeTemplate: View {
             Text("00:00")
                 .font(.subheadline)
                 .hidden()
-                .overlay(Text(value).font(.subheadline),
-                         alignment: .trailing)
+                .overlay(
+                    Text(value)
+                        .font(.subheadline)
+                        .foregroundColor(.secondary),
+                    alignment: .trailing
+            )
         }
     }
 }

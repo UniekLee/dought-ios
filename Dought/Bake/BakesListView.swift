@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct BakesListView: View {
-    @State var activeBake: BakeV2? = nil
+    @State var activeBake: Bake? = nil
     @State var isShowingScheduleList: Bool = false
     
     var body: some View {

@@ -8,11 +8,6 @@
 
 import SwiftUI
 
-struct BakeV2 {
-    let schedule: Schedule
-    let start: Date
-}
-
 struct ScheduleView: View {
     let schedule: Schedule
     

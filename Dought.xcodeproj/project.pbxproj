@@ -21,6 +21,8 @@
 		3B4ADFE424758B3E00EA1AED /* StartBakeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4ADFE324758B3E00EA1AED /* StartBakeView.swift */; };
 		3B4ADFE9247692D700EA1AED /* BakesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4ADFE8247692D700EA1AED /* BakesListView.swift */; };
 		3B4ADFEC2476B6FE00EA1AED /* NoActiveBakeCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4ADFEB2476B6FE00EA1AED /* NoActiveBakeCard.swift */; };
+		3B4ADFEE2476B7EC00EA1AED /* Bake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4ADFED2476B7EC00EA1AED /* Bake.swift */; };
+		3B4ADFF12476B8B400EA1AED /* ActiveBakeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4ADFF02476B8B400EA1AED /* ActiveBakeView.swift */; };
 		3B5EBEA82473ECC3004E0AD4 /* ScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5EBEA72473ECC3004E0AD4 /* ScheduleView.swift */; };
 		3B5EBEAD247526C9004E0AD4 /* ScheduleStageCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5EBEAC247526C9004E0AD4 /* ScheduleStageCard.swift */; };
 		3B5EBEB0247527E7004E0AD4 /* StageHeaderRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5EBEAF247527E7004E0AD4 /* StageHeaderRow.swift */; };
@@ -73,6 +75,8 @@
 		3B4ADFE324758B3E00EA1AED /* StartBakeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartBakeView.swift; sourceTree = "<group>"; };
 		3B4ADFE8247692D700EA1AED /* BakesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BakesListView.swift; sourceTree = "<group>"; };
 		3B4ADFEB2476B6FE00EA1AED /* NoActiveBakeCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoActiveBakeCard.swift; sourceTree = "<group>"; };
+		3B4ADFED2476B7EC00EA1AED /* Bake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bake.swift; sourceTree = "<group>"; };
+		3B4ADFF02476B8B400EA1AED /* ActiveBakeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveBakeView.swift; sourceTree = "<group>"; };
 		3B5EBEA72473ECC3004E0AD4 /* ScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleView.swift; sourceTree = "<group>"; };
 		3B5EBEAC247526C9004E0AD4 /* ScheduleStageCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleStageCard.swift; sourceTree = "<group>"; };
 		3B5EBEAF247527E7004E0AD4 /* StageHeaderRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StageHeaderRow.swift; sourceTree = "<group>"; };
@@ -222,8 +226,10 @@
 		3B4ADFE7247692C900EA1AED /* Bake */ = {
 			isa = PBXGroup;
 			children = (
+				3B4ADFEF2476B8A700EA1AED /* Active Bake */,
 				3B4ADFEA2476B6EA00EA1AED /* No Active Bake */,
 				3B4ADFE8247692D700EA1AED /* BakesListView.swift */,
+				3B4ADFED2476B7EC00EA1AED /* Bake.swift */,
 			);
 			path = Bake;
 			sourceTree = "<group>";
@@ -234,6 +240,14 @@
 				3B4ADFEB2476B6FE00EA1AED /* NoActiveBakeCard.swift */,
 			);
 			path = "No Active Bake";
+			sourceTree = "<group>";
+		};
+		3B4ADFEF2476B8A700EA1AED /* Active Bake */ = {
+			isa = PBXGroup;
+			children = (
+				3B4ADFF02476B8B400EA1AED /* ActiveBakeView.swift */,
+			);
+			path = "Active Bake";
 			sourceTree = "<group>";
 		};
 		3B5EBEA62473EC93004E0AD4 /* Schedule */ = {
@@ -536,12 +550,14 @@
 			files = (
 				3B5EBEB624754892004E0AD4 /* DevelopmentMocks.swift in Sources */,
 				3B5EBEB924758298004E0AD4 /* SchedulesListView.swift in Sources */,
+				3B4ADFF12476B8B400EA1AED /* ActiveBakeView.swift in Sources */,
 				3B33993E245B12A200B472C0 /* AppDefaults.swift in Sources */,
 				3B5EBEB0247527E7004E0AD4 /* StageHeaderRow.swift in Sources */,
 				3B5EBEA82473ECC3004E0AD4 /* ScheduleView.swift in Sources */,
 				3B5EBEB224752843004E0AD4 /* StepRow.swift in Sources */,
 				3B43295F24532EBA00CE3032 /* AppDelegate.swift in Sources */,
 				3B4ADFEC2476B6FE00EA1AED /* NoActiveBakeCard.swift in Sources */,
+				3B4ADFEE2476B7EC00EA1AED /* Bake.swift in Sources */,
 				3B3399472461A2A400B472C0 /* TimeCalculator.swift in Sources */,
 				3B5EBEB424754473004E0AD4 /* Schedule.swift in Sources */,
 				3B4ADFE424758B3E00EA1AED /* StartBakeView.swift in Sources */,
