@@ -20,6 +20,7 @@
 		3B43298124532EBC00CE3032 /* DoughtUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B43298024532EBC00CE3032 /* DoughtUITests.swift */; };
 		3B4ADFE424758B3E00EA1AED /* StartBakeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4ADFE324758B3E00EA1AED /* StartBakeView.swift */; };
 		3B4ADFE9247692D700EA1AED /* BakesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4ADFE8247692D700EA1AED /* BakesListView.swift */; };
+		3B4ADFEC2476B6FE00EA1AED /* NoActiveBakeCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4ADFEB2476B6FE00EA1AED /* NoActiveBakeCard.swift */; };
 		3B5EBEA82473ECC3004E0AD4 /* ScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5EBEA72473ECC3004E0AD4 /* ScheduleView.swift */; };
 		3B5EBEAD247526C9004E0AD4 /* ScheduleStageCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5EBEAC247526C9004E0AD4 /* ScheduleStageCard.swift */; };
 		3B5EBEB0247527E7004E0AD4 /* StageHeaderRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5EBEAF247527E7004E0AD4 /* StageHeaderRow.swift */; };
@@ -71,6 +72,7 @@
 		3B43298224532EBC00CE3032 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3B4ADFE324758B3E00EA1AED /* StartBakeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartBakeView.swift; sourceTree = "<group>"; };
 		3B4ADFE8247692D700EA1AED /* BakesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BakesListView.swift; sourceTree = "<group>"; };
+		3B4ADFEB2476B6FE00EA1AED /* NoActiveBakeCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoActiveBakeCard.swift; sourceTree = "<group>"; };
 		3B5EBEA72473ECC3004E0AD4 /* ScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleView.swift; sourceTree = "<group>"; };
 		3B5EBEAC247526C9004E0AD4 /* ScheduleStageCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleStageCard.swift; sourceTree = "<group>"; };
 		3B5EBEAF247527E7004E0AD4 /* StageHeaderRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StageHeaderRow.swift; sourceTree = "<group>"; };
@@ -220,9 +222,18 @@
 		3B4ADFE7247692C900EA1AED /* Bake */ = {
 			isa = PBXGroup;
 			children = (
+				3B4ADFEA2476B6EA00EA1AED /* No Active Bake */,
 				3B4ADFE8247692D700EA1AED /* BakesListView.swift */,
 			);
 			path = Bake;
+			sourceTree = "<group>";
+		};
+		3B4ADFEA2476B6EA00EA1AED /* No Active Bake */ = {
+			isa = PBXGroup;
+			children = (
+				3B4ADFEB2476B6FE00EA1AED /* NoActiveBakeCard.swift */,
+			);
+			path = "No Active Bake";
 			sourceTree = "<group>";
 		};
 		3B5EBEA62473EC93004E0AD4 /* Schedule */ = {
@@ -530,6 +541,7 @@
 				3B5EBEA82473ECC3004E0AD4 /* ScheduleView.swift in Sources */,
 				3B5EBEB224752843004E0AD4 /* StepRow.swift in Sources */,
 				3B43295F24532EBA00CE3032 /* AppDelegate.swift in Sources */,
+				3B4ADFEC2476B6FE00EA1AED /* NoActiveBakeCard.swift in Sources */,
 				3B3399472461A2A400B472C0 /* TimeCalculator.swift in Sources */,
 				3B5EBEB424754473004E0AD4 /* Schedule.swift in Sources */,
 				3B4ADFE424758B3E00EA1AED /* StartBakeView.swift in Sources */,
