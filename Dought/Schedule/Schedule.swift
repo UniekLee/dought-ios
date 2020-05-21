@@ -12,6 +12,7 @@ import SwiftUI
 struct Schedule: Identifiable, Codable {
     let id: UUID = UUID()
     let name: String
+    let details: String
     
     // TODO: Sort by 1st step's start date
     var stages: [Stage]

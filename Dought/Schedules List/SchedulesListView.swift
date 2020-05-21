@@ -15,12 +15,17 @@ struct SchedulesListView: View {
         NavigationView {
             List(Schedule.devMockList()) { schedule in
                 NavigationLink(destination: ScheduleView(schedule: schedule, isStartBakeShowing: self.$isStartBakeShowing)) {
-                    Text(schedule.name)
+                    VStack(alignment: .leading) {
+                        Text(schedule.name)
+                        Text(schedule.details)
+                            .font(.footnote)
+                            .lineLimit(nil)
+                            .foregroundColor(.secondary)
+                    }
                 }
             }
-            .navigationBarTitle("Schedules")
+            .navigationBarTitle("Choose a schedule")
         }
-//        .blur(radius: isStartBakeShowing ? 20 : 0)
         .startBakeView(isShowing: $isStartBakeShowing) {
             withAnimation {
                 self.isStartBakeShowing.toggle()
