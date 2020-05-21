@@ -11,7 +11,7 @@ import SwiftUI
 struct StageHeaderRow: View {
     let day: String
     let name: String
-    let addStepAction: () -> Void
+//    let addStepAction: () -> Void
     
     var body: some View {
         HStack(alignment: .firstTextBaseline) {
@@ -21,20 +21,20 @@ struct StageHeaderRow: View {
                 .fontWeight(.bold)
                 .fixedSize(horizontal: false, vertical: true)
             Spacer()
-            Button(action: addStepAction) {
-                Image(systemName: "plus.square.fill")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .padding([.top, .leading, .trailing], 10)
-            }
-            .foregroundColor(.accentColor)
-            .frame(width: 44, height: 44, alignment: .bottom)
+//            Button(action: addStepAction) {
+//                Image(systemName: "plus.square.fill")
+//                    .resizable()
+//                    .aspectRatio(contentMode: .fit)
+//                    .padding([.top, .leading, .trailing], 10)
+//            }
+//            .foregroundColor(.accentColor)
+//            .frame(width: 44, height: 44, alignment: .bottom)
         }
     }
 }
 
 struct StageHeaderRow_Previews: PreviewProvider {
     static var previews: some View {
-        StageHeaderRow(day: "Day 1", name: "Mix & Bulk", addStepAction: {})
+        StageHeaderRow(day: "Day 1", name: "Mix & Bulk") //, addStepAction: {})
     }
 }

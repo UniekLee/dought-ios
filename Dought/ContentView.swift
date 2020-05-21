@@ -12,7 +12,8 @@ struct ContentView: View {
 //    @State private var bakeVM: BakeViewModel = BakeViewModel(bakeRepository: LocalBakeRepository())
     
     var body: some View {
-        SchedulesListView()
+        BakesListView()
+//        SchedulesListView()
 //            BakeView(bakeVM: bakeVM)
     }
 }

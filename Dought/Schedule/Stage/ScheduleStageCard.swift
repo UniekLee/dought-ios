@@ -22,14 +22,15 @@ struct ScheduleStageCard: View {
                 .foregroundColor(.accentColor)
                 .frame(width: 10)
             VStack(alignment: .leading, spacing: 10) {
-                StageHeaderRow(day: "Day \(day)", name: stage.kind.title) {
-                    // TODO
-                }
+                StageHeaderRow(day: "Day \(day)", name: stage.kind.title)
+//                {
+//                    // TODO
+//                }
                 ForEach(stage.steps) { step in
                     StepRow(start: step.startTime, name: step.name)
                 }
             }
-            .padding([.leading, .trailing, .bottom])
+            .padding()
         }
         .background(Color("cardBackground"))
         .cornerRadius(5)
