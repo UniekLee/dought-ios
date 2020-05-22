@@ -26,8 +26,10 @@ struct ActiveBakeView: View {
                 Text("Stages")
                     .font(.title)
                     .fontWeight(.bold)
+                    .padding()
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack {
+                        Spacer()
                         ForEach(bake.schedule.stages) { stage in
                                     Button(action: {
                                         self.selectedStage = stage
@@ -40,6 +42,7 @@ struct ActiveBakeView: View {
                                             .cornerRadius(.infinity)
                                     }
                         }
+                        Spacer()
                     }
                 }
             }
@@ -58,9 +61,9 @@ struct ActiveBakeView: View {
                     }
                 }
             }
+            .padding()
             Spacer()
         }
-        .padding()
         .navigationBarTitle(Text(bake.schedule.name), displayMode: .inline)
         .navigationBarHidden(false)
     }
