@@ -1,16 +1,20 @@
 PODS:
+  - ASCollectionView-SwiftUI (1.4.1)
   - Disk (0.6.4)
 
 DEPENDENCIES:
+  - ASCollectionView-SwiftUI (~> 1.3)
   - Disk (~> 0.6.4)
 
 SPEC REPOS:
   trunk:
+    - ASCollectionView-SwiftUI
     - Disk
 
 SPEC CHECKSUMS:
+  ASCollectionView-SwiftUI: f55fbd56350ec3b612855521cd952659b9a7e67d
   Disk: dcee5c2e98fb72f9a924cde8da8435b08244a80e
 
-PODFILE CHECKSUM: ca2a0de0e0da3388d9f7cc9982e528a2b6a9b9e5
+PODFILE CHECKSUM: d4f2b3a5b6e003c154f9bdf6f2ab80d94d5e7ee6
 
 COCOAPODS: 1.9.1

@@ -26,11 +26,6 @@ struct BakesListView: View {
             VStack(spacing: 16) {
                 NavigationLink(destination: activeBakeView,
                                isActive: $isShowingActiveBake) { EmptyView() }
-//                Text("DOUGHT")
-//                    .font(.largeTitle)
-//                    .fontWeight(.black)
-//                    .foregroundColor(.accentColor)
-//                    .padding()
                 
                 HStack {
                     Text("Active bake")
@@ -60,7 +55,7 @@ struct BakesListView: View {
             }
             .padding()
             .navigationBarTitle(
-                Text("DOUGHT")
+                Text("Home")
                     .fontWeight(.black)
                     .foregroundColor(.accentColor),
                 displayMode: .inline

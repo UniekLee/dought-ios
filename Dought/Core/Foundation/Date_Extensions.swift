@@ -28,6 +28,15 @@ extension Date {
         return Formatter(value: self)
     }
     
+    var weekAhead: [Date] {
+        let today = Absolute<Day>(region: .current, date: self)
+        let inAWeek = today.adding(days: 6)
+        
+        let week = today...inAWeek
+        let daysThisWeek = AbsoluteTimePeriodSequence<Day>(range: week, stride: .days(1))
+        
+        return daysThisWeek.map({ $0.firstInstant.date })
+    }
 }
 
 // MARK: - Calculations
@@ -49,9 +58,34 @@ extension Date {
 // MARK: - Formatters
 
 extension Formatter where T == Date {
+    var weekdayTagName: String {
+        let period = Absolute<Day>(region: .current, date: value)
+        
+        return shortWeekdayName + ", " + period.format(month: .abbreviatedName, day: .full)
+    }
+    
     var weekdayName: String {
         let period = Absolute<Day>(region: .current, date: value)
-        return period.format(weekday: .fullName)
+        
+        return weekdayRelativeName ?? period.format(weekday: .fullName)
+    }
+    
+    private var shortWeekdayName: String {
+        let period = Absolute<Day>(region: .current, date: value)
+        
+        return weekdayRelativeName ?? period.format(weekday: .abbreviatedName)
+    }
+    
+    private var weekdayRelativeName: String? {
+        let period = Absolute<Day>(region: .current, date: value)
+        
+        if period.differenceInDays(to: Clock.system.today()).days == 0 {
+            return "Today"
+        } else if period.differenceInDays(to: Clock.system.tomorrow()).days == 0 {
+            return "Tomorrow"
+        } else {
+            return nil
+        }
     }
     
     var time: String {
