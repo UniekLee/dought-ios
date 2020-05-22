@@ -82,7 +82,7 @@ struct BakesListView: View {
                 displayMode: .inline
             )
             .sheet(isPresented: $isShowingScheduleModal) {
-                SchedulesListView() { bake in
+                SchedulesListView(isShowing: self.$isShowingScheduleModal) { bake in
                     // TODO: What do we do with the bake?
                     self.activeBake = bake
                     self.isShowingActiveBake.toggle()

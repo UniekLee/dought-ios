@@ -13,6 +13,8 @@ struct SchedulesListView: View {
     @State private var selectedSchedule: Schedule? = nil
     @State private var schedules: [Schedule] = Schedule.devMockList()
     
+    @Binding var isShowing: Bool
+    
     let onCommit: (Bake) -> Void
     
     var body: some View {
@@ -33,7 +35,9 @@ struct SchedulesListView: View {
                 
             }
             .navigationBarTitle("Choose a schedule")
-            
+            .navigationBarItems(leading: Button("Cancel") {
+                self.isShowing.toggle()
+            })
             
         }
         .chooseDayAlert(isShowing: $isStartBakeShowing) { date in
@@ -53,6 +57,6 @@ struct SchedulesListView: View {
 
 struct SchedulesList_Previews: PreviewProvider {
     static var previews: some View {
-        SchedulesListView() { _ in }
+        SchedulesListView(isShowing: .constant(true)) { _ in }
     }
 }
