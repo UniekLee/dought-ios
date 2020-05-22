@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3B33993E245B12A200B472C0 /* AppDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B33993D245B12A200B472C0 /* AppDefaults.swift */; };
-		3B3399472461A2A400B472C0 /* TimeCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3399462461A2A400B472C0 /* TimeCalculator.swift */; };
+		3B3399472461A2A400B472C0 /* Date_Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3399462461A2A400B472C0 /* Date_Extensions.swift */; };
 		3B33994A2461A9ED00B472C0 /* TimeCalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3399492461A9ED00B472C0 /* TimeCalculatorTests.swift */; };
 		3B43295F24532EBA00CE3032 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B43295E24532EBA00CE3032 /* AppDelegate.swift */; };
 		3B43296124532EBA00CE3032 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B43296024532EBA00CE3032 /* SceneDelegate.swift */; };
@@ -32,6 +32,7 @@
 		3B5EBEB624754892004E0AD4 /* DevelopmentMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5EBEB524754892004E0AD4 /* DevelopmentMocks.swift */; };
 		3B5EBEB924758298004E0AD4 /* SchedulesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5EBEB824758298004E0AD4 /* SchedulesListView.swift */; };
 		3B97F46E2477CEA20031B160 /* Time in Frameworks */ = {isa = PBXBuildFile; productRef = 3B97F46D2477CEA20031B160 /* Time */; };
+		3B97F4712477F3640031B160 /* Formatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B97F4702477F3640031B160 /* Formatters.swift */; };
 		9E38451F3101DF502C1466CC /* Pods_Dought.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B983C5B39464B94E56001533 /* Pods_Dought.framework */; };
 		C64B0DC72B7B3ED8A978E80D /* Pods_Dought_DoughtUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A799FC69E233D8EBF531C467 /* Pods_Dought_DoughtUITests.framework */; };
 		D9F36CFD4EB2789833903191 /* Pods_DoughtTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18CF76EDD7A73040E3E9DF14 /* Pods_DoughtTests.framework */; };
@@ -58,7 +59,7 @@
 		18CF76EDD7A73040E3E9DF14 /* Pods_DoughtTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DoughtTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		18D837923AA8DF89319A1BAA /* Pods-Dought.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dought.debug.xcconfig"; path = "Target Support Files/Pods-Dought/Pods-Dought.debug.xcconfig"; sourceTree = "<group>"; };
 		3B33993D245B12A200B472C0 /* AppDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDefaults.swift; sourceTree = "<group>"; };
-		3B3399462461A2A400B472C0 /* TimeCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeCalculator.swift; sourceTree = "<group>"; };
+		3B3399462461A2A400B472C0 /* Date_Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date_Extensions.swift; sourceTree = "<group>"; };
 		3B3399492461A9ED00B472C0 /* TimeCalculatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeCalculatorTests.swift; sourceTree = "<group>"; };
 		3B43295B24532EBA00CE3032 /* Dought.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dought.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B43295E24532EBA00CE3032 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -87,6 +88,7 @@
 		3B5EBEB324754473004E0AD4 /* Schedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
 		3B5EBEB524754892004E0AD4 /* DevelopmentMocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevelopmentMocks.swift; sourceTree = "<group>"; };
 		3B5EBEB824758298004E0AD4 /* SchedulesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchedulesListView.swift; sourceTree = "<group>"; };
+		3B97F4702477F3640031B160 /* Formatters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formatters.swift; sourceTree = "<group>"; };
 		3D7A16001D34920FE4FDE121 /* Pods-DoughtTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DoughtTests.release.xcconfig"; path = "Target Support Files/Pods-DoughtTests/Pods-DoughtTests.release.xcconfig"; sourceTree = "<group>"; };
 		5FAE3D1BAF109F7F160CDEC0 /* Pods-Dought-DoughtUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dought-DoughtUITests.release.xcconfig"; path = "Target Support Files/Pods-Dought-DoughtUITests/Pods-Dought-DoughtUITests.release.xcconfig"; sourceTree = "<group>"; };
 		73DC6B9A2775C8B73ED96783 /* Pods-Dought.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dought.release.xcconfig"; path = "Target Support Files/Pods-Dought/Pods-Dought.release.xcconfig"; sourceTree = "<group>"; };
@@ -138,9 +140,10 @@
 		3B33993C245B129400B472C0 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				3B97F46F2477F34C0031B160 /* Foundation */,
 				3B33993F245B15BD00B472C0 /* Views */,
 				3B33993D245B12A200B472C0 /* AppDefaults.swift */,
-				3B3399462461A2A400B472C0 /* TimeCalculator.swift */,
+				3B97F4702477F3640031B160 /* Formatters.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -291,6 +294,14 @@
 				3B5EBEB824758298004E0AD4 /* SchedulesListView.swift */,
 			);
 			path = "Schedules List";
+			sourceTree = "<group>";
+		};
+		3B97F46F2477F34C0031B160 /* Foundation */ = {
+			isa = PBXGroup;
+			children = (
+				3B3399462461A2A400B472C0 /* Date_Extensions.swift */,
+			);
+			path = Foundation;
 			sourceTree = "<group>";
 		};
 		3BAC417224758AF100CBC215 /* Start Bake */ = {
@@ -570,8 +581,9 @@
 				3B4ADFF32476F24A00EA1AED /* View_Extensions.swift in Sources */,
 				3B4ADFEC2476B6FE00EA1AED /* NoActiveBakeCard.swift in Sources */,
 				3B4ADFEE2476B7EC00EA1AED /* Bake.swift in Sources */,
-				3B3399472461A2A400B472C0 /* TimeCalculator.swift in Sources */,
+				3B3399472461A2A400B472C0 /* Date_Extensions.swift in Sources */,
 				3B5EBEB424754473004E0AD4 /* Schedule.swift in Sources */,
+				3B97F4712477F3640031B160 /* Formatters.swift in Sources */,
 				3B4ADFE424758B3E00EA1AED /* StartBakeView.swift in Sources */,
 				3B43296124532EBA00CE3032 /* SceneDelegate.swift in Sources */,
 				3B4ADFE9247692D700EA1AED /* BakesListView.swift in Sources */,
