@@ -92,4 +92,14 @@ extension Formatter where T == Date {
         let period = Absolute<Minute>(region: .current, date: value)
         return period.format(hour: .twoDigits, minute: .twoDigits)
     }
+    
+    var dateTime: String {
+        let period = Absolute<Minute>(region: .current, date: value)
+        
+        return period.format(year: .full,
+                             month: .abbreviatedName,
+                             day: .twoDigits,
+                             hour: .twoDigits,
+                             minute: .twoDigits)
+    }
 }

@@ -9,7 +9,7 @@
 import Foundation
 
 struct Formatter<T> {
-    var value: T
+    let value: T
 }
 
 class Formatters {

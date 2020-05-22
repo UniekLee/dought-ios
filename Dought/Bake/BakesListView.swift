@@ -13,12 +13,35 @@ struct BakesListView: View {
     @State private var isShowingScheduleModal: Bool = false
     @State private var activeBake: Bake?
     
-    var activeBakeView: some View {
+    private var activeBakeView: some View {
         if let bake = activeBake {
             return ActiveBakeView(bake: bake).eraseToAnyView()
         } else {
             return EmptyView().eraseToAnyView()
         }
+    }
+    
+    private var activeBakeCard: some View {
+        if let bake = activeBake {
+            return ActiveBakeCard(
+                activeBake: Binding(get: { bake },
+                                    set: { self.activeBake = $0 })
+            )
+                .onTapGesture {
+                    self.isShowingActiveBake.toggle()
+            }
+            .eraseToAnyView()
+        } else {
+            return NoActiveBakeCard()
+                .onTapGesture {
+                    self.isShowingScheduleModal.toggle()
+            }
+            .eraseToAnyView()
+        }
+    }
+    
+    private var hasActiveBake: Bool {
+        return activeBake != nil
     }
     
     var body: some View {
@@ -34,9 +57,7 @@ struct BakesListView: View {
                     Spacer()
                 }
                 
-                NoActiveBakeCard().onTapGesture {
-                    self.isShowingScheduleModal.toggle()
-                }
+                activeBakeCard
                 
                 HStack {
                     VStack(alignment: .leading) {
@@ -76,5 +97,42 @@ struct BakesListView: View {
 struct BakesView_Previews: PreviewProvider {
     static var previews: some View {
         BakesListView()
+    }
+}
+
+struct ActiveBakeCard: View {
+    @Binding var activeBake: Bake
+    
+    private var activeBakeHeadline: String {
+        return activeBake.schedule.name
+    }
+    
+    private var activeBakeSubheadline: String {
+        return "\(activeBake.start.formatter.weekdayName); \(activeBake.start.formatter.dateTime)"
+    }
+    
+    var body: some View {
+        HStack {
+            Image("dough-ball")
+                .resizable()
+                .aspectRatio(contentMode: ContentMode.fit)
+                .frame(maxWidth: 60)
+                .foregroundColor(.accentColor)
+                .padding()
+            VStack(alignment: .leading) {
+                Text(activeBakeHeadline)
+                    .font(.headline)
+                Text(activeBakeSubheadline)
+                    .font(.subheadline)
+                    .foregroundColor(.secondary)
+            }
+            Spacer()
+            Image(systemName: "chevron.right")
+                .foregroundColor(.secondary)
+        }
+        .padding()
+        .background(Color("cardBackground"))
+        .cornerRadius(16)
+        .shadow(radius: 7)
     }
 }
