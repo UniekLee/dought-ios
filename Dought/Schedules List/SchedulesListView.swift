@@ -36,7 +36,7 @@ struct SchedulesListView: View {
             
             
         }
-        .startBakeView(isShowing: $isStartBakeShowing) { date in
+        .chooseDayAlert(isShowing: $isStartBakeShowing) { date in
             guard let schedule = self.selectedSchedule else {
                 fatalError("How did we select a schedule with none selected?")
             }

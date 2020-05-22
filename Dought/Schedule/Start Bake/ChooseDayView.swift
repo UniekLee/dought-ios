@@ -1,5 +1,5 @@
 //
-//  StartBakeView.swift
+//  ChooseDayView.swift
 //  Dought
 //
 //  Created by Lee Watkins on 20/05/2020.
@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct StartBakeView<Presenting>: View where Presenting: View {
+struct ChooseDayView<Presenting>: View where Presenting: View {
     @Binding var isShowing: Bool
     let presenting: Presenting
     let onCommit: (Date) -> Void
@@ -58,9 +58,9 @@ struct StartBakeView<Presenting>: View where Presenting: View {
 }
 
 extension View {
-    func startBakeView(isShowing: Binding<Bool>,
+    func chooseDayAlert(isShowing: Binding<Bool>,
                        onCommit: @escaping (Date) -> Void) -> some View {
-        StartBakeView(isShowing: isShowing,
+        ChooseDayView(isShowing: isShowing,
                       presenting: self,
                       onCommit: onCommit)
     }
@@ -68,7 +68,7 @@ extension View {
 
 struct StartBakeView_Previews: PreviewProvider {
     static var previews: some View {
-        EmptyView().startBakeView(isShowing: .constant(true)) { _ in
+        EmptyView().chooseDayAlert(isShowing: .constant(true)) { _ in
             // No-op
         }
     }

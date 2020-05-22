@@ -18,7 +18,7 @@
 		3B43296B24532EBC00CE3032 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B43296924532EBC00CE3032 /* LaunchScreen.storyboard */; };
 		3B43297624532EBC00CE3032 /* DoughtTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B43297524532EBC00CE3032 /* DoughtTests.swift */; };
 		3B43298124532EBC00CE3032 /* DoughtUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B43298024532EBC00CE3032 /* DoughtUITests.swift */; };
-		3B4ADFE424758B3E00EA1AED /* StartBakeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4ADFE324758B3E00EA1AED /* StartBakeView.swift */; };
+		3B4ADFE424758B3E00EA1AED /* ChooseDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4ADFE324758B3E00EA1AED /* ChooseDayView.swift */; };
 		3B4ADFE9247692D700EA1AED /* BakesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4ADFE8247692D700EA1AED /* BakesListView.swift */; };
 		3B4ADFEC2476B6FE00EA1AED /* NoActiveBakeCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4ADFEB2476B6FE00EA1AED /* NoActiveBakeCard.swift */; };
 		3B4ADFEE2476B7EC00EA1AED /* Bake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4ADFED2476B7EC00EA1AED /* Bake.swift */; };
@@ -75,7 +75,7 @@
 		3B43297C24532EBC00CE3032 /* DoughtUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DoughtUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B43298024532EBC00CE3032 /* DoughtUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoughtUITests.swift; sourceTree = "<group>"; };
 		3B43298224532EBC00CE3032 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3B4ADFE324758B3E00EA1AED /* StartBakeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartBakeView.swift; sourceTree = "<group>"; };
+		3B4ADFE324758B3E00EA1AED /* ChooseDayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseDayView.swift; sourceTree = "<group>"; };
 		3B4ADFE8247692D700EA1AED /* BakesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BakesListView.swift; sourceTree = "<group>"; };
 		3B4ADFEB2476B6FE00EA1AED /* NoActiveBakeCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoActiveBakeCard.swift; sourceTree = "<group>"; };
 		3B4ADFED2476B7EC00EA1AED /* Bake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bake.swift; sourceTree = "<group>"; };
@@ -307,7 +307,7 @@
 		3BAC417224758AF100CBC215 /* Start Bake */ = {
 			isa = PBXGroup;
 			children = (
-				3B4ADFE324758B3E00EA1AED /* StartBakeView.swift */,
+				3B4ADFE324758B3E00EA1AED /* ChooseDayView.swift */,
 			);
 			path = "Start Bake";
 			sourceTree = "<group>";
@@ -584,7 +584,7 @@
 				3B3399472461A2A400B472C0 /* Date_Extensions.swift in Sources */,
 				3B5EBEB424754473004E0AD4 /* Schedule.swift in Sources */,
 				3B97F4712477F3640031B160 /* Formatters.swift in Sources */,
-				3B4ADFE424758B3E00EA1AED /* StartBakeView.swift in Sources */,
+				3B4ADFE424758B3E00EA1AED /* ChooseDayView.swift in Sources */,
 				3B43296124532EBA00CE3032 /* SceneDelegate.swift in Sources */,
 				3B4ADFE9247692D700EA1AED /* BakesListView.swift in Sources */,
 				3B43296324532EBA00CE3032 /* ContentView.swift in Sources */,
