@@ -20,14 +20,8 @@ struct StepRow: View {
         }
     }
     
-    private static let formatter: DateFormatter = {
-        let date = DateFormatter()
-        date.dateFormat = "HH:mm"
-        return date
-    }()
-    
     var time: String {
-        return StepRow.formatter.string(from: start)
+        return start.formatter.time
     }
 }
 
@@ -55,6 +49,6 @@ struct RowTimeTemplate: View {
 
 struct StepRow_Previews: PreviewProvider {
     static var previews: some View {
-        StepRow(start: Date(), name: "Greet")
+        StepRow(start: Date(), name: "Do this thing")
     }
 }

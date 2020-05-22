@@ -45,7 +45,7 @@ extension Schedule {
 extension Bake {
     // TODO: Move this into a VM
     func date(of stage: Schedule.Stage) -> String {
-        return start.adding(days: day(of: stage)).weekdayName
+        return start.adding(days: day(of: stage)).formatter.weekdayName
     }
     
     private func day(of stage: Schedule.Stage) -> Int {
