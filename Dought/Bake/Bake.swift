@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import SwiftDate
 
 struct Bake {
     var start: Date {
@@ -27,14 +26,14 @@ extension Schedule {
     }
     
     func adjustedTo(startDate: Date) -> Schedule {
-        let difference = TimeCalculator.numberOfDays(from: start, secondDate: startDate)
+        let difference = start.differenceInDays(to: startDate)
         
         var newSchedule = self
         newSchedule.stages = stages.map { stage in
             var newStage = stage
             newStage.steps = stage.steps.map { step in
                 var newStep = step
-                newStep.startTime = step.startTime + difference.days
+                newStep.startTime = step.startTime.adding(days: difference)
                 return newStep
             }
             return newStage
@@ -46,7 +45,7 @@ extension Schedule {
 extension Bake {
     // TODO: Move this into a VM
     func date(of stage: Schedule.Stage) -> String {
-        return DateInRegion((start + day(of: stage).days)).weekdayName(.default)
+        return start.adding(days: day(of: stage)).weekdayName
     }
     
     private func day(of stage: Schedule.Stage) -> Int {
@@ -54,7 +53,7 @@ extension Bake {
             let givenStep = stage.steps.first
             else { return 0 }
         
-        let daysDuration = TimeCalculator.numberOfDays(from: start, secondDate: givenStep.startTime)
+        let daysDuration = start.differenceInDays(to: givenStep.startTime)
         
         return daysDuration
     }

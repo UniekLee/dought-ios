@@ -11,18 +11,26 @@ import SwiftUI
 struct BakesListView: View {
     @State private var isShowingActiveBake: Bool = false
     @State private var isShowingScheduleModal: Bool = false
-    @State private var activeBake: Bake = .devMock()
+    @State private var activeBake: Bake?
+    
+    var activeBakeView: some View {
+        if let bake = activeBake {
+            return ActiveBakeView(bake: bake).eraseToAnyView()
+        } else {
+            return EmptyView().eraseToAnyView()
+        }
+    }
     
     var body: some View {
         NavigationView {
             VStack(spacing: 16) {
-                NavigationLink(destination: ActiveBakeView(bake: activeBake),
+                NavigationLink(destination: activeBakeView,
                                isActive: $isShowingActiveBake) { EmptyView() }
-                Text("DOUGHT")
-                    .font(.largeTitle)
-                    .fontWeight(.black)
-                    .foregroundColor(.accentColor)
-                    .padding()
+//                Text("DOUGHT")
+//                    .font(.largeTitle)
+//                    .fontWeight(.black)
+//                    .foregroundColor(.accentColor)
+//                    .padding()
                 
                 HStack {
                     Text("Active bake")
@@ -51,7 +59,12 @@ struct BakesListView: View {
                 Spacer()
             }
             .padding()
-            .navigationBarTitle(Text("Home"), displayMode: .inline)
+            .navigationBarTitle(
+                Text("DOUGHT")
+                    .fontWeight(.black)
+                    .foregroundColor(.accentColor),
+                displayMode: .inline
+            )
             .sheet(isPresented: $isShowingScheduleModal) {
                 SchedulesListView() { bake in
                     // TODO: What do we do with the bake?

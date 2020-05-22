@@ -7,7 +7,6 @@
 //
 
 import SwiftUI
-import SwiftDate
 
 struct StartBakeView<Presenting>: View where Presenting: View {
     @Binding var isShowing: Bool

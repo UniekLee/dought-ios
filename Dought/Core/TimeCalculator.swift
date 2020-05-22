@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import SwiftDate
+import Time
 
 typealias Minutes = Int
 
@@ -34,53 +34,26 @@ class Formatters {
     }()
 }
 
-enum TimeCalculator {
-    static func add(_ durations: [Minutes], to startTime: Date) -> Date {
-        let totalDuration = durations.reduce(0, { $0 + $1 })
-        return TimeCalculator.add(totalDuration, to: startTime)
+extension Date {    
+    private var timeless: Absolute<Day> {
+        return Absolute<Day>(region: .current, date: self)
     }
     
-    static func add(_ minutes: Minutes, to startTime: Date) -> Date {
-        return (startTime + minutes.minutes)
+    func differenceInDays(to other: Date) -> Int {
+        let timelessSelf = self.timeless
+        let timelessOther = other.timeless
+        
+        return timelessSelf.differenceInDays(to: timelessOther).days
     }
     
-    static func formatted(duration: Minutes) throws -> String {
-        let formatter = Formatters.shared.plusHMinFormatter
-        let interval = duration.asTimeInterval
-        
-        guard let result = formatter.string(from: interval) else {
-            throw Formatters.FormatterError.failed
-        }
-        
-        return result
+    func adding(days: Int) -> Date {
+        let timePeriod = Absolute<Minute>(region: .current, date: self)
+        return timePeriod.adding(days: days).firstInstant.date
     }
     
-    static func formatted(startTime: Date) -> String {
-        let formatter = Formatters.shared.stepStartTimeFormatter
-        
-        return formatter.string(from: startTime)
-    }
-    
-    static func timelessVersion(of date: Date) -> Date {
-        let calendar = Calendar.current
-        let timelessComponents = calendar.dateComponents([.day, .month, .year], from: date)
-        guard let timeless = calendar.date(from: timelessComponents) else {
-            fatalError("Failed to remove time from date")
-        }
-        
-        return timeless
-    }
-    
-    static func numberOfDays(from firstDate: Date, secondDate: Date) -> Int {
-        let firstTimelessDate = TimeCalculator.timelessVersion(of: firstDate)
-        let secondTimelessDate = TimeCalculator.timelessVersion(of: secondDate)
-        
-        guard let daysDuration = Calendar.current.dateComponents([.day],
-                                                           from: firstTimelessDate,
-                                                           to: secondTimelessDate).day
-            else { fatalError("Unable to calculate the number of days between two dates") }
-        
-        return daysDuration
+    var weekdayName: String {
+        let period = Absolute<Day>(region: .current, date: self)
+        return period.format(weekday: .fullName)
     }
 }
 
@@ -98,10 +71,10 @@ extension Minutes {
 
 extension Date {
     static var today: Date {
-        return DateInRegion().dateAt(.startOfDay).date
+        return Clock.system.today().firstInstant.date
     }
     
     static var tomorrow: Date {
-        return DateInRegion().dateAt(.tomorrowAtStart).date
+        return Clock.system.tomorrow().firstInstant.date
     }
 }

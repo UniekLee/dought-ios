@@ -60,7 +60,7 @@ extension Schedule {
             let givenStep = stage.steps.first
             else { return 1 }
         
-        let daysDuration = TimeCalculator.numberOfDays(from: firstStep.startTime, secondDate: givenStep.startTime)
+        let daysDuration = firstStep.startTime.differenceInDays(to: givenStep.startTime)
         
         return 1 + daysDuration
     }
