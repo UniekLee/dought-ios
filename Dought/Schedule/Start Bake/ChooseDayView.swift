@@ -47,22 +47,11 @@ struct ChooseDayView<Presenting>: View where Presenting: View {
                     }
                     .shrinkToContentSize(isEnabled: true, dimension: .vertical)
                     
-//                    ScrollView(.horizontal, showsIndicators: false) {
-//                        HStack {
-//                            ForEach(self.selectedDate.weekAhead, id:\.self) { day in
-//                                Button(action: {
-//                                    self.onCommit(day)
-//                                }) {
-//                                    Text(day.formatter.weekdayTagName)
-//                                        .fontWeight(.semibold)
-//                                        .foregroundColor(.white)
-//                                        .padding()
-//                                        .background(Color.accentColor)
-//                                        .cornerRadius(.infinity)
-//                                }
-//                            }
-//                        }
-//                    }
+                    Button("Cancel") {
+                        withAnimation {
+                            self.isShowing.toggle()
+                        }
+                    }
                 }
                 .padding()
                 .background(Color("cardBackground"))
