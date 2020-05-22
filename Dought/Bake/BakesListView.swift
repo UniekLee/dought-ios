@@ -15,7 +15,10 @@ struct BakesListView: View {
     
     private var activeBakeView: some View {
         if let bake = activeBake {
-            return ActiveBakeView(bake: bake).eraseToAnyView()
+            return ActiveBakeView(bake: bake) {
+                self.activeBake = nil
+                self.isShowingActiveBake.toggle()
+            }.eraseToAnyView()
         } else {
             return EmptyView().eraseToAnyView()
         }

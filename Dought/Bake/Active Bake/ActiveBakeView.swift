@@ -12,12 +12,15 @@ struct ActiveBakeView: View {
     @State private var bake: Bake
     @State private var selectedStage: Schedule.Stage
     
-    init(bake: Bake) {
+    var onCancel: () -> Void
+    
+    init(bake: Bake, onCancel: @escaping () -> Void) {
         guard let firstStage = bake.schedule.stages.first else {
             fatalError("Cannot start a bake with no stages")
         }
         _bake = State(initialValue: bake)
         _selectedStage = State(initialValue: firstStage)
+        self.onCancel = onCancel
     }
     
     var body: some View {
@@ -65,12 +68,14 @@ struct ActiveBakeView: View {
             Spacer()
         }
         .navigationBarTitle(Text(bake.schedule.name), displayMode: .inline)
-        .navigationBarHidden(false)
+        .navigationBarItems(trailing: Button("Cancel bake") {
+            self.onCancel()
+        })
     }
 }
 
 struct ActiveBakeView_Previews: PreviewProvider {
     static var previews: some View {
-        ActiveBakeView(bake: .devMock())
+        ActiveBakeView(bake: .devMock()) {}
     }
 }
