@@ -33,6 +33,8 @@
 		3B5EBEB924758298004E0AD4 /* SchedulesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5EBEB824758298004E0AD4 /* SchedulesListView.swift */; };
 		3B97F46E2477CEA20031B160 /* Time in Frameworks */ = {isa = PBXBuildFile; productRef = 3B97F46D2477CEA20031B160 /* Time */; };
 		3B97F4712477F3640031B160 /* Formatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B97F4702477F3640031B160 /* Formatters.swift */; };
+		3B97F47B247BD6730031B160 /* StepsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B97F47A247BD6730031B160 /* StepsList.swift */; };
+		3B97F47D247BD6F00031B160 /* StagesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B97F47C247BD6F00031B160 /* StagesList.swift */; };
 		9E38451F3101DF502C1466CC /* Pods_Dought.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B983C5B39464B94E56001533 /* Pods_Dought.framework */; };
 		C64B0DC72B7B3ED8A978E80D /* Pods_Dought_DoughtUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A799FC69E233D8EBF531C467 /* Pods_Dought_DoughtUITests.framework */; };
 		D9F36CFD4EB2789833903191 /* Pods_DoughtTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18CF76EDD7A73040E3E9DF14 /* Pods_DoughtTests.framework */; };
@@ -102,6 +104,8 @@
 		3B5EBEB524754892004E0AD4 /* DevelopmentMocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevelopmentMocks.swift; sourceTree = "<group>"; };
 		3B5EBEB824758298004E0AD4 /* SchedulesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchedulesListView.swift; sourceTree = "<group>"; };
 		3B97F4702477F3640031B160 /* Formatters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formatters.swift; sourceTree = "<group>"; };
+		3B97F47A247BD6730031B160 /* StepsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepsList.swift; sourceTree = "<group>"; };
+		3B97F47C247BD6F00031B160 /* StagesList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StagesList.swift; sourceTree = "<group>"; };
 		3D7A16001D34920FE4FDE121 /* Pods-DoughtTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DoughtTests.release.xcconfig"; path = "Target Support Files/Pods-DoughtTests/Pods-DoughtTests.release.xcconfig"; sourceTree = "<group>"; };
 		5FAE3D1BAF109F7F160CDEC0 /* Pods-Dought-DoughtUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dought-DoughtUITests.release.xcconfig"; path = "Target Support Files/Pods-Dought-DoughtUITests/Pods-Dought-DoughtUITests.release.xcconfig"; sourceTree = "<group>"; };
 		73DC6B9A2775C8B73ED96783 /* Pods-Dought.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dought.release.xcconfig"; path = "Target Support Files/Pods-Dought/Pods-Dought.release.xcconfig"; sourceTree = "<group>"; };
@@ -267,6 +271,8 @@
 			isa = PBXGroup;
 			children = (
 				3B4ADFF02476B8B400EA1AED /* ActiveBakeView.swift */,
+				3B97F47A247BD6730031B160 /* StepsList.swift */,
+				3B97F47C247BD6F00031B160 /* StagesList.swift */,
 			);
 			path = "Active Bake";
 			sourceTree = "<group>";
@@ -591,6 +597,7 @@
 				3B5EBEB0247527E7004E0AD4 /* StageHeaderRow.swift in Sources */,
 				3B5EBEA82473ECC3004E0AD4 /* ScheduleView.swift in Sources */,
 				3B5EBEB224752843004E0AD4 /* StepRow.swift in Sources */,
+				3B97F47D247BD6F00031B160 /* StagesList.swift in Sources */,
 				3B43295F24532EBA00CE3032 /* AppDelegate.swift in Sources */,
 				3B4ADFF32476F24A00EA1AED /* View_Extensions.swift in Sources */,
 				3B4ADFEC2476B6FE00EA1AED /* NoActiveBakeCard.swift in Sources */,
@@ -601,6 +608,7 @@
 				3B4ADFE424758B3E00EA1AED /* ChooseDayView.swift in Sources */,
 				3B43296124532EBA00CE3032 /* SceneDelegate.swift in Sources */,
 				3B4ADFE9247692D700EA1AED /* BakesListView.swift in Sources */,
+				3B97F47B247BD6730031B160 /* StepsList.swift in Sources */,
 				3B43296324532EBA00CE3032 /* ContentView.swift in Sources */,
 				3B5EBEAD247526C9004E0AD4 /* ScheduleStageCard.swift in Sources */,
 			);
