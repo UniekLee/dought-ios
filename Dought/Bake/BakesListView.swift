@@ -11,13 +11,13 @@ import SwiftUI
 struct BakesListView: View {
     @State private var isShowingActiveBake: Bool = false
     @State private var isShowingScheduleModal: Bool = false
+    @State private var isCancellingActiveBake: Bool = false
     @State private var activeBake: Bake?
     
     private var activeBakeView: some View {
         if let bake = activeBake {
             return ActiveBakeView(bake: bake) {
-                self.activeBake = nil
-                self.isShowingActiveBake.toggle()
+                self.cancelActiveBake()
             }.eraseToAnyView()
         } else {
             return EmptyView().eraseToAnyView()
@@ -33,6 +33,24 @@ struct BakesListView: View {
                 .onTapGesture {
                     self.isShowingActiveBake.toggle()
             }
+            .contextMenu(menuItems: {
+                Button(action: {
+                    self.isCancellingActiveBake.toggle()
+                }) {
+                    HStack {
+                        Text("Cancel bake")
+                        Image(systemName: "nosign")
+                    }
+                }
+            })
+            .alert(isPresented: $isCancellingActiveBake) {
+                Alert(
+                    title: Text("Cancel this bake?"),
+                    message: Text("Are you sure that you want to cancel this bake?"),
+                    primaryButton: .destructive(Text("Cancel bake")) { self.cancelActiveBake() },
+                    secondaryButton: .cancel(Text("Continue bake"))
+                )
+            }
             .eraseToAnyView()
         } else {
             return NoActiveBakeCard()
@@ -45,6 +63,13 @@ struct BakesListView: View {
     
     private var hasActiveBake: Bool {
         return activeBake != nil
+    }
+    
+    private func cancelActiveBake() {
+        withAnimation {
+            activeBake = nil
+            isShowingActiveBake = false
+        }
     }
     
     var body: some View {

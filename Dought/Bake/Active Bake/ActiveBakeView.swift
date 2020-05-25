@@ -11,7 +11,7 @@ import SwiftUI
 struct ActiveBakeView: View {
     @State private var bake: Bake
     @State private var selectedStage: Schedule.Stage
-    
+    @State private var isCancelling: Bool = false
     var onCancel: () -> Void
     
     init(bake: Bake, onCancel: @escaping () -> Void) {
@@ -24,8 +24,8 @@ struct ActiveBakeView: View {
     }
     
     var body: some View {
-        VStack(spacing: 32) {
-            VStack(alignment: .leading) {
+        VStack(spacing: 8) {
+            VStack(alignment: .leading, spacing: 0) {
                 Text("Stages")
                     .font(.title)
                     .fontWeight(.bold)
@@ -67,10 +67,19 @@ struct ActiveBakeView: View {
             .padding()
             Spacer()
         }
-        .navigationBarTitle(Text(bake.schedule.name), displayMode: .inline)
+        .navigationBarTitle(Text(bake.schedule.name),
+                            displayMode: .inline)
         .navigationBarItems(trailing: Button("Cancel bake") {
-            self.onCancel()
+            self.isCancelling.toggle()
         })
+        .alert(isPresented: $isCancelling) {
+            Alert(
+                title: Text("Cancel this bake?"),
+                message: Text("Are you sure that you want to cancel this bake?"),
+                primaryButton: .destructive(Text("Cancel bake")) { self.onCancel() },
+                secondaryButton: .cancel(Text("Continue bake"))
+            )
+        }
     }
 }
 
