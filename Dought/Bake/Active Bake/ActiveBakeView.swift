@@ -30,23 +30,8 @@ struct ActiveBakeView: View {
                     .font(.title)
                     .fontWeight(.bold)
                     .padding()
-                ScrollView(.horizontal, showsIndicators: false) {
-                    HStack {
-                        Spacer()
-                        ForEach(bake.schedule.stages) { stage in
-                                    Button(action: {
-                                        self.selectedStage = stage
-                                    }) {
-                                        Text(stage.kind.title)
-                                            .fontWeight(.semibold)
-                                            .foregroundColor(.white)
-                                            .padding()
-                                            .background(stage.accent.color)
-                                            .cornerRadius(.infinity)
-                                    }
-                        }
-                        Spacer()
-                    }
+                StageList(stages: bake.schedule.stages) { stage in
+                    self.selectedStage = stage
                 }
             }
             VStack(alignment: .leading) {
@@ -56,13 +41,7 @@ struct ActiveBakeView: View {
                 Text(bake.date(of: selectedStage))
                     .font(.subheadline)
                     .foregroundColor(.secondary)
-                List {
-                    ForEach(selectedStage.steps) { step in
-                        // TODO: Calculate the date!
-                        StepRow(start: step.startTime,
-                                name: step.name)
-                    }
-                }
+                StepsList(steps: $selectedStage.steps)
             }
             .padding()
             Spacer()
@@ -79,6 +58,45 @@ struct ActiveBakeView: View {
                 primaryButton: .destructive(Text("Cancel bake")) { self.onCancel() },
                 secondaryButton: .cancel(Text("Continue bake"))
             )
+        }
+    }
+}
+
+struct StageList: View {
+    let stages: [Schedule.Stage]
+    let onStageSelect: (Schedule.Stage) -> Void
+    
+    var body: some View {
+        ScrollView(.horizontal, showsIndicators: false) {
+            HStack {
+                Spacer()
+                ForEach(stages) { stage in
+                    Button(action: {
+                        self.onStageSelect(stage)
+                    }) {
+                        Text(stage.kind.title)
+                            .fontWeight(.semibold)
+                            .foregroundColor(.white)
+                            .padding()
+                            .background(stage.accent.color)
+                            .cornerRadius(.infinity)
+                    }
+                }
+                Spacer()
+            }
+        }
+    }
+}
+
+struct StepsList: View {
+    @Binding var steps: [Schedule.Stage.Step]
+    
+    var body: some View {
+        List {
+            ForEach(steps) { step in
+                StepRow(start: step.startTime,
+                        name: step.name)
+            }
         }
     }
 }

@@ -44,6 +44,7 @@ extension Schedule.Stage {
     
     struct Step: Identifiable, Codable, Hashable {
         let id: UUID = UUID()
+        var isComplete: Bool = false
         let name: String
         var startTime: Date
     }

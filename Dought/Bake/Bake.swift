@@ -20,7 +20,7 @@ struct Bake {
     }
 }
 
-extension Schedule {
+fileprivate extension Schedule {
     var start: Date {
         return stages.first?.steps.first?.startTime ?? Date()
     }
