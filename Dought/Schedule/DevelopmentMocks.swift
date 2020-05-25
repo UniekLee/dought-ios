@@ -47,7 +47,7 @@ extension Schedule.Stage {
             Schedule.Stage.init(kind: .levainBuild,
                                 accent: .blue,
                                 steps: [
-                                    Step(name: "Add levain", startTime: .at("2020-05-22T08:00:00Z")),
+                                    Step(name: "Prepare levain", startTime: .at("2020-05-22T07:00:00Z")),
                                     Step(name: "Autolyse", startTime: .at("2020-05-22T10:00:00Z")),
             ]),
             Schedule.Stage.init(kind: .mixAndBulkFerment,
