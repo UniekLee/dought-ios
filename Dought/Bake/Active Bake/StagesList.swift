@@ -24,7 +24,7 @@ struct StagesList: View {
                         }
                     }) {
                         Text(stage.kind.title)
-                            .fontWeight(.semibold)
+                            .fontWeight(self.isSelected(stage: stage) ? .bold : .regular)
                             .foregroundColor(.white)
                             .padding()
                             .background(stage.accent.color)
