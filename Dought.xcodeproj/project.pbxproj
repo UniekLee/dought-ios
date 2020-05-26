@@ -35,6 +35,8 @@
 		3B97F4712477F3640031B160 /* Formatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B97F4702477F3640031B160 /* Formatters.swift */; };
 		3B97F47B247BD6730031B160 /* StepsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B97F47A247BD6730031B160 /* StepsList.swift */; };
 		3B97F47D247BD6F00031B160 /* StagesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B97F47C247BD6F00031B160 /* StagesList.swift */; };
+		3B97F480247D637E0031B160 /* Tagged in Frameworks */ = {isa = PBXBuildFile; productRef = 3B97F47F247D637E0031B160 /* Tagged */; };
+		3B97F483247D64BD0031B160 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 3B97F482247D64BD0031B160 /* ComposableArchitecture */; };
 		9E38451F3101DF502C1466CC /* Pods_Dought.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B983C5B39464B94E56001533 /* Pods_Dought.framework */; };
 		C64B0DC72B7B3ED8A978E80D /* Pods_Dought_DoughtUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A799FC69E233D8EBF531C467 /* Pods_Dought_DoughtUITests.framework */; };
 		D9F36CFD4EB2789833903191 /* Pods_DoughtTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18CF76EDD7A73040E3E9DF14 /* Pods_DoughtTests.framework */; };
@@ -120,7 +122,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B97F480247D637E0031B160 /* Tagged in Frameworks */,
 				9E38451F3101DF502C1466CC /* Pods_Dought.framework in Frameworks */,
+				3B97F483247D64BD0031B160 /* ComposableArchitecture in Frameworks */,
 				3B97F46E2477CEA20031B160 /* Time in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -157,6 +161,7 @@
 		3B33993C245B129400B472C0 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				3BAC417224758AF100CBC215 /* Choose Day Modal */,
 				3B97F46F2477F34C0031B160 /* Foundation */,
 				3B33993F245B15BD00B472C0 /* Views */,
 				3B33993D245B12A200B472C0 /* AppDefaults.swift */,
@@ -206,9 +211,8 @@
 		3B43295D24532EBA00CE3032 /* Dought */ = {
 			isa = PBXGroup;
 			children = (
-				3B4ADFE7247692C900EA1AED /* Bake */,
-				3B5EBEB724758287004E0AD4 /* Schedules List */,
-				3B5EBEA62473EC93004E0AD4 /* Schedule */,
+				3B4ADFE7247692C900EA1AED /* Bakes */,
+				3B97F484247D66F10031B160 /* Schedules */,
 				3B33993C245B129400B472C0 /* Core */,
 				3B43295E24532EBA00CE3032 /* AppDelegate.swift */,
 				3B43296024532EBA00CE3032 /* SceneDelegate.swift */,
@@ -248,15 +252,15 @@
 			path = DoughtUITests;
 			sourceTree = "<group>";
 		};
-		3B4ADFE7247692C900EA1AED /* Bake */ = {
+		3B4ADFE7247692C900EA1AED /* Bakes */ = {
 			isa = PBXGroup;
 			children = (
-				3B4ADFEF2476B8A700EA1AED /* Active Bake */,
-				3B4ADFEA2476B6EA00EA1AED /* No Active Bake */,
 				3B4ADFE8247692D700EA1AED /* BakesListView.swift */,
 				3B4ADFED2476B7EC00EA1AED /* Bake.swift */,
+				3B4ADFEF2476B8A700EA1AED /* Active Bake */,
+				3B4ADFEA2476B6EA00EA1AED /* No Active Bake */,
 			);
-			path = Bake;
+			path = Bakes;
 			sourceTree = "<group>";
 		};
 		3B4ADFEA2476B6EA00EA1AED /* No Active Bake */ = {
@@ -280,10 +284,9 @@
 		3B5EBEA62473EC93004E0AD4 /* Schedule */ = {
 			isa = PBXGroup;
 			children = (
-				3BAC417224758AF100CBC215 /* Start Bake */,
+				3B5EBEA924752698004E0AD4 /* Stage */,
 				3B5EBEB324754473004E0AD4 /* Schedule.swift */,
 				3B5EBEA72473ECC3004E0AD4 /* ScheduleView.swift */,
-				3B5EBEA924752698004E0AD4 /* Stage */,
 				3B5EBEB524754892004E0AD4 /* DevelopmentMocks.swift */,
 			);
 			path = Schedule;
@@ -323,12 +326,21 @@
 			path = Foundation;
 			sourceTree = "<group>";
 		};
-		3BAC417224758AF100CBC215 /* Start Bake */ = {
+		3B97F484247D66F10031B160 /* Schedules */ = {
+			isa = PBXGroup;
+			children = (
+				3B5EBEB724758287004E0AD4 /* Schedules List */,
+				3B5EBEA62473EC93004E0AD4 /* Schedule */,
+			);
+			path = Schedules;
+			sourceTree = "<group>";
+		};
+		3BAC417224758AF100CBC215 /* Choose Day Modal */ = {
 			isa = PBXGroup;
 			children = (
 				3B4ADFE324758B3E00EA1AED /* ChooseDayView.swift */,
 			);
-			path = "Start Bake";
+			path = "Choose Day Modal";
 			sourceTree = "<group>";
 		};
 		ADC5E3DEC77BAEBFC3789672 /* Pods */ = {
@@ -365,6 +377,8 @@
 			name = Dought;
 			packageProductDependencies = (
 				3B97F46D2477CEA20031B160 /* Time */,
+				3B97F47F247D637E0031B160 /* Tagged */,
+				3B97F482247D64BD0031B160 /* ComposableArchitecture */,
 			);
 			productName = Dought;
 			productReference = 3B43295B24532EBA00CE3032 /* Dought.app */;
@@ -443,6 +457,8 @@
 			mainGroup = 3B43295224532EBA00CE3032;
 			packageReferences = (
 				3B97F46C2477CEA20031B160 /* XCRemoteSwiftPackageReference "time" */,
+				3B97F47E247D637E0031B160 /* XCRemoteSwiftPackageReference "swift-tagged" */,
+				3B97F481247D64BD0031B160 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
 			);
 			productRefGroup = 3B43295C24532EBA00CE3032 /* Products */;
 			projectDirPath = "";
@@ -956,6 +972,22 @@
 				minimumVersion = 0.9.1;
 			};
 		};
+		3B97F47E247D637E0031B160 /* XCRemoteSwiftPackageReference "swift-tagged" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-tagged.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.5.0;
+			};
+		};
+		3B97F481247D64BD0031B160 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.2.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -963,6 +995,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 3B97F46C2477CEA20031B160 /* XCRemoteSwiftPackageReference "time" */;
 			productName = Time;
+		};
+		3B97F47F247D637E0031B160 /* Tagged */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3B97F47E247D637E0031B160 /* XCRemoteSwiftPackageReference "swift-tagged" */;
+			productName = Tagged;
+		};
+		3B97F482247D64BD0031B160 /* ComposableArchitecture */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3B97F481247D64BD0031B160 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
+			productName = ComposableArchitecture;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
