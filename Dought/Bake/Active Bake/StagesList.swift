@@ -7,20 +7,30 @@
 //
 
 import SwiftUI
+import Combine
+
+class StagesList_ViewModel: ObservableObject {
+    let stages: [Schedule.Stage]
+    @Published var selectedStage: Schedule.Stage
+    
+    init(stages: [Schedule.Stage], selected: Schedule.Stage) {
+        self.stages = stages
+        self.selectedStage = selected
+    }
+}
 
 struct StagesList: View {
-    let stages: [Schedule.Stage]
-    @Binding var selectedStage: Schedule.Stage
+    @ObservedObject var vm: StagesList_ViewModel
     
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack(alignment: .top) {
                 Spacer()
-                ForEach(stages) { stage in
+                ForEach(vm.stages) { stage in
 //                    VStack(spacing: 4) {
                     Button(action: {
                         withAnimation {
-                            self.selectedStage = stage
+                            self.vm.selectedStage = stage
                         }
                     }) {
                         Text(stage.kind.title)
@@ -49,15 +59,17 @@ struct StagesList: View {
     }
     
     private func isSelected(stage: Schedule.Stage) -> Bool {
-        return stage == selectedStage
+        return stage == vm.selectedStage
     }
 }
 
 struct StagesList_Previews: PreviewProvider {
     static var previews: some View {
         let stages = Bake.devMock().schedule.stages
-        return StagesList(stages: stages,
-                selectedStage: .constant(stages[1]))
+        let vm = StagesList_ViewModel(stages: stages, selected: stages[1])
+        return StagesList(vm: vm)
+//            stages: stages,
+//                selectedStage: .constant(stages[1]))
     }
 }
 

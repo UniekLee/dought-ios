@@ -48,6 +48,12 @@ extension Schedule.Stage {
         let name: String
         var startTime: Date
     }
+    
+    static func empty() -> Schedule.Stage {
+        return Schedule.Stage(kind: .bake,
+                              accent: .clear,
+                              steps: [])
+    }
 }
 
 extension Schedule {

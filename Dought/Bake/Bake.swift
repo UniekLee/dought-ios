@@ -57,4 +57,15 @@ extension Bake {
         
         return daysDuration
     }
+    
+    var activeStage: Schedule.Stage {
+        guard let firstStage = schedule.stages.first else {
+            fatalError("Cannot start a bake with no stages")
+        }
+        
+        return schedule.stages.first(where: {
+            // first stage that contains an incomplete steps is the active stage
+            $0.steps.contains(where: { !$0.isComplete })
+        }) ?? firstStage
+    }
 }

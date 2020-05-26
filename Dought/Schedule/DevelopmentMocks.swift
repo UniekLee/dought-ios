@@ -47,13 +47,13 @@ extension Schedule.Stage {
             Schedule.Stage.init(kind: .levainBuild,
                                 accent: .blue,
                                 steps: [
-                                    Step(name: "Prepare levain", startTime: .at("2020-05-22T07:00:00Z")),
-                                    Step(name: "Autolyse", startTime: .at("2020-05-22T10:00:00Z")),
+                                    Step(isComplete: true, name: "Prepare levain", startTime: .at("2020-05-22T07:00:00Z")),
+                                    Step(isComplete: true, name: "Autolyse", startTime: .at("2020-05-22T10:00:00Z")),
             ]),
             Schedule.Stage.init(kind: .mixAndBulkFerment,
                                 accent: .green,
                                 steps: [
-                                    Step(name: "Mix", startTime: .at("2020-05-22T11:00:00Z")),
+                                    Step(isComplete: true, name: "Mix", startTime: .at("2020-05-22T11:00:00Z")),
                                     Step(name: "Stretch & fold #1", startTime: .at("2020-05-22T11:30:00Z")),
                                     Step(name: "Stretch & fold #2", startTime: .at("2020-05-22T12:00:00Z")),
                                     Step(name: "Stretch & fold #3", startTime: .at("2020-05-22T12:30:00Z")),
