@@ -7,12 +7,16 @@
 //
 
 import Foundation
+import Tagged
 
-struct Bake {
+struct Bake: Identifiable, Codable, Hashable, Equatable {
     var start: Date {
         return schedule.start
     }
     
+    typealias ID = Tagged<Bake, String>
+    
+    let id: ID = Bake.ID(rawValue: UUID().uuidString)
     let schedule: Schedule
     
     init(schedule: Schedule, start: Date) {
