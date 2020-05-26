@@ -75,7 +75,7 @@ class StepsList_ViewModel: ObservableObject {
 }
 
 struct StepsList: View {
-    let vm: StepsList_ViewModel
+    @ObservedObject var vm: StepsList_ViewModel
     
     var body: some View {
         List {

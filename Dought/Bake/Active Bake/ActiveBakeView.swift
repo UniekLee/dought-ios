@@ -33,6 +33,11 @@ class ActiveBakeView_ViewModel: ObservableObject {
             .assign(to: \.selectedStage, on: self)
             .store(in: &cancellables)
         
+        stepsList_VM.$steps
+            .map(\.self)
+            .assign(to: \.selectedStage.steps, on: self)
+            .store(in: &cancellables)
+        
         $selectedStage
             .map({ selected in
                 StepsList_ViewModel(isActiveStage: selected == bake.activeStage,
