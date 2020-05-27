@@ -8,6 +8,7 @@
 
 import SwiftUI
 import Combine
+import ComposableArchitecture
 
 class ActiveBakeView_ViewModel: ObservableObject {
     @Published var bake: Bake
@@ -59,58 +60,69 @@ class ActiveBakeView_ViewModel: ObservableObject {
     }
 }
 
+extension AppState {
+    struct ActiveBakeState: Equatable {}
+}
+
+extension AppAction {
+    enum ActiveBakeAction {}
+}
+
 struct ActiveBakeView: View {
-    @ObservedObject private var vm: ActiveBakeView_ViewModel
+    let store: Store<AppState.ActiveBakeState, AppAction.ActiveBakeAction>
     
-    @State private var isCancelling: Bool = false
-    var onCancel: () -> Void
+//    @ObservedObject private var vm: ActiveBakeView_ViewModel
+//
+//    @State private var isCancelling: Bool = false
+//    var onCancel: () -> Void
     
-    init(bake: Bake, onCancel: @escaping () -> Void) {
-        self.vm = ActiveBakeView_ViewModel(bake: bake)
-        self.onCancel = onCancel
-    }
+//    init(bake: Bake, onCancel: @escaping () -> Void) {
+//        self.vm = ActiveBakeView_ViewModel(bake: bake)
+//        self.onCancel = onCancel
+//    }
     
     var body: some View {
-        VStack(spacing: 8) {
-            VStack(alignment: .leading, spacing: 0) {
-                Text("Stages")
-                    .font(.title)
-                    .fontWeight(.bold)
-                    .padding()
-                StagesList(vm: vm.stagesList_VM)
-            }
-            VStack(alignment: .leading, spacing: 0) {
-                VStack(alignment: .leading) {
-                    Text(vm.stepsTitle)
-                        .font(.title)
-                        .fontWeight(.bold)
-                    Text(vm.bake.date(of: vm.selectedStage))
-                        .font(.subheadline)
-                        .foregroundColor(.secondary)
-                }
-                .padding()
-                StepsList(vm: vm.stepsList_VM)
-            }
-            Spacer()
-        }
-        .navigationBarTitle(Text(vm.bake.schedule.name),
-                            displayMode: .inline)
-        .navigationBarItems(trailing: Button("Cancel bake") {
-            self.isCancelling.toggle()
-        })
-        .alert(isPresented: $isCancelling) {
-            Alert(
-                title: Text("Cancel this bake?"),
-                message: Text("Are you sure that you want to cancel this bake?"),
-                primaryButton: .destructive(Text("Cancel bake")) { self.onCancel() },
-                secondaryButton: .cancel(Text("Continue bake"))
-            )
-        }
+        Text("Welcome!")
+//        VStack(spacing: 8) {
+//            VStack(alignment: .leading, spacing: 0) {
+//                Text("Stages")
+//                    .font(.title)
+//                    .fontWeight(.bold)
+//                    .padding()
+//                StagesList(vm: vm.stagesList_VM)
+//            }
+//            VStack(alignment: .leading, spacing: 0) {
+//                VStack(alignment: .leading) {
+//                    Text(vm.stepsTitle)
+//                        .font(.title)
+//                        .fontWeight(.bold)
+//                    Text(vm.bake.date(of: vm.selectedStage))
+//                        .font(.subheadline)
+//                        .foregroundColor(.secondary)
+//                }
+//                .padding()
+//                StepsList(vm: vm.stepsList_VM)
+//            }
+//            Spacer()
+//        }
+//        .navigationBarTitle(Text(vm.bake.schedule.name),
+//                            displayMode: .inline)
+//        .navigationBarItems(trailing: Button("Cancel bake") {
+//            self.isCancelling.toggle()
+//        })
+//        .alert(isPresented: $isCancelling) {
+//            Alert(
+//                title: Text("Cancel this bake?"),
+//                message: Text("Are you sure that you want to cancel this bake?"),
+//                primaryButton: .destructive(Text("Cancel bake")) { self.onCancel() },
+//                secondaryButton: .cancel(Text("Continue bake"))
+//            )
+//        }
     }
 }
 
-struct ActiveBakeView_Previews: PreviewProvider {
-    static var previews: some View {
-        ActiveBakeView(bake: .devMock()) {}
-    }
-}
+//struct ActiveBakeView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ActiveBakeView(bake: .devMock()) {}
+//    }
+//}

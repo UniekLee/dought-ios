@@ -37,6 +37,8 @@
 		3B97F47D247BD6F00031B160 /* StagesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B97F47C247BD6F00031B160 /* StagesList.swift */; };
 		3B97F480247D637E0031B160 /* Tagged in Frameworks */ = {isa = PBXBuildFile; productRef = 3B97F47F247D637E0031B160 /* Tagged */; };
 		3B97F483247D64BD0031B160 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 3B97F482247D64BD0031B160 /* ComposableArchitecture */; };
+		3B97F486247D67B60031B160 /* AppDomainTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B97F485247D67B60031B160 /* AppDomainTypes.swift */; };
+		3B97F488247D6FCE0031B160 /* AppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B97F487247D6FCE0031B160 /* AppView.swift */; };
 		9E38451F3101DF502C1466CC /* Pods_Dought.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B983C5B39464B94E56001533 /* Pods_Dought.framework */; };
 		C64B0DC72B7B3ED8A978E80D /* Pods_Dought_DoughtUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A799FC69E233D8EBF531C467 /* Pods_Dought_DoughtUITests.framework */; };
 		D9F36CFD4EB2789833903191 /* Pods_DoughtTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18CF76EDD7A73040E3E9DF14 /* Pods_DoughtTests.framework */; };
@@ -108,6 +110,8 @@
 		3B97F4702477F3640031B160 /* Formatters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formatters.swift; sourceTree = "<group>"; };
 		3B97F47A247BD6730031B160 /* StepsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepsList.swift; sourceTree = "<group>"; };
 		3B97F47C247BD6F00031B160 /* StagesList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StagesList.swift; sourceTree = "<group>"; };
+		3B97F485247D67B60031B160 /* AppDomainTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDomainTypes.swift; sourceTree = "<group>"; };
+		3B97F487247D6FCE0031B160 /* AppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppView.swift; sourceTree = "<group>"; };
 		3D7A16001D34920FE4FDE121 /* Pods-DoughtTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DoughtTests.release.xcconfig"; path = "Target Support Files/Pods-DoughtTests/Pods-DoughtTests.release.xcconfig"; sourceTree = "<group>"; };
 		5FAE3D1BAF109F7F160CDEC0 /* Pods-Dought-DoughtUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dought-DoughtUITests.release.xcconfig"; path = "Target Support Files/Pods-Dought-DoughtUITests/Pods-Dought-DoughtUITests.release.xcconfig"; sourceTree = "<group>"; };
 		73DC6B9A2775C8B73ED96783 /* Pods-Dought.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dought.release.xcconfig"; path = "Target Support Files/Pods-Dought/Pods-Dought.release.xcconfig"; sourceTree = "<group>"; };
@@ -211,6 +215,8 @@
 		3B43295D24532EBA00CE3032 /* Dought */ = {
 			isa = PBXGroup;
 			children = (
+				3B97F485247D67B60031B160 /* AppDomainTypes.swift */,
+				3B97F487247D6FCE0031B160 /* AppView.swift */,
 				3B4ADFE7247692C900EA1AED /* Bakes */,
 				3B97F484247D66F10031B160 /* Schedules */,
 				3B33993C245B129400B472C0 /* Core */,
@@ -610,6 +616,7 @@
 				3B5EBEB924758298004E0AD4 /* SchedulesListView.swift in Sources */,
 				3B4ADFF12476B8B400EA1AED /* ActiveBakeView.swift in Sources */,
 				3B33993E245B12A200B472C0 /* AppDefaults.swift in Sources */,
+				3B97F488247D6FCE0031B160 /* AppView.swift in Sources */,
 				3B5EBEB0247527E7004E0AD4 /* StageHeaderRow.swift in Sources */,
 				3B5EBEA82473ECC3004E0AD4 /* ScheduleView.swift in Sources */,
 				3B5EBEB224752843004E0AD4 /* StepRow.swift in Sources */,
@@ -623,6 +630,7 @@
 				3B97F4712477F3640031B160 /* Formatters.swift in Sources */,
 				3B4ADFE424758B3E00EA1AED /* ChooseDayView.swift in Sources */,
 				3B43296124532EBA00CE3032 /* SceneDelegate.swift in Sources */,
+				3B97F486247D67B60031B160 /* AppDomainTypes.swift in Sources */,
 				3B4ADFE9247692D700EA1AED /* BakesListView.swift in Sources */,
 				3B97F47B247BD6730031B160 /* StepsList.swift in Sources */,
 				3B43296324532EBA00CE3032 /* ContentView.swift in Sources */,

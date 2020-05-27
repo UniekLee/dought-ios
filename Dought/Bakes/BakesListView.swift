@@ -7,124 +7,175 @@
 //
 
 import SwiftUI
+import ComposableArchitecture
+
+extension AppState {
+    struct BakesListState: Equatable {
+        var activeBake: ActiveBakeState?
+        var isShowingActiveBake: Bool = false
+        var isShowingScheduleModal: Bool = false
+        var isCancellingActiveBake: Bool = false
+    }
+}
+
+extension AppAction {    
+    enum BakesListAction {
+        case startBake(schedule: Schedule, startDate: Date)
+        case setActiveBake(isShown: Bool)
+        case chooseSchedule(isShown: Bool)
+        case activeBake(ActiveBakeAction)
+        case bakeCancelled
+    }
+}
+
+let bakesListReducer: Reducer<AppState.BakesListState, AppAction.BakesListAction, Void> = Reducer { state, action, _ in
+    switch action {
+    case .startBake(let schedule, let startDate):
+        _ = Bake(schedule: schedule, start: startDate)
+        state.activeBake = AppState.ActiveBakeState()
+        return .none
+    case .setActiveBake(let isShown):
+        state.isShowingActiveBake = isShown
+        return .none
+    case .chooseSchedule(let isShown):
+        state.isShowingScheduleModal = isShown
+        return .none
+    case .bakeCancelled:
+        state.activeBake = nil
+        return .none
+    }
+}
 
 struct BakesListView: View {
-    @State private var isShowingActiveBake: Bool = false
-    @State private var isShowingScheduleModal: Bool = false
-    @State private var isCancellingActiveBake: Bool = false
-    @State private var activeBake: Bake?
-    
-    private var activeBakeView: some View {
-        if let bake = activeBake {
-            return ActiveBakeView(bake: bake) {
-                self.cancelActiveBake()
-            }.eraseToAnyView()
-        } else {
-            return EmptyView().eraseToAnyView()
-        }
-    }
-    
-    private var activeBakeCard: some View {
-        if let bake = activeBake {
-            return ActiveBakeCard(
-                activeBake: Binding(get: { bake },
-                                    set: { self.activeBake = $0 })
-            )
-                .onTapGesture {
-                    self.isShowingActiveBake.toggle()
-            }
-            .contextMenu(menuItems: {
-                Button(action: {
-                    self.isCancellingActiveBake.toggle()
-                }) {
-                    HStack {
-                        Text("Cancel bake")
-                        Image(systemName: "nosign")
-                    }
-                }
-            })
-            .alert(isPresented: $isCancellingActiveBake) {
-                Alert(
-                    title: Text("Cancel this bake?"),
-                    message: Text("Are you sure that you want to cancel this bake?"),
-                    primaryButton: .destructive(Text("Cancel bake")) { self.cancelActiveBake() },
-                    secondaryButton: .cancel(Text("Continue bake"))
-                )
-            }
-            .eraseToAnyView()
-        } else {
-            return NoActiveBakeCard()
-                .onTapGesture {
-                    self.isShowingScheduleModal.toggle()
-            }
-            .eraseToAnyView()
-        }
-    }
-    
-    private var hasActiveBake: Bool {
-        return activeBake != nil
-    }
-    
-    private func cancelActiveBake() {
-        withAnimation {
-            activeBake = nil
-            isShowingActiveBake = false
-        }
-    }
+    let store: Store<AppState.BakesListState, AppAction.BakesListAction>
     
     var body: some View {
-        NavigationView {
-            VStack(spacing: 16) {
-                NavigationLink(destination: activeBakeView,
-                               isActive: $isShowingActiveBake) { EmptyView() }
-                
-                HStack {
-                    Text("Active bake")
-                        .font(.title)
-                        .fontWeight(.bold)
-                    Spacer()
-                }
-                
-                activeBakeCard
-                
-                HStack {
-                    VStack(alignment: .leading) {
-                        Text("Previous bakes")
+        WithViewStore(self.store) { viewStore in
+            NavigationView {
+                VStack(spacing: 16) {
+                    NavigationLink(
+                        destination: IfLetStore(
+                            self.store.scope(state: { $0.activeBake },
+                                             action: AppAction.BakesListAction.activeBake),
+                            then: ActiveBakeView.init(store:)
+                        ),
+                        isActive: viewStore.binding(
+                            get: { $0.isShowingActiveBake },
+                            send: AppAction.BakesListAction.setActiveBake(isShown:)
+                        )
+                    ) { EmptyView() }
+                    
+                    HStack {
+                        Text("Active bake")
                             .font(.title)
                             .fontWeight(.bold)
-                        Text("Coming in future")
-                            .font(.subheadline)
-                            .foregroundColor(.secondary)
+                        Spacer()
                     }
+                    
+//                    IfLetStore(
+//                        self.store.scope(state: { $0.activeBake },
+//                                         action: AppAction.BakesListAction.activeBake),
+//                        then: ActiveBakeView.init(store:),
+//                        else: EmptyView()
+//                    )
+//
+//                    activeBakeCard
+                    Text("Coming")
+                    HStack {
+                        VStack(alignment: .leading) {
+                            Text("Previous bakes")
+                                .font(.title)
+                                .fontWeight(.bold)
+                            Text("Coming in future")
+                                .font(.subheadline)
+                                .foregroundColor(.secondary)
+                        }
+                        Spacer()
+                    }
+                    //.hidden()
+                    
                     Spacer()
                 }
-                //.hidden()
-                
-                Spacer()
-            }
-            .padding()
-            .navigationBarTitle(
-                Text("Home")
-                    .fontWeight(.black)
-                    .foregroundColor(.accentColor),
-                displayMode: .inline
-            )
-            .sheet(isPresented: $isShowingScheduleModal) {
-                SchedulesListView(isShowing: self.$isShowingScheduleModal) { bake in
-                    // TODO: What do we do with the bake?
-                    self.activeBake = bake
-                    self.isShowingActiveBake.toggle()
-                    self.isShowingScheduleModal.toggle()
+                .padding()
+                .navigationBarTitle(
+                    Text("Home")
+                        .fontWeight(.black)
+                        .foregroundColor(.accentColor),
+                    displayMode: .inline
+                )
+                    .sheet(
+                        isPresented: viewStore.binding(
+                            get: { $0.isShowingScheduleModal },
+                            send: AppAction.BakesListAction.chooseSchedule
+                        )
+                    ) {
+                        EmptyView()
+//                        SchedulesListView(isShowing: self.$isShowingScheduleModal) { bake in
+//                            // TODO: What do we do with the bake?
+//                            self.activeBake = bake
+//                            self.isShowingActiveBake.toggle()
+//                            self.isShowingScheduleModal.toggle()
+//                        }
+//                        .modifier(AppDefaults())
                 }
-                    .modifier(AppDefaults())
             }
         }
     }
+    
+//    private var activeBakeCard: some View {
+//        if let bake = activeBake {
+//            return ActiveBakeCard(
+//                activeBake: Binding(get: { bake },
+//                                    set: { self.activeBake = $0 })
+//            )
+//                .onTapGesture {
+//                    self.isShowingActiveBake.toggle()
+//            }
+//            .contextMenu(menuItems: {
+//                Button(action: {
+//                    self.isCancellingActiveBake.toggle()
+//                }) {
+//                    HStack {
+//                        Text("Cancel bake")
+//                        Image(systemName: "nosign")
+//                    }
+//                }
+//            })
+//            .alert(isPresented: $isCancellingActiveBake) {
+//                Alert(
+//                    title: Text("Cancel this bake?"),
+//                    message: Text("Are you sure that you want to cancel this bake?"),
+//                    primaryButton: .destructive(Text("Cancel bake")) { self.cancelActiveBake() },
+//                    secondaryButton: .cancel(Text("Continue bake"))
+//                )
+//            }
+//            .eraseToAnyView()
+//        } else {
+//            return NoActiveBakeCard()
+//                .onTapGesture {
+//                    self.isShowingScheduleModal.toggle()
+//            }
+//            .eraseToAnyView()
+//        }
+//    }
+//
+//    private func cancelActiveBake() {
+//        withAnimation {
+//            activeBake = nil
+//            isShowingActiveBake = false
+//        }
+//    }
 }
 
 struct BakesView_Previews: PreviewProvider {
     static var previews: some View {
-        BakesListView()
+        BakesListView(
+            store: Store(
+                initialState: AppState.BakesListState(),
+                reducer: bakesListReducer,
+                environment: ()
+            )
+        )
     }
 }
 
