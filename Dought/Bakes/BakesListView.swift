@@ -50,8 +50,8 @@ struct BakesListView: View {
     let store: Store<AppState.BakesListState, AppAction.BakesListAction>
     
     var body: some View {
-        WithViewStore(self.store) { viewStore in
-            NavigationView {
+        NavigationView {
+            WithViewStore(self.store) { viewStore in
                 VStack(spacing: 16) {
                     NavigationLink(
                         destination: IfLetStore(
@@ -80,7 +80,10 @@ struct BakesListView: View {
 //                    )
 //
 //                    activeBakeCard
-                    Text("Coming")
+                    NoActiveBakeCard()
+                        .onTapGesture {
+                            viewStore.send(AppAction.BakesListAction.chooseSchedule(isShown: true))
+                    }
                     HStack {
                         VStack(alignment: .leading) {
                             Text("Previous bakes")

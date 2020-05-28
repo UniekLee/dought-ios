@@ -8,6 +8,7 @@
 
 import Foundation
 import SwiftUI
+import ComposableArchitecture
 
 struct Schedule: Identifiable, Codable, Hashable, Equatable {
     
