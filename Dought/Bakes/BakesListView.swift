@@ -12,10 +12,7 @@ import ComposableArchitecture
 extension AppState {
     struct BakesListState: Equatable {
         var activeBake: ActiveBakeState?
-        var schedulesList: SchedulesListState = SchedulesListState(
-            schedules: Schedule.devMockList(),
-            isPresenting: false
-        )
+        var schedulesList: SchedulesListState?
         var isShowingActiveBake: Bool = false
         var isShowingScheduleModal: Bool = false
         var isCancellingActiveBake: Bool = false
@@ -57,10 +54,10 @@ let bakesListReducer = Reducer<AppState.BakesListState, AppAction.BakesListActio
                 return .none
             }
         },
-        schedulesListReducer.pullback(
+        schedulesListReducer.optional.pullback(
             state: \AppState.BakesListState.schedulesList,
             action: /AppAction.BakesListAction.schedulesList,
-            environment: { _ in }
+            environment: ({ _ in })
         )
 )
 
@@ -113,7 +110,6 @@ struct BakesListView: View {
                         }
                         Spacer()
                     }
-                    //.hidden()
                     
                     Spacer()
                 }
@@ -124,22 +120,23 @@ struct BakesListView: View {
                         .foregroundColor(.accentColor),
                     displayMode: .inline
                 )
-                    .sheet(
-                        isPresented: viewStore.binding(
-                            get: \.isShowingScheduleModal,
-                            send: AppAction.BakesListAction.chooseSchedule
+                .sheet(
+                    isPresented: viewStore.binding(
+                        get: \.isShowingScheduleModal,
+                        send: AppAction.BakesListAction.chooseSchedule
+                    )
+                ) {
+                    SchedulesListView(
+                        store: Store(
+                            initialState: AppState.SchedulesListState(
+                                schedules: Schedule.devMockList(),
+                                isPresenting: viewStore.state.isShowingScheduleModal
+                            ),
+                            reducer: schedulesListReducer,
+                            environment: ()
                         )
-                    ) {
-                        SchedulesListView(
-                            store: Store(
-                                initialState: AppState.SchedulesListState(
-                                    schedules: Schedule.devMockList(),
-                                    isPresenting: viewStore.state.isShowingScheduleModal
-                                ),
-                                reducer: schedulesListReducer,
-                                environment: ()
-                            )
-                        ).modifier(AppDefaults())
+                    )
+                    .modifier(AppDefaults())
                 }
             }
         }
