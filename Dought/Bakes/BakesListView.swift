@@ -12,6 +12,10 @@ import ComposableArchitecture
 extension AppState {
     struct BakesListState: Equatable {
         var activeBake: ActiveBakeState?
+        var schedulesList: SchedulesListState = SchedulesListState(
+            schedules: Schedule.devMockList(),
+            isPresenting: false
+        )
         var isShowingActiveBake: Bool = false
         var isShowingScheduleModal: Bool = false
         var isCancellingActiveBake: Bool = false
@@ -24,27 +28,41 @@ extension AppAction {
         case setActiveBake(isShown: Bool)
         case chooseSchedule(isShown: Bool)
         case activeBake(ActiveBakeAction)
+        case schedulesList(AppAction.SchedulesListAction)
         case bakeCancelled
     }
 }
 
-let bakesListReducer: Reducer<AppState.BakesListState, AppAction.BakesListAction, Void> = Reducer { state, action, _ in
-    switch action {
-    case .startBake(let schedule, let startDate):
-        _ = Bake(schedule: schedule, start: startDate)
-        state.activeBake = AppState.ActiveBakeState()
-        return .none
-    case .setActiveBake(let isShown):
-        state.isShowingActiveBake = isShown
-        return .none
-    case .chooseSchedule(let isShown):
-        state.isShowingScheduleModal = isShown
-        return .none
-    case .bakeCancelled:
-        state.activeBake = nil
-        return .none
-    }
-}
+let bakesListReducer = Reducer<AppState.BakesListState, AppAction.BakesListAction, Void>
+    .combine(
+        Reducer { state, action, _ in
+            switch action {
+            case .startBake(let schedule, let startDate):
+                _ = Bake(schedule: schedule, start: startDate)
+                state.activeBake = AppState.ActiveBakeState()
+                return .none
+            case .setActiveBake(let isShown):
+                state.isShowingActiveBake = isShown
+                return .none
+            case .chooseSchedule(let isShown):
+                state.isShowingScheduleModal = isShown
+                return .none
+            case .schedulesList(let action):
+                if case .dismissSelf = action {
+                    state.isShowingScheduleModal = false
+                }
+                return .none
+            case .bakeCancelled:
+                state.activeBake = nil
+                return .none
+            }
+        },
+        schedulesListReducer.pullback(
+            state: \AppState.BakesListState.schedulesList,
+            action: /AppAction.BakesListAction.schedulesList,
+            environment: { _ in }
+        )
+)
 
 struct BakesListView: View {
     let store: Store<AppState.BakesListState, AppAction.BakesListAction>
@@ -55,12 +73,12 @@ struct BakesListView: View {
                 VStack(spacing: 16) {
                     NavigationLink(
                         destination: IfLetStore(
-                            self.store.scope(state: { $0.activeBake },
+                            self.store.scope(state: \.activeBake,
                                              action: AppAction.BakesListAction.activeBake),
                             then: ActiveBakeView.init(store:)
                         ),
                         isActive: viewStore.binding(
-                            get: { $0.isShowingActiveBake },
+                            get: \.isShowingActiveBake,
                             send: AppAction.BakesListAction.setActiveBake(isShown:)
                         )
                     ) { EmptyView() }
@@ -73,7 +91,7 @@ struct BakesListView: View {
                     }
                     
 //                    IfLetStore(
-//                        self.store.scope(state: { $0.activeBake },
+//                        self.store.scope(state: \.activeBake,
 //                                         action: AppAction.BakesListAction.activeBake),
 //                        then: ActiveBakeView.init(store:),
 //                        else: EmptyView()
@@ -108,18 +126,20 @@ struct BakesListView: View {
                 )
                     .sheet(
                         isPresented: viewStore.binding(
-                            get: { $0.isShowingScheduleModal },
+                            get: \.isShowingScheduleModal,
                             send: AppAction.BakesListAction.chooseSchedule
                         )
                     ) {
-                        EmptyView()
-//                        SchedulesListView(isShowing: self.$isShowingScheduleModal) { bake in
-//                            // TODO: What do we do with the bake?
-//                            self.activeBake = bake
-//                            self.isShowingActiveBake.toggle()
-//                            self.isShowingScheduleModal.toggle()
-//                        }
-//                        .modifier(AppDefaults())
+                        SchedulesListView(
+                            store: Store(
+                                initialState: AppState.SchedulesListState(
+                                    schedules: Schedule.devMockList(),
+                                    isPresenting: viewStore.state.isShowingScheduleModal
+                                ),
+                                reducer: schedulesListReducer,
+                                environment: ()
+                            )
+                        ).modifier(AppDefaults())
                 }
             }
         }

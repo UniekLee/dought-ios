@@ -12,7 +12,7 @@ import ComposableArchitecture
 extension AppState {
     struct ScheduleState: Equatable {
         var schedule: Schedule
-        var isChooseBakeStartDateShowing: Bool
+        var isShowingChooseBakeStartDate: Bool
     }
 }
 
@@ -22,10 +22,10 @@ extension AppAction {
     }
 }
 
-let scheduleReducer: Reducer<AppState.ScheduleState, AppAction.ScheduleAction, Void> = Reducer { state, action, _ in
+let scheduleReducer = Reducer<AppState.ScheduleState, AppAction.ScheduleAction, Void> { state, action, _ in
     switch action {
     case .chooseBakeStartDate(let isShown):
-        state.isChooseBakeStartDateShowing = isShown
+        state.isShowingChooseBakeStartDate = isShown
         return .none
     }
 }
@@ -72,7 +72,7 @@ struct TimetableTemplateView_Previews: PreviewProvider {
         ScheduleView(
             store: Store(
                 initialState: AppState.ScheduleState(schedule: .devMock(),
-                                                     isChooseBakeStartDateShowing: false),
+                                                     isShowingChooseBakeStartDate: false),
                 reducer: scheduleReducer,
                 environment: ())
         )

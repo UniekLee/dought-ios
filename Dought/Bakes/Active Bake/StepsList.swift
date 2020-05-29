@@ -104,12 +104,14 @@ struct StepsList: View {
                                     .background(Color.accentColor)
                                     .cornerRadius(7)
                             }
+                            .buttonStyle(PlainButtonStyle())
                             Spacer()
                             Button(action: {}) {
                                 Image(systemName: "bell.fill")
                                     .padding()
                                     .foregroundColor(.accentColor)
                             }
+                            .buttonStyle(PlainButtonStyle())
                         }
                     }
                 }
